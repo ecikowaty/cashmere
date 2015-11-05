@@ -16,7 +16,7 @@ Window {
             height: 20
         }
 
-        Button {
+        RaisedButton {
             text: "hello"
             flat: true
         }

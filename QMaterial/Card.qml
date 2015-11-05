@@ -15,14 +15,14 @@ Rectangle {
         anchors.top: parent.top
 
         width: parent.width * 1.02
-        height: parent.height * 1.08
+        height: parent.height * 1.06
 
         z: parent.z - 1
 
         color: Qt.rgba(0, 0, 0, 0.3)
 
         glowRadius: 1
-        cornerRadius: 5
+        cornerRadius: 4
         spread: 0.0
     }
 }
