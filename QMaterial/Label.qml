@@ -2,6 +2,8 @@ import QtQuick 2.0
 import "."
 
 Text {
+    id: root
+
     property FontStyle style: FontStyles.body1
 
     FontLoader {
@@ -32,5 +34,11 @@ Text {
 
     font.pixelSize: style.size
     font.weight: style.weight
+
+    Component.onCompleted: {
+        if (style === FontStyles.button) {
+            text = text.toUpperCase()
+        }
+    }
 }
 

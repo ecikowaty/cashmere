@@ -9,26 +9,17 @@ Window {
 
     Column {
         anchors.fill: parent
+        spacing: 10
 
-        Label {
-            text: "Light"
-            style: FontStyles.display4
+        Item {
+            width: 20
+            height: 20
         }
 
-        Label {
-            text: "Regular"
-            style: FontStyles.display2
+        Button {
+            text: "hello"
+            flat: true
         }
-
-        Label {
-            text: "Medium"
-            style: FontStyles.body2
-        }
-
-        Label {
-            text: "Random body text"
-        }
-
     }
 }
 

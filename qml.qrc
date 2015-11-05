@@ -5,5 +5,7 @@
         <file>QMaterial/Label.qml</file>
         <file>QMaterial/main.qml</file>
         <file>QMaterial/qmldir</file>
+        <file>QMaterial/View.qml</file>
+        <file>QMaterial/Button.qml</file>
     </qresource>
 </RCC>
