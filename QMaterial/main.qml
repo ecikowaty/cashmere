@@ -18,7 +18,7 @@ Window {
 
         RaisedButton {
             text: "hello"
-            flat: true
+            color: Colors.blue.regular[5]
         }
     }
 }

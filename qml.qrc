@@ -7,5 +7,6 @@
         <file>QMaterial/qmldir</file>
         <file>QMaterial/Card.qml</file>
         <file>QMaterial/RaisedButton.qml</file>
+        <file>QMaterial/Colors.qml</file>
     </qresource>
 </RCC>
