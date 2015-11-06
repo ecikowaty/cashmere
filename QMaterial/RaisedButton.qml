@@ -8,6 +8,7 @@ Button {
 
     width: label.paintedWidth < 88 ? 88 : label.paintedWidth + 32
     height: 36
+//    clip: true
 
     property alias  labelText: label.text
     property Color  color
@@ -25,6 +26,17 @@ Button {
         touchArea: mouseArea
     }
 
+    Item {
+        anchors.fill: parent
+        clip: true
+
+        Ripple {
+            id: ripple
+            anchors.centerIn: parent
+            color: Qt.rgba(0, 0, 0, 0.16)
+        }
+    }
+
     Label {
         id: label
         style: FontStyles.button
@@ -38,6 +50,7 @@ Button {
         anchors.fill: parent
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor
+        onClicked: ripple.start()
     }
 }
 

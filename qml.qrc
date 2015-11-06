@@ -11,5 +11,6 @@
         <file>QMaterial/Color.qml</file>
         <file>QMaterial/qmldir</file>
         <file>QMaterial/Styles/qmldir</file>
+        <file>QMaterial/Ripple.qml</file>
     </qresource>
 </RCC>
