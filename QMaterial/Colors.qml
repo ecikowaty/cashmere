@@ -1,6 +1,6 @@
-import QtQuick 2.5
-
 pragma Singleton
+
+import QtQuick 2.5
 
 QtObject {
    property Color red: Color {

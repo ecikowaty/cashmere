@@ -4,9 +4,12 @@
         <file>QMaterial/FontStyles.qml</file>
         <file>QMaterial/Label.qml</file>
         <file>QMaterial/main.qml</file>
-        <file>QMaterial/qmldir</file>
         <file>QMaterial/Card.qml</file>
         <file>QMaterial/RaisedButton.qml</file>
         <file>QMaterial/Colors.qml</file>
+        <file>QMaterial/Styles/RaisedButtonStyle.qml</file>
+        <file>QMaterial/Color.qml</file>
+        <file>QMaterial/qmldir</file>
+        <file>QMaterial/Styles/qmldir</file>
     </qresource>
 </RCC>

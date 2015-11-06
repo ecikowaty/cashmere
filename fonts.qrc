@@ -10,6 +10,5 @@
         <file>fonts/Roboto-Medium.ttf</file>
         <file>fonts/Roboto-MediumItalic.ttf</file>
         <file>fonts/Roboto-Regular.ttf</file>
-        <file>QMaterial/Color.qml</file>
     </qresource>
 </RCC>

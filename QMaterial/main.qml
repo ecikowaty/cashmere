@@ -1,5 +1,6 @@
-import QtQuick 2.5
+import QtQuick 2.0
 import QtQuick.Window 2.2
+import QtQuick.Controls.Styles 1.4
 import "."
 
 Window {
@@ -13,12 +14,16 @@ Window {
 
         Item {
             width: 20
-            height: 20
+            height: 70
         }
 
         RaisedButton {
-            text: "hello"
-            color: Colors.blue.regular[5]
+            color: Colors.blue
+            colorIndex: 6
+
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            labelText: "hello"
         }
     }
 }
