@@ -6,3 +6,4 @@ singleton Colors 0.1 Colors.qml
 Label 0.1 Label.qml
 Card 0.1 Card.qml
 RaisedButton 0.1 RaisedButton.qml
+FlatButton 0.1 FlatButton.qml

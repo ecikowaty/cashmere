@@ -1,2 +1,3 @@
 module QMaterial.Styles
 RaisedButtonStyle 0.1 RaisedButtonStyle.qml
+FlatButtonStyle 0.1 FlatButtonStyle.qml
