@@ -12,12 +12,12 @@ ButtonStyleBase {
    property color supportingColor: "#999999"
 
    label: Label {
-      style: FontStyles.button
+      fontStyle: FontStyles.button
 
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignHCenter
 
-      color: control.enabled ? root.color.regular[root.colorIndex] : Qt.rgba(0, 0, 0, 0.26)
+      color: control.enabled ? root.color.regular[5] : Qt.rgba(0, 0, 0, 0.26)
       text: control.text
 
       onPaintedWidthChanged: root.textPaintedWidth = paintedWidth

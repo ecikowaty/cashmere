@@ -5,15 +5,7 @@ import ".."
 ButtonStyle {
    id: root
 
-   property Color  color
-   property int    colorIndex: 5
-
-   onColorIndexChanged: {
-       if (colorIndex > 7) {
-           colorIndex = 7
-       }
-   }
-
-   property int textPaintedWidth
+   property Color color: Theme.primaryPalette
+   property int   textPaintedWidth
 }
 

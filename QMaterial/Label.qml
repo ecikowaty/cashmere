@@ -4,7 +4,8 @@ import "."
 Text {
     id: root
 
-    property FontStyle style: FontStyles.body1
+    color: Theme.text
+    property FontStyle fontStyle: FontStyles.body1
 
     FontLoader {
         id: regular
@@ -22,21 +23,21 @@ Text {
     }
 
     font.family: {
-        if (style.weight === Font.Light) {
+        if (fontStyle.weight === Font.Light) {
             return light.name
         }
-        else if (style.weight === Font.DemiBold) {
+        else if (fontStyle.weight === Font.DemiBold) {
             return medium.name
         }
 
         return regular.name
     }
 
-    font.pixelSize: style.size
-    font.weight: style.weight
+    font.pixelSize: fontStyle.size
+    font.weight: fontStyle.weight
 
     Component.onCompleted: {
-        if (style === FontStyles.button) {
+        if (fontStyle === FontStyles.button) {
             text = text.toUpperCase()
         }
     }

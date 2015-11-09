@@ -10,6 +10,8 @@ Window {
    width: 480
    height: 800
 
+   color: "#fafafa"
+
    Column {
       anchors.fill: parent
       spacing: 10
@@ -21,12 +23,9 @@ Window {
 
       Button {
          anchors.horizontalCenter: parent.horizontalCenter
-         text: "raised"
+         text: "raise"
 
-         style: RaisedButtonStyle {
-            color: Colors.blue
-            colorIndex: 5
-         }
+         style: RaisedButtonStyle { }
 
          onClicked: card.elevation++
       }
@@ -35,10 +34,7 @@ Window {
          anchors.horizontalCenter: parent.horizontalCenter
          text: "flat"
 
-         style: FlatButtonStyle {
-            color: Colors.blue
-            colorIndex: 5
-         }
+         style: FlatButtonStyle { }
       }
 
       Card {
@@ -47,6 +43,15 @@ Window {
          width: 200
          height: 150
          anchors.horizontalCenter: parent.horizontalCenter
+
+         Button {
+            anchors.centerIn: parent
+            text: "lower"
+
+            style: FlatButtonStyle { }
+
+            onClicked: card.lower()
+         }
       }
    }
 }

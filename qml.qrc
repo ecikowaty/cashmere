@@ -13,5 +13,6 @@
         <file>QMaterial/Ripple.qml</file>
         <file>QMaterial/Styles/FlatButtonStyle.qml</file>
         <file>QMaterial/Styles/ButtonStyleBase.qml</file>
+        <file>QMaterial/Theme.qml</file>
     </qresource>
 </RCC>

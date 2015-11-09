@@ -6,7 +6,7 @@ ButtonStyleBase {
    id: root
 
    label: Label {
-      style: FontStyles.button
+      fontStyle: FontStyles.button
 
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignHCenter
@@ -25,7 +25,6 @@ ButtonStyleBase {
       implicitWidth: root.textPaintedWidth < 88 ? 88 : root.textPaintedWidth + 32
       implicitHeight: 36
 
-      color: root.color.regular[colorIndex]
       Behavior on color { ColorAnimation { duration: 100 } }
 
       Item {
@@ -50,7 +49,7 @@ ButtonStyleBase {
             when: !control.hovered && !control.pressed && control.enabled
             PropertyChanges {
                target: card
-               color: root.color.regular[colorIndex]
+               color: root.color.regular[5]
             }
          },
          State {
@@ -58,7 +57,7 @@ ButtonStyleBase {
             when: control.hovered && !control.pressed && control.enabled
             PropertyChanges {
                target: card
-               color: root.color.regular[colorIndex + 1]
+               color: root.color.regular[6]
             }
          },
          State {
@@ -66,7 +65,7 @@ ButtonStyleBase {
             when: control.pressed && control.enabled
             PropertyChanges {
                target: card
-               color: root.color.regular[colorIndex + 2]
+               color: root.color.regular[7]
             }
          },
          State {

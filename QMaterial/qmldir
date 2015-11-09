@@ -1,9 +1,9 @@
 module QMaterial
-FontStyle 0.1 FontStyle.qml
-singleton FontStyles 0.1 FontStyles.qml
+Card 0.1 Card.qml
 Color 0.1 Color.qml
 singleton Colors 0.1 Colors.qml
+FontStyle 0.1 FontStyle.qml
+singleton FontStyles 0.1 FontStyles.qml
 Label 0.1 Label.qml
-Card 0.1 Card.qml
-RaisedButton 0.1 RaisedButton.qml
-FlatButton 0.1 FlatButton.qml
+Ripple 0.1 Ripple.qml
+singleton Theme 0.1 Theme.qml
