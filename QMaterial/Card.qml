@@ -4,8 +4,9 @@ import QtGraphicalEffects 1.0
 Item {
    id: root
 
-   property int     elevation: 2
-   property alias   color: rect.color
+   property alias radius: rect.radius
+   property int   elevation: 2
+   property alias color: rect.color
 
    width: 200
    height: 50

@@ -15,5 +15,6 @@
         <file>QMaterial/Styles/ButtonStyleBase.qml</file>
         <file>QMaterial/Theme.qml</file>
         <file>QMaterial/Icon.qml</file>
+        <file>QMaterial/ActionBar.qml</file>
     </qresource>
 </RCC>

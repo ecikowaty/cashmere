@@ -23,7 +23,7 @@ Item {
       font.family: materialIcons.name
       font.pixelSize: 24
 
-      color: light ? Qt.rgba(1, 1, 1, 0.3) : Qt.rgba(0, 0, 0, 0.38)
+      color: light ? Qt.rgba(1, 1, 1) : Qt.rgba(0, 0, 0, 0.38)
    }
 }
 

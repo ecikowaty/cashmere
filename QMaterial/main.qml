@@ -5,12 +5,16 @@ import QtQuick.Controls.Styles 1.4
 import "."
 import "Styles"
 
-Window {
+ApplicationWindow {
    visible: true
    width: 480
    height: 800
 
    color: "#fafafa"
+
+   toolBar: ActionBar {
+
+   }
 
    Column {
       anchors.fill: parent
@@ -26,8 +30,6 @@ Window {
          text: "raise"
 
          style: RaisedButtonStyle { }
-
-         onClicked: card.elevation++
       }
 
       Button {
@@ -35,19 +37,6 @@ Window {
          text: "flat"
 
          style: FlatButtonStyle { }
-      }
-
-      Card {
-         id: card
-
-         width: 200
-         height: 150
-         anchors.horizontalCenter: parent.horizontalCenter
-
-         Icon {
-            anchors.centerIn: parent
-            name: "arrow_back"
-         }
       }
    }
 }
