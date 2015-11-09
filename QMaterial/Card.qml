@@ -1,29 +1,40 @@
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
 
-Rectangle {
-    id: root
-    width: 200
-    height: 50
+Item {
+   id: root
 
-    radius: 2
+   property int     elevation: 0
+   property alias   color: rect.color
 
-    property alias elevation: root.z
+   width: 200
+   height: 50
 
-    RectangularGlow {
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: parent.top
+   z: parent.z + elevation
 
-        width: parent.width * 1.02
-        height: parent.height * 1.06
+   RectangularGlow {
+      anchors {
+         horizontalCenter: parent.horizontalCenter
+         top: parent.top; topMargin: elevation / 2.4
+      }
 
-        z: parent.z - 1
+      width: parent.width * 1.02
+      height: parent.height * 1.02
 
-        color: Qt.rgba(0, 0, 0, 0.3)
+      color: Qt.rgba(0, 0, 0, 0.3)
 
-        glowRadius: 1
-        cornerRadius: 4
-        spread: 0.0
-    }
+      glowRadius: 1 * elevation
+      cornerRadius: 4 + elevation / 2
+      spread: 0.0
+   }
+
+
+   Rectangle {
+      id: rect
+
+      anchors.fill: parent
+
+      radius: 2
+   }
 }
 

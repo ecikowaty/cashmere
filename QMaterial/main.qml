@@ -1,7 +1,9 @@
 import QtQuick 2.0
 import QtQuick.Window 2.2
+import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import "."
+import "Styles"
 
 Window {
    visible: true
@@ -17,22 +19,34 @@ Window {
          height: 70
       }
 
-      RaisedButton {
-         color: Colors.blue
-         colorIndex: 5
-
+      Button {
          anchors.horizontalCenter: parent.horizontalCenter
+         text: "raised"
 
-         label.text: "raised"
+         style: RaisedButtonStyle {
+            color: Colors.blue
+            colorIndex: 5
+         }
+
+         onClicked: card.elevation++
       }
 
-      FlatButton {
-         color: Colors.blue
-         colorIndex: 5
-
+      Button {
          anchors.horizontalCenter: parent.horizontalCenter
+         text: "flat"
 
-         label.text: "flat"
+         style: FlatButtonStyle {
+            color: Colors.blue
+            colorIndex: 5
+         }
+      }
+
+      Card {
+         id: card
+
+         width: 200
+         height: 150
+         anchors.horizontalCenter: parent.horizontalCenter
       }
    }
 }
