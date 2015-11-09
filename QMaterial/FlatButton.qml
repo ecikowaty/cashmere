@@ -5,7 +5,7 @@ import "Styles"
 BasicButton {
    id: root
 
-   label.color: root.color.regular[root.colorIndex]
+   label.color: color.regular[colorIndex]
 
    style: FlatButtonStyle {
       touchArea: root.touchArea

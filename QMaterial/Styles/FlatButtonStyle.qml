@@ -9,15 +9,21 @@ ButtonStyle {
    property MouseArea touchArea
    property color supportingColor: "#999999"
 
+   function alphaOf(color, alpha) {
+      return Qt.rgba(color.r, color.g, color.b, alpha)
+   }
+
    background: Rectangle {
-      id: card
+      id: background
+
+      Behavior on color { ColorAnimation { duration: 100 } }
 
       states: [
          State {
             name: "normal"
             when: !touchArea.containsMouse && !touchArea.pressed
             PropertyChanges {
-               target: card
+               target: background
                color: Qt.rgba(0, 0, 0, 0)
             }
          },
@@ -25,16 +31,16 @@ ButtonStyle {
             name: "hover"
             when: touchArea.containsMouse && !touchArea.pressed
             PropertyChanges {
-               target: card
-               color: baseColor.regular[colorIndex + 1]
+               target: background
+               color: alphaOf(supportingColor, 0.2)
             }
          },
          State {
             name: "pressed"
             when: touchArea.pressed
             PropertyChanges {
-               target: card
-               color: baseColor.regular[colorIndex + 2]
+               target: background
+               color: alphaOf(supportingColor, 0.4)
             }
          }
       ]
