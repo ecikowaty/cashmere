@@ -44,13 +44,9 @@ Window {
          height: 150
          anchors.horizontalCenter: parent.horizontalCenter
 
-         Button {
+         Icon {
             anchors.centerIn: parent
-            text: "lower"
-
-            style: FlatButtonStyle { }
-
-            onClicked: card.lower()
+            name: "arrow_back"
          }
       }
    }

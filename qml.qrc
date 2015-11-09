@@ -14,5 +14,6 @@
         <file>QMaterial/Styles/FlatButtonStyle.qml</file>
         <file>QMaterial/Styles/ButtonStyleBase.qml</file>
         <file>QMaterial/Theme.qml</file>
+        <file>QMaterial/Icon.qml</file>
     </qresource>
 </RCC>
