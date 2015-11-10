@@ -18,5 +18,7 @@
         <file>QMaterial/ActionBar.qml</file>
         <file>QMaterial/Overflow.qml</file>
         <file>QMaterial/Styles/ActionButtonStyle.qml</file>
+        <file>QMaterial/Menu.qml</file>
+        <file>QMaterial/Styles/SingleListItemStyle.qml</file>
     </qresource>
 </RCC>

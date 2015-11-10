@@ -9,7 +9,7 @@ Item {
    property list<Action>   actions
    property alias          spacing: row.spacing
    property int            visibleLimit: 2
-   property bool           overflowMenuVisible: actions.length > visibleLimit
+   property bool           moreButtonVisible: actions.length > visibleLimit
 
    Row {
       id: row
@@ -17,12 +17,12 @@ Item {
       spacing: 32
       anchors {
          verticalCenter: parent.verticalCenter
-         right: overflowMenuVisible ? overflowButton.left : parent.right
-         rightMargin: overflowMenuVisible ? 24 : 0
+         right: moreButtonVisible ? moreButton.left : parent.right
+         rightMargin: moreButtonVisible ? 24 : 0
       }
 
       Repeater {
-         model: overflowMenuVisible ? visibleLimit : actions.length
+         model: moreButtonVisible ? visibleLimit : actions.length
          Button {
             width: 24
             height: width
@@ -36,13 +36,13 @@ Item {
    }
 
    Button {
-      id: overflowButton
+      id: moreButton
 
       width: 24
       height: width
 
-      visible: overflowMenuVisible
-      enabled: overflowMenuVisible
+      visible: moreButtonVisible
+      enabled: moreButtonVisible
 
       anchors {
          verticalCenter: parent.verticalCenter
@@ -53,7 +53,25 @@ Item {
          light: true
          action: Action {
             iconName: "more_vert"
+            onTriggered: {
+               var items = []
+               var itemCounter = 0
+               for (var i = visibleLimit; i < actions.length; ++i) {
+                  items[itemCounter++] = actions[i]
+               }
+
+               overflowMenu.actions = items
+               overflowMenu.visible = true
+            }
          }
+      }
+
+      Menu {
+         id: overflowMenu
+
+         visible: false
+         anchors.right: parent.right
+         anchors.top: parent.top
       }
    }
 }

@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import QtQuick.Window 2.2
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
@@ -47,18 +47,9 @@ ApplicationWindow {
          height: 70
       }
 
-      Card {
-         width: 200
-         height: 150
-
-         anchors.horizontalCenter: parent.horizontalCenter
-
-         Label {
-            anchors.left: parent.left
-            anchors.verticalCenter: parent.verticalCenter
-            text: "Test"
-         }
-      }
+//      Menu {
+//         anchors.horizontalCenter: parent.horizontalCenter
+//      }
 
       Button {
          anchors.horizontalCenter: parent.horizontalCenter
@@ -67,6 +58,7 @@ ApplicationWindow {
          style: RaisedButtonStyle {
             light: true
          }
+
       }
 
       Button {
@@ -77,4 +69,3 @@ ApplicationWindow {
       }
    }
 }
-
