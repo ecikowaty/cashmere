@@ -13,7 +13,14 @@ ApplicationWindow {
    color: "#fafafa"
 
    toolBar: ActionBar {
-
+      actions: [
+         Action {
+            iconName: "backup"
+         },
+         Action {
+            iconName: "settings"
+         }
+      ]
    }
 
    Column {
@@ -23,6 +30,19 @@ ApplicationWindow {
       Item {
          width: 20
          height: 70
+      }
+
+      Card {
+         width: 200
+         height: 150
+
+         anchors.horizontalCenter: parent.horizontalCenter
+
+         Label {
+            anchors.left: parent.left
+            anchors.verticalCenter: parent.verticalCenter
+            text: "Test"
+         }
       }
 
       Button {

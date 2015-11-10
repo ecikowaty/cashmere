@@ -16,5 +16,6 @@
         <file>QMaterial/Theme.qml</file>
         <file>QMaterial/Icon.qml</file>
         <file>QMaterial/ActionBar.qml</file>
+        <file>QMaterial/Overflow.qml</file>
     </qresource>
 </RCC>
