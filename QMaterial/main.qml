@@ -13,12 +13,27 @@ ApplicationWindow {
    color: "#fafafa"
 
    toolBar: ActionBar {
+      title: "Material"
       actions: [
          Action {
+            text: "Backup"
             iconName: "backup"
+            onTriggered: console.log(text)
          },
          Action {
+            text: "Settings"
             iconName: "settings"
+            onTriggered: console.log(text)
+         },
+         Action {
+            text: "Tags"
+            iconName: "local_offer"
+            onTriggered: console.log(text)
+         },
+         Action {
+            text: "About"
+            iconName: "info_outline"
+            onTriggered: console.log(text)
          }
       ]
    }
@@ -49,7 +64,9 @@ ApplicationWindow {
          anchors.horizontalCenter: parent.horizontalCenter
          text: "raise"
 
-         style: RaisedButtonStyle { }
+         style: RaisedButtonStyle {
+            light: true
+         }
       }
 
       Button {

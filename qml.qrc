@@ -17,5 +17,6 @@
         <file>QMaterial/Icon.qml</file>
         <file>QMaterial/ActionBar.qml</file>
         <file>QMaterial/Overflow.qml</file>
+        <file>QMaterial/Styles/ActionButtonStyle.qml</file>
     </qresource>
 </RCC>

@@ -2,6 +2,7 @@ import QtQuick 2.5
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import "."
+import "Styles"
 
 Card {
    id: root
@@ -22,6 +23,26 @@ Card {
          rightMargin: 16
       }
 
+      Button {
+         id: leftButton
+
+         width: 24
+         height: width
+
+         anchors {
+            left: parent.left
+            verticalCenter: parent.verticalCenter
+         }
+
+         style: ActionButtonStyle {
+            light: true
+            action: Action {
+               iconName: "menu"
+               onTriggered: console.log("menu")
+            }
+         }
+      }
+
       Label {
          id: titleLabel
 
@@ -35,23 +56,11 @@ Card {
          }
       }
 
-      Icon {
-         id: menuIcon
-
-         anchors {
-            left: parent.left
-            verticalCenter: parent.verticalCenter
-         }
-
-         name: "menu"
-         light: true
-      }
-
       Overflow {
          id: overlow
 
-         width: 500
-         spacing: 32
+         anchors.left: titleLabel.right
+         anchors.right: parent.right
 
          anchors {
             top: parent.top

@@ -7,5 +7,6 @@ ButtonStyle {
 
    property Color color: Theme.primaryPalette
    property int   textPaintedWidth
+   property bool  light: false
 }
 
