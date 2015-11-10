@@ -5,12 +5,6 @@ import ".."
 ButtonStyleBase {
    id: root
 
-   function alphaOf(color, alpha) {
-      return Qt.rgba(color.r, color.g, color.b, alpha)
-   }
-
-   property color supportingColor: "#999999"
-
    label: Label {
       fontStyle: FontStyles.button
 

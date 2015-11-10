@@ -11,6 +11,14 @@ Item {
    property int            visibleLimit: 2
    property bool           moreButtonVisible: actions.length > visibleLimit
 
+   function openMenu() {
+      overflowMenu.visible = true
+   }
+
+   function closeMenu() {
+      overflowMenu.visible = false
+   }
+
    Row {
       id: row
 
@@ -61,7 +69,7 @@ Item {
                }
 
                overflowMenu.actions = items
-               overflowMenu.visible = true
+               overflowMenu.open()
             }
          }
       }
@@ -69,9 +77,13 @@ Item {
       Menu {
          id: overflowMenu
 
-         visible: false
          anchors.right: parent.right
          anchors.top: parent.top
+
+         Connections {
+            target: overlay
+            onClicked: overflowMenu.hide()
+         }
       }
    }
 }

@@ -7,33 +7,45 @@ import "Styles"
 
 ApplicationWindow {
    visible: true
+
    width: 480
    height: 800
 
+   x: 450
+   y: 50
+
    color: "#fafafa"
+
+   MouseArea {
+      id: overlay
+      anchors.fill: parent
+   }
 
    toolBar: ActionBar {
       title: "Material"
+      overlay: overlay
       actions: [
          Action {
             text: "Backup"
             iconName: "backup"
-            onTriggered: console.log(text)
          },
          Action {
             text: "Settings"
             iconName: "settings"
-            onTriggered: console.log(text)
          },
          Action {
             text: "Tags"
             iconName: "local_offer"
-            onTriggered: console.log(text)
          },
          Action {
             text: "About"
             iconName: "info_outline"
-            onTriggered: console.log(text)
+            onTriggered: console.debug(text)
+         },
+         Action {
+            text: "Close"
+            iconName: "info_outline"
+            onTriggered: console.debug(text)
          }
       ]
    }
@@ -46,10 +58,6 @@ ApplicationWindow {
          width: 20
          height: 70
       }
-
-//      Menu {
-//         anchors.horizontalCenter: parent.horizontalCenter
-//      }
 
       Button {
          anchors.horizontalCenter: parent.horizontalCenter

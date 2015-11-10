@@ -6,30 +6,96 @@ import "."
 Card {
    id: root
 
+   state: "hidden"
+
    readonly property int   widthFactor: 56
    property double         multiplier: 2.0
    property int            visibleLimit: 3
    property int            itemHeight: 48
    property list<Action>   actions
 
-   width: multiplier * widthFactor
-   height: (actions.length > visibleLimit ? visibleLimit : actions.length) * itemHeight
+   function open() {
+      root.state = "open"
+   }
+
+   function hide() {
+      root.state = "hidden"
+   }
+
+
+   Behavior on width { NumberAnimation { duration: 200; easing.type: Easing.OutQuart } }
+   Behavior on height { NumberAnimation { duration: 400; easing.type: Easing.OutQuart } }
 
    ListView {
       id: listView
 
-      anchors {
-         fill: parent
-         leftMargin: 16; rightMargin: leftMargin
-      }
+      anchors.fill: parent
 
+      model: actions.length
       clip: true
 
-      delegate: SingleListItemStyle {
+      delegate: Button {
          width: parent.width
          height: root.itemHeight
-         text: name
+         action: actions[index]
+         onClicked: root.hide()
+         style: SingleListItemStyle { }
       }
    }
+
+   states: [
+      State {
+         name: "hidden"
+         PropertyChanges {
+            target: root
+            width: 0
+            height: 0
+            opacity: 0
+         }
+      },
+      State {
+         name: "open"
+         PropertyChanges {
+            target: root
+            width: multiplier * widthFactor
+            height: (actions.length > visibleLimit ? visibleLimit : actions.length) * itemHeight
+            opacity: 1
+         }
+      }
+   ]
+
+   transitions: [
+      Transition {
+         from: "hidden"
+         to: "open"
+
+         NumberAnimation {
+            target: root
+            properties: "width,height"
+            duration: 200
+            easing.type: Easing.OutQuad
+         }
+      },
+      Transition {
+         from: "open"
+         to: "hidden"
+
+         SequentialAnimation {
+
+            NumberAnimation {
+               target: root
+               property: "opacity"
+               duration: 200
+               easing.type: Easing.OutQuad
+            }
+            NumberAnimation {
+               target: root
+               properties: "width,height"
+               duration: 0
+               easing.type: Easing.OutQuad
+            }
+         }
+      }
+   ]
 }
 

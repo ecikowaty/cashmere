@@ -1,24 +1,49 @@
-import QtQuick 2.0
+import QtQuick 2.5
+import QtQuick.Controls.Styles 1.4
 import ".."
+import "."
 
-Rectangle {
+ButtonStyleBase {
    id: root
 
-   width: 200
-   height: 50
-
-   property alias text: label.text
-
-   Label {
-      id: label
-
-      anchors {
-         left: parent.left;
-         verticalCenter: parent.verticalCenter
-      }
+   label: Label {
+      anchors.left: parent.left
+      anchors.leftMargin: 16
+      verticalAlignment: Text.AlignVCenter
 
       fontStyle: FontStyles.subheading
-      text: "Single list item"
+      text: control.text
+   }
+
+   background: Rectangle {
+      id: background
+
+      states: [
+         State {
+            name: "normal"
+            when: !control.hovered && !control.pressed && control.enabled
+            PropertyChanges {
+               target: background
+               color: Qt.rgba(0, 0, 0, 0)
+            }
+         },
+         State {
+            name: "hover"
+            when: control.hovered && !control.pressed && control.enabled
+            PropertyChanges {
+               target: background
+               color: alphaOf(supportingColor, 0.2)
+            }
+         },
+         State {
+            name: "pressed"
+            when: control.pressed && control.enabled
+            PropertyChanges {
+               target: background
+               color: alphaOf(supportingColor, 0.4)
+            }
+         }
+      ]
    }
 }
 

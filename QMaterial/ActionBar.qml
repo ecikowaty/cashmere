@@ -13,8 +13,13 @@ Card {
    radius: 0
    color: Theme.primary
 
-   property alias actions: overlow.actions
-   property alias title: titleLabel.text
+   property alias       actions: overlow.actions
+   property alias       title: titleLabel.text
+   property MouseArea   overlay
+
+   function closeOverflowMenu() {
+      overflow.close()
+   }
 
    Item {
       anchors {
