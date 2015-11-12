@@ -15,8 +15,10 @@ Card {
    property int            visibleLimit: 3
    property int            itemHeight: 48
    property list<Action>   actions
+   property Item           oldParent
 
    function open() {
+      overlay.placeOntop(oldParent, root)
       root.state = "open"
    }
 
@@ -31,8 +33,13 @@ Card {
    OverlayBinder {
       onClicked: root.hide()
       enableWhen: root.state === "open"
+      darken: true
    }
 
+   Component.onCompleted: {
+      oldParent = parent
+      parent = overlay.placeholder
+   }
 
    Behavior on width { NumberAnimation { duration: 200; easing.type: Easing.OutQuart } }
    Behavior on height { NumberAnimation { duration: 400; easing.type: Easing.OutQuart } }

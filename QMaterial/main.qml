@@ -16,11 +16,33 @@ ApplicationWindow {
 
    color: "#fafafa"
 
-   MouseArea {
+   Overlay {
       id: overlay
       anchors.fill: parent
       z: actionBar.z + 1
    }
+
+//   MouseArea {
+//      id: overlay
+
+//      property alias placeholder: placeholder
+
+//      anchors.fill: parent
+//      z: actionBar.z + 1
+
+//      Item {
+//         id: placeholder
+//      }
+
+//      function placeOntop(where, item) {
+//         var mapped = mapFromItem(where, 0, 0, where.width, where.height)
+
+//         placeholder.x = mapped.x
+//         placeholder.y = mapped.y
+//         placeholder.width = mapped.width
+//         placeholder.height = mapped.height
+//      }
+//   }
 
    ActionBar {
       id: actionBar

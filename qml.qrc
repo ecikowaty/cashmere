@@ -21,5 +21,6 @@
         <file>QMaterial/Menu.qml</file>
         <file>QMaterial/Styles/SingleListItemStyle.qml</file>
         <file>QMaterial/OverlayBinder.qml</file>
+        <file>QMaterial/Overlay.qml</file>
     </qresource>
 </RCC>

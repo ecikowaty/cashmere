@@ -77,8 +77,8 @@ Item {
       Menu {
          id: overflowMenu
 
-         anchors.right: moreButton.right
-         anchors.top: moreButton.top
+         anchors.right: parent.right
+         anchors.top: parent.top
       }
    }
 }

@@ -5,17 +5,28 @@ Item {
    id: root
 
    signal clicked()
-   property alias enableWhen: binding.value
+   property alias enableWhen: enabledBinding.value
+   property bool darken: false
 
    Connections {
       target: overlay
-      onClicked: root.clicked()
+      onClicked: {
+         console.debug("clicked!")
+         root.clicked()
+      }
    }
 
    Binding {
-      id: binding
+      id: enabledBinding
       target: overlay
       property: "enabled"
+   }
+
+   Binding {
+      id: darkenBinding
+      target: overlay
+      property: "darken"
+      value: overlay.enabled && darken
    }
 }
 
