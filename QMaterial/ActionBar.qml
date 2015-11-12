@@ -15,7 +15,6 @@ Card {
 
    property alias       actions: overlow.actions
    property alias       title: titleLabel.text
-   property MouseArea   overlay
 
    function closeOverflowMenu() {
       overflow.close()

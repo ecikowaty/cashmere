@@ -77,13 +77,8 @@ Item {
       Menu {
          id: overflowMenu
 
-         anchors.right: parent.right
-         anchors.top: parent.top
-
-         Connections {
-            target: overlay
-            onClicked: overflowMenu.hide()
-         }
+         anchors.right: moreButton.right
+         anchors.top: moreButton.top
       }
    }
 }

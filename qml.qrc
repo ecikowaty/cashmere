@@ -20,5 +20,6 @@
         <file>QMaterial/Styles/ActionButtonStyle.qml</file>
         <file>QMaterial/Menu.qml</file>
         <file>QMaterial/Styles/SingleListItemStyle.qml</file>
+        <file>QMaterial/OverlayBinder.qml</file>
     </qresource>
 </RCC>

@@ -19,11 +19,13 @@ ApplicationWindow {
    MouseArea {
       id: overlay
       anchors.fill: parent
+      z: actionBar.z + 1
    }
 
-   toolBar: ActionBar {
+   ActionBar {
+      id: actionBar
+
       title: "Material"
-      overlay: overlay
       actions: [
          Action {
             text: "Backup"

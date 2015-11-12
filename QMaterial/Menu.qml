@@ -6,6 +6,8 @@ import "."
 Card {
    id: root
 
+   z: overlay.z + 1
+
    state: "hidden"
 
    readonly property int   widthFactor: 56
@@ -20,6 +22,15 @@ Card {
 
    function hide() {
       root.state = "hidden"
+   }
+
+   function isOpen() {
+      return root.state === "open"
+   }
+
+   OverlayBinder {
+      onClicked: root.hide()
+      enableWhen: root.state === "open"
    }
 
 
