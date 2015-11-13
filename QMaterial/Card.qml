@@ -26,19 +26,19 @@ Item {
    RectangularGlow {
       anchors {
          horizontalCenter: parent.horizontalCenter
-         top: parent.top; topMargin: 1 + elevation / 2.4
+         top: parent.top; topMargin: elevation / 2
       }
 
       visible: elevation > 0
 
-      width: parent.width * 1.02
-      height: parent.height * 1.02
+      width: parent.width
+      height: parent.height + 1
 
-      color: Qt.rgba(0, 0, 0, 0.3)
+      color: Qt.rgba(0, 0, 0, 0.26)
 
-      glowRadius: 1 * elevation
-      cornerRadius: 5 + elevation / 2
-      spread: 0.05
+      glowRadius: 1 + elevation / 1.5
+      cornerRadius: 2 + elevation / 1.5
+      spread: 0
    }
 
 

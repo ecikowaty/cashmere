@@ -5,13 +5,15 @@ import ".."
 ButtonStyleBase {
    id: root
 
+   property color textColor: "white"
+
    label: Label {
       fontStyle: FontStyles.button
 
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignHCenter
 
-      color: control.enabled ? "white" : Qt.rgba(0, 0, 0, 0.26)
+      color: control.enabled ? textColor : Qt.rgba(0, 0, 0, 0.26)
       text: control.text
 
       onPaintedWidthChanged: root.textPaintedWidth = paintedWidth
@@ -49,7 +51,7 @@ ButtonStyleBase {
             when: !control.hovered && !control.pressed && control.enabled
             PropertyChanges {
                target: card
-               color: root.color.regular[5]
+               color: root.color.regular[colorIndex]
             }
          },
          State {
@@ -57,7 +59,7 @@ ButtonStyleBase {
             when: control.hovered && !control.pressed && control.enabled
             PropertyChanges {
                target: card
-               color: root.color.regular[6]
+               color: root.color.regular[colorIndex + 1]
             }
          },
          State {
@@ -65,7 +67,7 @@ ButtonStyleBase {
             when: control.pressed && control.enabled
             PropertyChanges {
                target: card
-               color: root.color.regular[7]
+               color: root.color.regular[colorIndex + 2]
             }
          },
          State {

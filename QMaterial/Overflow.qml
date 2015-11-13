@@ -77,6 +77,8 @@ Item {
       Menu {
          id: overflowMenu
 
+         elevation: 6
+
          anchors.right: parent.right
          anchors.top: parent.top
       }

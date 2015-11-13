@@ -14,6 +14,7 @@ Card {
    property double         multiplier: 2.0
    property int            visibleLimit: 3
    property int            itemHeight: 48
+   property int            verticalMargins: 16
    property list<Action>   actions
    property Item           oldParent
 
@@ -33,7 +34,6 @@ Card {
    OverlayBinder {
       onClicked: root.hide()
       enableWhen: root.state === "open"
-      darken: true
    }
 
    Component.onCompleted: {
@@ -47,7 +47,11 @@ Card {
    ListView {
       id: listView
 
-      anchors.fill: parent
+      anchors {
+         fill: parent
+         topMargin: verticalMargins / 2
+         bottomMargin: verticalMargins / 2
+      }
 
       model: actions.length
       clip: true
@@ -76,7 +80,7 @@ Card {
          PropertyChanges {
             target: root
             width: multiplier * widthFactor
-            height: (actions.length > visibleLimit ? visibleLimit : actions.length) * itemHeight
+            height: (actions.length > visibleLimit ? visibleLimit : actions.length) * itemHeight + verticalMargins
             opacity: 1
          }
       }
