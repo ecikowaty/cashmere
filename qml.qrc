@@ -25,5 +25,6 @@
         <file>QMaterial/Page.qml</file>
         <file>QMaterial/DefaultMain.qml</file>
         <file>QMaterial/TempRandomCards.qml</file>
+        <file>QMaterial/PageStack.qml</file>
     </qresource>
 </RCC>

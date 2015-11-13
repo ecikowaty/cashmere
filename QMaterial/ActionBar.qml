@@ -42,7 +42,7 @@ Card {
          style: ActionButtonStyle {
             light: true
             action: Action {
-               iconName: "arrow_back"
+               iconName: app.isInitialPage(root.parent) ? "menu" : "arrow_back"
                onTriggered: root.backPressed()
             }
          }

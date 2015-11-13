@@ -4,6 +4,7 @@ Card 0.1 Card.qml
 Color 0.1 Color.qml
 singleton Colors 0.1 Colors.qml
 DefaultMain 0.1 DefaultMain.qml
+Dialog 0.1 Dialog.qml
 FontStyle 0.1 FontStyle.qml
 singleton FontStyles 0.1 FontStyles.qml
 Icon 0.1 Icon.qml
@@ -13,5 +14,6 @@ Overflow 0.1 Overflow.qml
 Overlay 0.1 Overlay.qml
 OverlayBinder 0.1 OverlayBinder.qml
 Page 0.1 Page.qml
+PageStack 0.1 PageStack.qml
 Ripple 0.1 Ripple.qml
 singleton Theme 0.1 Theme.qml

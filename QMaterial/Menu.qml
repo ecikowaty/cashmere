@@ -47,6 +47,8 @@ Card {
    ListView {
       id: listView
 
+      interactive: visibleLimit < actions.length
+
       anchors {
          fill: parent
          topMargin: verticalMargins / 2

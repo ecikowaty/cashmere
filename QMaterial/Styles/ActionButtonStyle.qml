@@ -11,6 +11,8 @@ ButtonStyle {
    property bool     light: true
 
    background: Item {
+      opacity: control.enabled ? 1 : 0.5
+
       Ripple {
          id: ripple
          expandedSize: parent.width * 2.5

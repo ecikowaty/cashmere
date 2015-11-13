@@ -41,34 +41,18 @@ Page {
       ]
    }
 
-   Column {
-      spacing: 20
-      anchors.fill: parent
+   content: ListView {
+      id: listView
+      clip: true
 
-      Item {
-         height: 100
+      model: 20
+
+      delegate: Button {
          width: parent.width
-      }
+         height: 48
+         text: "This is item number " + index + " on the list"
+         style: SingleListItemStyle {
 
-      Card {
-         width: 300
-         height: 180
-         anchors.horizontalCenter: parent.horizontalCenter
-
-         Label {
-            anchors.centerIn: parent
-            text: "This is a sample text"
-         }
-      }
-
-      Card {
-         width: 300
-         height: 180
-         anchors.horizontalCenter: parent.horizontalCenter
-
-         Label {
-            anchors.centerIn: parent
-            text: "Another card"
          }
       }
    }

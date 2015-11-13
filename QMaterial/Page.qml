@@ -8,6 +8,13 @@ Rectangle {
    color: "#fafafa"
 
    property alias actionBar: actionBar
+   property alias content: contentLoader.sourceComponent
+
+   onContentChanged: {
+      if (content) {
+         contentLoader.sourceComponent = content
+      }
+   }
 
    ActionBar {
       id: actionBar
@@ -15,6 +22,16 @@ Rectangle {
       title: "ActionBar"
 
       onBackPressed: app.popPage()
+   }
+
+   Loader {
+      id: contentLoader
+      anchors {
+         top: actionBar.bottom
+         left: parent.left
+         right: parent.right
+         bottom: parent.bottom
+      }
    }
 }
 

@@ -5,7 +5,6 @@ import "Styles"
 
 Page {
    id: view
-   anchors.fill: parent
 
    actionBar {
       width: parent.width
@@ -39,27 +38,32 @@ Page {
       ]
    }
 
-   Column {
+   content: Column {
       anchors.fill: parent
+      anchors.topMargin: 56
+
       spacing: 10
 
-      Item {
-         width: 20
-         height: 70
-      }
-
       Button {
          anchors.horizontalCenter: parent.horizontalCenter
-         text: "raised"
+         text: "push page"
 
          style: RaisedButtonStyle { }
+         onClicked: {
+            console.debug("pushing")
+            app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempRandomCards.qml"))
+         }
       }
 
       Button {
          anchors.horizontalCenter: parent.horizontalCenter
-         text: "flat"
+         text: "pop page"
 
          style: FlatButtonStyle { }
+         onClicked: {
+            console.debug("popping")
+            app.popPage()
+         }
       }
    }
 }
