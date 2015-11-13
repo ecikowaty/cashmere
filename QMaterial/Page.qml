@@ -3,8 +3,9 @@ import QtQuick.Controls 1.4
 import "."
 import "Styles"
 
-Item {
+Rectangle {
    id: root
+   color: "#fafafa"
 
    property alias actionBar: actionBar
 

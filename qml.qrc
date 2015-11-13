@@ -24,5 +24,6 @@
         <file>QMaterial/Overlay.qml</file>
         <file>QMaterial/Page.qml</file>
         <file>QMaterial/DefaultMain.qml</file>
+        <file>QMaterial/TempRandomCards.qml</file>
     </qresource>
 </RCC>

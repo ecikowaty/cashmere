@@ -31,75 +31,40 @@ ApplicationWindow {
       anchors.fill: parent
       initialItem: initialPage
 
-      property bool horizontal: true
-      property bool alternativeAnimation: false
-
       delegate: StackViewDelegate {
          id: defaultAnimation
-
-         property int animationDuration: pageStack.alternativeAnimation ? 800 : 400
-         property int animationEasing: pageStack.alternativeAnimation ? Easing.OutQuint : Easing.OutQuart
 
          pushTransition: StackViewTransition {
             NumberAnimation {
                target: enterItem
                property: "opacity"
                from: 0; to: 1
-               duration: defaultAnimation.animationDuration
-               easing.type: defaultAnimation.animationEasing
+               duration: 300
+               easing.type: Easing.OutQuart
             }
             NumberAnimation {
                target: enterItem
-               property: pageStack.horizontal ? "x" : "y"
-               from: (pageStack.horizontal ? enterItem.width : enterItem.height) * 0.3; to: 0
-               duration: defaultAnimation.animationDuration
-               easing.type: defaultAnimation.animationEasing
-            }
-
-            NumberAnimation {
-               target: exitItem
-               property: "opacity"
-               from: 1; to: 0
-               duration: defaultAnimation.animationDuration
-               easing.type: defaultAnimation.animationEasing
-            }
-            NumberAnimation {
-               target: exitItem
-               property: pageStack.horizontal ? "x" : "y"
-               from: 0; to: -(pageStack.horizontal ? enterItem.width : enterItem.height) * 0.3
-               duration: defaultAnimation.animationDuration
-               easing.type: defaultAnimation.animationEasing
+               property: "y"
+               from: enterItem.height * 0.05; to: 0
+               duration: 300
+               easing.type: Easing.OutQuart
             }
          }
 
          popTransition: StackViewTransition {
             NumberAnimation {
-               target: enterItem
-               property: "opacity"
-               from: 0; to: 1
-               duration: defaultAnimation.animationDuration
-               easing.type: defaultAnimation.animationEasing
-            }
-            NumberAnimation {
-               target: enterItem
-               property: pageStack.horizontal ? "x" : "y"
-               from: -(pageStack.horizontal ? enterItem.width : enterItem.height) * 0.3; to: 0
-               duration: defaultAnimation.animationDuration
-               easing.type: defaultAnimation.animationEasing
-            }
-
-            NumberAnimation {
                target: exitItem
                property: "opacity"
                from: 1; to: 0
-               duration: defaultAnimation.animationDuration
+               duration: 300
+               easing.type: Easing.OutQuart
             }
             NumberAnimation {
                target: exitItem
-               property: pageStack.horizontal ? "x" : "y"
-               from: 0; to: (pageStack.horizontal ? enterItem.width : enterItem.height) * 0.3
-               duration: defaultAnimation.animationDuration
-               easing.type: defaultAnimation.animationEasing
+               property: "y"
+               from: 0; to: enterItem.height * 0.05
+               duration: 300
+               easing.type: Easing.OutQuart
             }
          }
       }
@@ -165,7 +130,7 @@ ApplicationWindow {
                style: RaisedButtonStyle { }
                onClicked: {
                   console.debug("pushing")
-                  app.pushPage(initialPage)
+                  app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempRandomCards.qml"))
                }
             }
 
