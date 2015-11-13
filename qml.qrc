@@ -22,5 +22,7 @@
         <file>QMaterial/Styles/SingleListItemStyle.qml</file>
         <file>QMaterial/OverlayBinder.qml</file>
         <file>QMaterial/Overlay.qml</file>
+        <file>QMaterial/Page.qml</file>
+        <file>QMaterial/DefaultMain.qml</file>
     </qresource>
 </RCC>

@@ -7,18 +7,19 @@ import "Styles"
 Card {
    id: root
 
-   width: parent.width
-   height: 56
+   elevation: 4
 
    radius: 0
    color: Theme.primary
 
-   property alias       actions: overlow.actions
-   property alias       title: titleLabel.text
+   property alias actions: overlow.actions
+   property alias title: titleLabel.text
 
    function closeOverflowMenu() {
       overflow.close()
    }
+
+   signal backPressed()
 
    Item {
       anchors {
@@ -41,8 +42,8 @@ Card {
          style: ActionButtonStyle {
             light: true
             action: Action {
-               iconName: "menu"
-               onTriggered: console.log("menu")
+               iconName: "arrow_back"
+               onTriggered: root.backPressed()
             }
          }
       }

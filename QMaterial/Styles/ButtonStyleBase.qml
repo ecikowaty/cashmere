@@ -13,6 +13,7 @@ ButtonStyle {
    property int   colorIndex: 5
    property bool  light: false
    property int   textPaintedWidth
+   property int   horizontalMargins: 32
 
    property color supportingColor: "#999999"
 

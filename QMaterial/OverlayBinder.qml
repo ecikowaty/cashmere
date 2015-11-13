@@ -10,10 +10,7 @@ Item {
 
    Connections {
       target: overlay
-      onClicked: {
-         console.debug("clicked!")
-         root.clicked()
-      }
+      onClicked: root.clicked()
    }
 
    Binding {

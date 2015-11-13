@@ -19,7 +19,7 @@ Card {
    property Item           oldParent
 
    function open() {
-      overlay.placeOntop(oldParent, root)
+      overlay.mapPlaceholderTo(oldParent)
       root.state = "open"
    }
 

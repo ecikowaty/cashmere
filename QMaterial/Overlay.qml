@@ -8,6 +8,7 @@ Rectangle {
 
    property alias placeholder: placeholder
    property bool  darken: false
+   property rect  mappedItem: Qt.rect(0, 0, 0, 0)
 
    signal clicked()
 
@@ -19,15 +20,15 @@ Rectangle {
 
    Item {
       id: placeholder
+
+      x: mappedItem.x
+      y: mappedItem.y
+      width: mappedItem.width
+      height: mappedItem.height
    }
 
-   function placeOntop(where, item) {
-      var mapped = mapFromItem(where, 0, 0, where.width, where.height)
-
-      placeholder.x = mapped.x
-      placeholder.y = mapped.y
-      placeholder.width = mapped.width
-      placeholder.height = mapped.height
+   function mapPlaceholderTo(where) {
+      root.mappedItem = mapFromItem(where, 0, 0, where.width, where.height)
    }
 }
 
