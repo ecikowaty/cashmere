@@ -26,5 +26,7 @@
         <file>QMaterial/DefaultMain.qml</file>
         <file>QMaterial/TempRandomCards.qml</file>
         <file>QMaterial/PageStack.qml</file>
+        <file>QMaterial/TempDoubleList.qml</file>
+        <file>QMaterial/Styles/DoubleListItemStyle.qml</file>
     </qresource>
 </RCC>

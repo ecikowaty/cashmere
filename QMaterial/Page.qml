@@ -10,16 +10,12 @@ Rectangle {
    property alias actionBar: actionBar
    property alias content: contentLoader.sourceComponent
 
-   onContentChanged: {
-      if (content) {
-         contentLoader.sourceComponent = content
-      }
-   }
-
    ActionBar {
       id: actionBar
 
-      title: "ActionBar"
+      width: parent.width
+
+      title: "Double item list"
 
       onBackPressed: app.popPage()
    }

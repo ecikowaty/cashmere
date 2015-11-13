@@ -7,6 +7,7 @@ import "Styles"
 Card {
    id: root
 
+   height: 56
    elevation: 4
 
    radius: 0
@@ -14,10 +15,7 @@ Card {
 
    property alias actions: overlow.actions
    property alias title: titleLabel.text
-
-   function closeOverflowMenu() {
-      overflow.close()
-   }
+   property alias visibleLimit: overlow.visibleLimit
 
    signal backPressed()
 

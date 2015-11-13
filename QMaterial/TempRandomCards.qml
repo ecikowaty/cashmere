@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.5
 import QtQuick.Controls 1.4
 import "."
 import "Styles"
@@ -8,35 +8,15 @@ Page {
    id: view
 
    actionBar {
-      width: parent.width
-      height: 56
-
       color: Colors.deepOrange.regular[5]
 
-      title: "Page"
+      title: "Single item list"
 
       actions: [
          Action {
-            text: "Backup"
-            iconName: "backup"
-         },
-         Action {
-            text: "Settings"
-            iconName: "settings"
-         },
-         Action {
-            text: "Tags"
-            iconName: "local_offer"
-         },
-         Action {
-            text: "About"
-            iconName: "info_outline"
-            onTriggered: console.debug(text)
-         },
-         Action {
-            text: "Close"
-            iconName: "info_outline"
-            onTriggered: console.debug(text)
+            text: "Add"
+            iconName: "add"
+            onTriggered: app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempDoubleList.qml"))
          }
       ]
    }

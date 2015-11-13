@@ -6,19 +6,36 @@ import "."
 ButtonStyleBase {
    id: root
 
-   label: Label {
-      anchors.left: parent.left
-      anchors.leftMargin: 16
-      verticalAlignment: Text.AlignVCenter
+   property string primaryText
+   property string secondaryText
 
-      fontStyle: FontStyles.subheading
-      text: control.text
-   }
+   label: Item {}
 
    background: Rectangle {
       id: background
 
       Behavior on color { ColorAnimation { duration: 100 } }
+
+      Item {
+         anchors.fill: parent
+         anchors.margins: 16
+
+         Label {
+            id: primaryLabel
+
+            fontStyle: FontStyles.subheading
+            text: root.primaryText
+         }
+
+         Label {
+            id: secondaryLabel
+            anchors.bottom: parent.bottom
+
+            fontStyle: FontStyles.body1
+            color: Theme.secondaryText
+            text: root.secondaryText
+         }
+      }
 
       states: [
          State {

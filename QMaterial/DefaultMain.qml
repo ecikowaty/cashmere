@@ -10,7 +10,7 @@ Page {
       width: parent.width
       height: 56
 
-      title: "Page"
+      title: "Material demo"
 
       actions: [
          Action {
@@ -33,7 +33,7 @@ Page {
          Action {
             text: "Close"
             iconName: "info_outline"
-            onTriggered: console.debug(text)
+            onTriggered: close()
          }
       ]
    }
