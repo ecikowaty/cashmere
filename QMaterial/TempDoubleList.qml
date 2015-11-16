@@ -27,9 +27,14 @@ Page {
       delegate: Button {
          width: parent.width
          height: 72
-         style: DoubleListItemStyle {
+
+         style: DoubleLineListItemStyle {
             primaryText: "This is item number " + index + " on the list"
             secondaryText: "With some secondary text"
+
+            icon: Icon {
+               name: "face"
+            }
          }
       }
    }

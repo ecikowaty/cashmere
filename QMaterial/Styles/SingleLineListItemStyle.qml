@@ -6,17 +6,39 @@ import "."
 ButtonStyleBase {
    id: root
 
-   label: Label {
-      anchors.left: parent.left
-      anchors.leftMargin: 16
-      verticalAlignment: Text.AlignVCenter
+   property Component icon
 
-      fontStyle: FontStyles.subheading
-      text: control.text
+   label: Item {
+
    }
 
    background: Rectangle {
       id: background
+
+      Item {
+         anchors.fill: parent
+
+         Loader {
+            id: iconLoader
+            width: 24
+            height: 24
+
+            anchors.left: parent.left
+            anchors.leftMargin: 16
+            anchors.verticalCenter: parent.verticalCenter
+
+            sourceComponent: root.icon
+         }
+
+         Label {
+            anchors.left: root.icon ? iconLoader.right : parent.left
+            anchors.leftMargin: root.icon ? 32 : 16
+            anchors.verticalCenter: parent.verticalCenter
+
+            fontStyle: FontStyles.subheading
+            text: control.text
+         }
+      }
 
       Behavior on color { ColorAnimation { duration: 100 } }
 

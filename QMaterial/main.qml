@@ -38,7 +38,9 @@ ApplicationWindow {
       id: pageStack
       anchors.fill: parent
 
-      initialItem: DefaultMain { }
+      initialItem: DefaultMain {
+
+      }
    }
 
    Overlay {

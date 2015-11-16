@@ -49,11 +49,7 @@ Card {
 
       interactive: visibleLimit < actions.length
 
-      anchors {
-         fill: parent
-         topMargin: verticalMargins / 2
-         bottomMargin: verticalMargins / 2
-      }
+      anchors.fill: parent
 
       model: actions.length
       clip: true
@@ -63,7 +59,9 @@ Card {
          height: root.itemHeight
          action: actions[index]
          onClicked: root.hide()
-         style: SingleListItemStyle { }
+         style: SingleLineListItemStyle {
+
+         }
       }
    }
 

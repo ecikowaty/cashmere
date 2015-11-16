@@ -9,31 +9,58 @@ ButtonStyleBase {
    property string primaryText
    property string secondaryText
 
-   label: Item {}
+   property Component icon
+
+   label: Item {
+
+   }
 
    background: Rectangle {
       id: background
 
       Behavior on color { ColorAnimation { duration: 100 } }
 
+
       Item {
          anchors.fill: parent
-         anchors.margins: 16
 
-         Label {
-            id: primaryLabel
+         Loader {
+            id: iconLoader
+            width: 24
+            height: 24
 
-            fontStyle: FontStyles.subheading
-            text: root.primaryText
+            anchors.left: parent.left
+            anchors.leftMargin: 16
+            anchors.verticalCenter: parent.verticalCenter
+
+            sourceComponent: root.icon
          }
 
-         Label {
-            id: secondaryLabel
-            anchors.bottom: parent.bottom
+         Item {
+            width: Math.max(primaryLabel.paintedWidth, secondaryLabel.paintedWidth)
+            height: primaryLabel.paintedHeight + secondaryLabel.paintedHeight
 
-            fontStyle: FontStyles.body1
-            color: Theme.secondaryText
-            text: root.secondaryText
+            anchors {
+               left: root.icon ? iconLoader.right : parent.left
+               leftMargin: root.icon ? 32 : 16
+               verticalCenter: parent.verticalCenter
+            }
+
+            Label {
+               id: primaryLabel
+
+               fontStyle: FontStyles.subheading
+               text: root.primaryText
+            }
+
+            Label {
+               id: secondaryLabel
+               anchors.bottom: parent.bottom
+
+               fontStyle: FontStyles.body1
+               color: Theme.secondaryText
+               text: root.secondaryText
+            }
          }
       }
 

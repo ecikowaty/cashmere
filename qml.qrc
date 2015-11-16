@@ -19,7 +19,7 @@
         <file>QMaterial/Overflow.qml</file>
         <file>QMaterial/Styles/ActionButtonStyle.qml</file>
         <file>QMaterial/Menu.qml</file>
-        <file>QMaterial/Styles/SingleListItemStyle.qml</file>
+        <file>QMaterial/Styles/SingleLineListItemStyle.qml</file>
         <file>QMaterial/OverlayBinder.qml</file>
         <file>QMaterial/Overlay.qml</file>
         <file>QMaterial/Page.qml</file>
@@ -27,6 +27,7 @@
         <file>QMaterial/TempRandomCards.qml</file>
         <file>QMaterial/PageStack.qml</file>
         <file>QMaterial/TempDoubleList.qml</file>
-        <file>QMaterial/Styles/DoubleListItemStyle.qml</file>
+        <file>QMaterial/Styles/DoubleLineListItemStyle.qml</file>
+        <file>QMaterial/ListView.qml</file>
     </qresource>
 </RCC>

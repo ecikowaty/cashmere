@@ -31,8 +31,10 @@ Page {
          width: parent.width
          height: 48
          text: "This is item number " + index + " on the list"
-         style: SingleListItemStyle {
-
+         style: SingleLineListItemStyle {
+            icon: Icon{
+               name: "favorite"
+            }
          }
       }
    }
