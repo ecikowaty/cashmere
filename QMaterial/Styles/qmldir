@@ -5,3 +5,4 @@ FlatButtonStyle 0.1 FlatButtonStyle.qml
 ActionButtonStyle 0.1 ActionButtonStyle.qml
 SingleListItemStyle 0.1 SingleListItemStyle.qml
 ActionButtonStyle 0.1 ActionButtonStyle.qml
+DialogStyle 0.1 DialogStyle.qml

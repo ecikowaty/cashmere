@@ -42,28 +42,45 @@ Page {
       anchors.fill: parent
       anchors.topMargin: 56
 
-      spacing: 10
+      spacing: 25
+
+      Dialog {
+         width: 290
+         anchors.horizontalCenter: parent.horizontalCenter
+
+         title: "Google's location service"
+         content: "This is a sample text that occurs in a dialog content message. This is a sample text that occurs in a dialog content message."
+
+         positive: Action {
+            text: "Yes"
+            onTriggered: console.debug(text)
+         }
+         negative: Action {
+            text: "No"
+            onTriggered: console.debug(text)
+         }
+      }
 
       Button {
          anchors.horizontalCenter: parent.horizontalCenter
          text: "push page"
 
-         style: RaisedButtonStyle { }
-         onClicked: {
-            console.debug("pushing")
-            app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempRandomCards.qml"))
+         style: RaisedButtonStyle {
+
          }
+
+         onClicked: app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempRandomCards.qml"))
       }
 
       Button {
          anchors.horizontalCenter: parent.horizontalCenter
          text: "pop page"
 
-         style: FlatButtonStyle { }
-         onClicked: {
-            console.debug("popping")
-            app.popPage()
+         style: FlatButtonStyle {
+
          }
+
+         onClicked: app.popPage()
       }
    }
 }
