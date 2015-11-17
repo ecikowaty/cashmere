@@ -35,7 +35,7 @@ DialogStyle {
          fontStyle: FontStyles.subheading
          color: Theme.secondaryText
 
-         text: control.content
+         text: control.description
          wrapMode: Text.WordWrap
       }
    }
@@ -54,13 +54,14 @@ DialogStyle {
 
       Button {
          action: control.positive
+         onClicked: control.hide()
          style: FlatButtonStyle {
-
          }
       }
 
       Button {
          action: control.negative
+         onClicked: control.hide()
          style: FlatButtonStyle {
 
          }

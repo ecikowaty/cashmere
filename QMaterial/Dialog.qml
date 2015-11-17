@@ -7,11 +7,21 @@ import "Styles"
 Item {
    id: root
 
-   width: 350
+   width: 56 * widthFactor
    height: contentLoader.height + actionsLoader.height
 
+   anchors.centerIn: parent
+
+   state: "hidden"
+   enabled: isOpen()
+
+   opacity: isOpen()
+   Behavior on opacity { NumberAnimation { duration: 150 } }
+
    property string   title
-   property string   content
+   property string   description
+
+   property int      widthFactor: 5
 
    property bool     hasTitle: title.length > 0
 
@@ -21,6 +31,28 @@ Item {
    property int      contentHeight
 
    property DialogStyle style
+
+   function isOpen() {
+      return state === "open"
+   }
+
+   function open() {
+      overlay.darken = true
+      state = "open"
+   }
+
+   function hide() {
+      state = "hidden"
+   }
+
+   MouseArea {
+      anchors.fill: parent // doesn't propagate event over to Overlay
+   }
+
+   OverlayBinder {
+      onClicked: hide()
+      enableWhen: isOpen()
+   }
 
    Loader {
       id: backgroundLoader
@@ -54,5 +86,7 @@ Item {
 
       sourceComponent: style.actions
    }
+
+   Component.onCompleted: parent = overlay
 }
 

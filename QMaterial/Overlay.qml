@@ -3,7 +3,7 @@ import QtQuick 2.0
 Rectangle {
    id: root
 
-   color: Qt.rgba(0, 0, 0, darken ? 0.3 : 0)
+   color: Qt.rgba(0, 0, 0, (darken  && enabled) ? 0.3 : 0)
    Behavior on color { ColorAnimation {} }
 
    property alias placeholder: placeholder

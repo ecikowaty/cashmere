@@ -12,6 +12,7 @@ Card {
 
    readonly property int   widthFactor: 56
    property double         multiplier: 2.0
+
    property int            visibleLimit: 3
    property int            itemHeight: 48
    property int            verticalMargins: 16
@@ -20,6 +21,7 @@ Card {
 
    function open() {
       overlay.mapPlaceholderTo(oldParent)
+      overlay.darken = false
       root.state = "open"
    }
 
@@ -33,8 +35,10 @@ Card {
 
    OverlayBinder {
       onClicked: root.hide()
-      enableWhen: root.state === "open"
+      enableWhen: isOpen()
    }
+
+   onStateChanged: console.debug("menu state:", state)
 
    Component.onCompleted: {
       oldParent = parent
