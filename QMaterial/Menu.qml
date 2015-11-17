@@ -38,8 +38,6 @@ Card {
       enableWhen: isOpen()
    }
 
-   onStateChanged: console.debug("menu state:", state)
-
    Component.onCompleted: {
       oldParent = parent
       parent = overlay.placeholder

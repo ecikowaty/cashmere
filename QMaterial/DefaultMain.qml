@@ -45,18 +45,23 @@ Page {
 
          width: 290
 
-         style: AlertDialogStyle {
+         style: SimpleDialogStyle {
             control: dialog
          }
 
-         title: "Dialog"
+         title: "Simple dialog"
          description: "This is a sample dialog message."
 
-         positive: Action {
-            text: "Yes"
-         }
-         negative: Action {
-            text: "No"
+         model: ListModel {
+            ListElement { value: "Sample 1" }
+            ListElement { value: "Sample 2" }
+            ListElement { value: "Sample 3" }
+            ListElement { value: "Sample 11" }
+            ListElement { value: "Sample 12" }
+            ListElement { value: "Sample 13" }
+            ListElement { value: "Sample 11" }
+            ListElement { value: "Sample 12" }
+            ListElement { value: "Sample 13" }
          }
       }
 
@@ -84,7 +89,7 @@ Page {
 
             }
 
-            onClicked: dialog.state === "hidden" ? dialog.open() : dialog.hide()
+            onClicked: dialog.open()
          }
       }
    }

@@ -14,14 +14,15 @@ Item {
 
    state: "hidden"
    enabled: isOpen()
-
    opacity: isOpen()
+
    Behavior on opacity { NumberAnimation { duration: 150 } }
 
    property string   title
    property string   description
 
    property int      widthFactor: 5
+   property int      visibleLimit: 6
 
    property bool     hasTitle: title.length > 0
 
@@ -29,6 +30,17 @@ Item {
    property Action   negative
 
    property int      contentHeight
+
+   property ListModel   model
+   property Component   listDelegate: Button {
+      width: parent.width
+      height: 56
+
+      text: value
+      style: SingleLineListItemStyle {
+
+      }
+   }
 
    property DialogStyle style
 
