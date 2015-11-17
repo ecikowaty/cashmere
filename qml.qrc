@@ -33,5 +33,7 @@
         <file>QMaterial/Styles/DialogStyle.qml</file>
         <file>QMaterial/Styles/AlertDialogStyle.qml</file>
         <file>QMaterial/Styles/SimpleDialogStyle.qml</file>
+        <file>QMaterial/AlertDialog.qml</file>
+        <file>QMaterial/ActionButtons.qml</file>
     </qresource>
 </RCC>

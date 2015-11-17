@@ -15,16 +15,6 @@ DialogStyle {
       }
 
       Label {
-         id: titleLabel
-
-         width: parent.width
-         text: control.title
-
-         fontStyle: FontStyles.title
-         wrapMode: Text.WordWrap
-      }
-
-      Label {
          id: contentLabel
 
          width: parent.width

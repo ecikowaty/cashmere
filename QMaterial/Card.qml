@@ -13,16 +13,6 @@ Item {
 
    z: parent.z + elevation
 
-   function raise() {
-      elevation++
-   }
-
-   function lower() {
-      if (elevation > 0) {
-         elevation--
-      }
-   }
-
    RectangularGlow {
       anchors {
          horizontalCenter: parent.horizontalCenter

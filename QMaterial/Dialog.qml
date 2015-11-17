@@ -4,12 +4,15 @@ import QtQuick.Controls.Styles 1.4
 import "."
 import "Styles"
 
-Item {
+Card {
    id: root
 
    width: 56 * widthFactor
-   height: contentLoader.height + actionsLoader.height
+   height: 250
 
+   elevation: 24
+
+   parent: overlay
    anchors.centerIn: parent
 
    state: "hidden"
@@ -18,31 +21,7 @@ Item {
 
    Behavior on opacity { NumberAnimation { duration: 150 } }
 
-   property string   title
-   property string   description
-
-   property int      widthFactor: 5
-   property int      visibleLimit: 6
-
-   property bool     hasTitle: title.length > 0
-
-   property Action   positive
-   property Action   negative
-
-   property int      contentHeight
-
-   property ListModel   model
-   property Component   listDelegate: Button {
-      width: parent.width
-      height: 56
-
-      text: value
-      style: SingleLineListItemStyle {
-
-      }
-   }
-
-   property DialogStyle style
+   property int widthFactor: 5
 
    function isOpen() {
       return state === "open"
@@ -65,40 +44,5 @@ Item {
       onClicked: hide()
       enableWhen: isOpen()
    }
-
-   Loader {
-      id: backgroundLoader
-
-      anchors.fill: parent
-      sourceComponent: style.background
-   }
-
-   Loader {
-      id: contentLoader
-
-      width: parent.width - 48 // margins
-      height: contentHeight + 24 // bottom margin
-
-      anchors.top: parent.top
-      anchors.topMargin: 24
-      anchors.horizontalCenter: parent.horizontalCenter
-
-      sourceComponent: style.content
-   }
-
-   Loader {
-      id: actionsLoader
-
-      width: parent.width
-      height: visible ? 52 : 0
-
-      anchors.bottom: parent.bottom
-
-      visible: positive && negative
-
-      sourceComponent: style.actions
-   }
-
-   Component.onCompleted: parent = overlay
 }
 

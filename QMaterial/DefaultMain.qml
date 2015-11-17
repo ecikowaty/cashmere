@@ -40,28 +40,20 @@ Page {
 
    content: Item {
 
-      Dialog {
+      AlertDialog {
          id: dialog
 
-         width: 290
+         title: "A sample dialog"
+         description: "This is a sample message"
 
-         style: SimpleDialogStyle {
-            control: dialog
+         accepted: Action {
+            text: "yes"
+            onTriggered: console.debug(text)
          }
 
-         title: "Simple dialog"
-         description: "This is a sample dialog message."
-
-         model: ListModel {
-            ListElement { value: "Sample 1" }
-            ListElement { value: "Sample 2" }
-            ListElement { value: "Sample 3" }
-            ListElement { value: "Sample 11" }
-            ListElement { value: "Sample 12" }
-            ListElement { value: "Sample 13" }
-            ListElement { value: "Sample 11" }
-            ListElement { value: "Sample 12" }
-            ListElement { value: "Sample 13" }
+         rejected: Action {
+            text: "no"
+            onTriggered: console.debug(text)
          }
       }
 
