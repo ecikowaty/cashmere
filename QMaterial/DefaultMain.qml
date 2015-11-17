@@ -45,11 +45,17 @@ Page {
       spacing: 25
 
       Dialog {
+         id: dialog
+
          width: 290
          anchors.horizontalCenter: parent.horizontalCenter
 
-         title: "Google's location service"
+//         title: "Google's location service"
          content: "This is a sample text that occurs in a dialog content message. This is a sample text that occurs in a dialog content message."
+
+         style: AlertDialogStyle {
+            control: dialog
+         }
 
          positive: Action {
             text: "Yes"

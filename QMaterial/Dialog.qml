@@ -9,19 +9,18 @@ Item {
 
    width: 350
    height: contentLoader.height + actionsLoader.height
-//   height: 200
 
    property string   title
    property string   content
+
+   property bool     hasTitle: title.length > 0
 
    property Action   positive
    property Action   negative
 
    property int      contentHeight
 
-   property DialogStyle style: AlertDialogStyle {
-      control: root
-   }
+   property DialogStyle style
 
    Loader {
       id: backgroundLoader

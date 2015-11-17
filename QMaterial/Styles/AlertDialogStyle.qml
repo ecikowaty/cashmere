@@ -7,14 +7,11 @@ DialogStyle {
    id: root
 
    content: Item {
-//      function updateContentHeight() {
-//         control.contentHeight = 24 + titleLabel.paintedHeight + contentLabel
-//      }
 
       Binding {
          target: control
          property: "contentHeight"
-         value: titleLabel.paintedHeight + contentLabel.paintedHeight + 44
+         value: titleLabel.paintedHeight + contentLabel.paintedHeight + (control.hasTitle ? 44 : 0)
       }
 
       Label {
@@ -32,8 +29,8 @@ DialogStyle {
 
          width: parent.width
 
-         anchors.top: titleLabel.bottom
-         anchors.topMargin: titleLabel.text.length > 0 ? 20 : 0
+         anchors.top: control.hasTitle ? titleLabel.bottom : parent.top
+         anchors.topMargin: control.hasTitle ? 20 : 0
 
          fontStyle: FontStyles.subheading
          color: Theme.secondaryText
