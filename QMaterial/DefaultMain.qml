@@ -38,24 +38,19 @@ Page {
       ]
    }
 
-   content: Column {
-      anchors.fill: parent
-      anchors.topMargin: 56
-
-      spacing: 25
+   content: Item {
 
       Dialog {
          id: dialog
 
          width: 290
-         anchors.horizontalCenter: parent.horizontalCenter
-
-//         title: "Google's location service"
-         content: "This is a sample text that occurs in a dialog content message. This is a sample text that occurs in a dialog content message."
 
          style: AlertDialogStyle {
             control: dialog
          }
+
+         title: "Dialog"
+         description: "This is a sample dialog message."
 
          positive: Action {
             text: "Yes"
@@ -67,26 +62,32 @@ Page {
          }
       }
 
-      Button {
-         anchors.horizontalCenter: parent.horizontalCenter
-         text: "push page"
+      Column {
+         anchors.fill: parent
+         anchors.topMargin: 56
+         spacing: 25
 
-         style: RaisedButtonStyle {
+         Button {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "push page"
 
+            style: RaisedButtonStyle {
+
+            }
+
+            onClicked: app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempRandomCards.qml"))
          }
 
-         onClicked: app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempRandomCards.qml"))
-      }
+         Button {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "pop page"
 
-      Button {
-         anchors.horizontalCenter: parent.horizontalCenter
-         text: "pop page"
+            style: FlatButtonStyle {
 
-         style: FlatButtonStyle {
+            }
 
+            onClicked: dialog.state === "hidden" ? dialog.show() : dialog.hide()
          }
-
-         onClicked: app.popPage()
       }
    }
 }
