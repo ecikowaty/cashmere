@@ -40,12 +40,12 @@ Dialog {
       wrapMode: Text.WordWrap
    }
 
-   ActionButtons {
+   ConfirmationButtons {
       id: actionButtons
       height: 52
       width: parent.width
 
-      onInteracted: root.hide()
+      onInteracted: root.close()
 
       anchors {
          top: descriptionLabel.bottom; topMargin: 24

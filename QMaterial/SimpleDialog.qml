@@ -50,7 +50,7 @@ Dialog {
             width: parent.width
             height: 56
             action: actions[index]
-            onClicked: root.hide()
+            onClicked: root.close()
             style: SingleLineListItemStyle {
                leftMargin: 24
             }

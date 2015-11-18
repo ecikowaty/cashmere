@@ -5,6 +5,11 @@ Rectangle {
 
    property bool hovered
    property bool pressed
+   property color supportingColor: "#999"
+
+   function alphaOf(color, alpha) {
+      return Qt.rgba(color.r, color.g, color.b, alpha)
+   }
 
    Behavior on color { ColorAnimation { duration: 100 } }
 

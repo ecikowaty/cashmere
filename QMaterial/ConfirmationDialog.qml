@@ -10,13 +10,18 @@ Dialog {
 
    property alias title: titleLabel.text
 
-   function open() {
+   function close() {
+      state = "closed"
       itemsList.positionViewAtBeginning()
-      root.state = "open"
+      if (radioGroup.current) {
+         radioGroup.current = null
+      }
    }
 
    property var   items
    property int   visibleItems: items.length
+
+   signal selected(var item)
 
    Label {
       id: titleLabel
@@ -50,12 +55,18 @@ Dialog {
 
       model: items.length
 
-      delegate: Button {
+      ExclusiveGroup {
+         id: radioGroup
+      }
+
+      delegate: RadioButton {
          width: parent.width
          height: 56
          text: items[index]
 
-         style: SingleLineListItemStyle {
+         exclusiveGroup: radioGroup
+
+         style: CircleRadioButtonStyle {
             leftMargin: 24
          }
       }
@@ -75,7 +86,7 @@ Dialog {
       Behavior on opacity { NumberAnimation {} }
    }
 
-   ActionButtons {
+   ConfirmationButtons {
       id: actionButtons
 
       width: parent.width
@@ -86,10 +97,12 @@ Dialog {
          right: parent.right; rightMargin: 8
       }
 
-      onInteracted: root.hide()
+      onInteracted: root.close()
 
       accepted: Action {
          text: "ok"
+         enabled: radioGroup.current !== null
+         onTriggered: root.selected(radioGroup.current.text)
       }
 
       rejected: Action {

@@ -15,7 +15,7 @@ Card {
    parent: overlay
    anchors.centerIn: parent
 
-   state: "hidden"
+   state: "closed"
    enabled: isOpen()
    opacity: isOpen()
 
@@ -32,8 +32,8 @@ Card {
       state = "open"
    }
 
-   function hide() {
-      state = "hidden"
+   function close() {
+      state = "closed"
    }
 
    MouseArea {
@@ -41,7 +41,7 @@ Card {
    }
 
    OverlayBinder {
-      onClicked: hide()
+      onClicked: close()
       enableWhen: isOpen()
    }
 }
