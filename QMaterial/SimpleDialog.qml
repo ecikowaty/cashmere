@@ -8,14 +8,13 @@ Dialog {
 
    height: titleLabel.height + actionsColumn.height + 44
 
-   title: "Simple Dialog"
+   title: "Simple dialog"
 
    property alias title: titleLabel.text
    property alias delegate: repeater.delegate
 
 
    property list<Action>   actions
-   property int            visibleActions: actions.length
 
    Label {
       id: titleLabel
@@ -33,7 +32,7 @@ Dialog {
    Column {
       id: actionsColumn
       width: parent.width
-      height: visibleActions * 56
+      height: repeater.count * 56
       clip: true
 
       anchors {
@@ -53,7 +52,7 @@ Dialog {
             action: actions[index]
             onClicked: root.hide()
             style: SingleLineListItemStyle {
-
+               leftMargin: 24
             }
          }
       }

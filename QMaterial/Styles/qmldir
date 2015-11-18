@@ -1,8 +1,9 @@
 module QMaterial.Styles
+ActionButtonStyle 0.1 ActionButtonStyle.qml
 ButtonStyleBase 0.1 ButtonStyleBase.qml
-RaisedButtonStyle 0.1 RaisedButtonStyle.qml
+CircleRadioButtonStyle 0.1 CircleRadioButtonStyle.qml
+DoubleLineListItemStyle 0.1 DoubleLineListItemStyle.qml
 FlatButtonStyle 0.1 FlatButtonStyle.qml
-ActionButtonStyle 0.1 ActionButtonStyle.qml
+RaisedButtonStyle 0.1 RaisedButtonStyle.qml
 SingleListItemStyle 0.1 SingleListItemStyle.qml
-ActionButtonStyle 0.1 ActionButtonStyle.qml
-DialogStyle 0.1 DialogStyle.qml
+DoubleListListItemStyle 0.1 DoubleListListItemStyle.qml

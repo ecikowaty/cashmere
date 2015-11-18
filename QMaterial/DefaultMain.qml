@@ -92,8 +92,13 @@ Page {
          ]
       }
 
-      ExclusiveGroup {
-         id: radioGroup
+      ConfirmationDialog {
+         id: confirmationDialog
+
+         title: "Confirmation dialog"
+
+         items: [ "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8" ]
+         visibleItems: 4
       }
 
       Column {
@@ -134,22 +139,15 @@ Page {
             onClicked: simpleDialog.open()
          }
 
-         RadioButton {
-            text: "Radio 1"
-            exclusiveGroup: radioGroup
+         Button {
             anchors.horizontalCenter: parent.horizontalCenter
-            style: CircleRadioButtonStyle {
+            text: "confirmation dialog"
+
+            style: FlatButtonStyle {
 
             }
-         }
 
-         RadioButton {
-            text: "Radio 2"
-            exclusiveGroup: radioGroup
-            anchors.horizontalCenter: parent.horizontalCenter
-            style: CircleRadioButtonStyle {
-
-            }
+            onClicked: confirmationDialog.open()
          }
       }
    }

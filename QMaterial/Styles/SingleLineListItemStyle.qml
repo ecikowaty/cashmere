@@ -8,6 +8,8 @@ ButtonStyleBase {
 
    property bool iconDefined: control.action && control.action.iconName
 
+   property int leftMargin: 16
+
    property Component icon: Icon {
       name: control.action.iconName
       color: Theme.secondaryText
@@ -17,8 +19,11 @@ ButtonStyleBase {
 
    }
 
-   background: Rectangle {
+   background: ListItem {
       id: background
+
+      pressed: control.pressed
+      hovered: control.hovered
 
       Item {
          anchors.fill: parent
@@ -29,7 +34,7 @@ ButtonStyleBase {
             height: 24
 
             anchors.left: parent.left
-            anchors.leftMargin: 16
+            anchors.leftMargin: root.leftMargin
             anchors.verticalCenter: parent.verticalCenter
 
             sourceComponent: root.iconDefined ? root.icon : undefined
@@ -37,42 +42,13 @@ ButtonStyleBase {
 
          Label {
             anchors.left: root.iconDefined ? iconLoader.right : parent.left
-            anchors.leftMargin: root.iconDefined ? 32 : 16
+            anchors.leftMargin: leftMargin
             anchors.verticalCenter: parent.verticalCenter
 
             fontStyle: FontStyles.subheading
             text: control.text
          }
       }
-
-      Behavior on color { ColorAnimation { duration: 100 } }
-
-      states: [
-         State {
-            name: "normal"
-            when: !control.hovered && !control.pressed && control.enabled
-            PropertyChanges {
-               target: background
-               color: Qt.rgba(0, 0, 0, 0)
-            }
-         },
-         State {
-            name: "hover"
-            when: control.hovered && !control.pressed && control.enabled
-            PropertyChanges {
-               target: background
-               color: alphaOf(supportingColor, 0.2)
-            }
-         },
-         State {
-            name: "pressed"
-            when: control.pressed && control.enabled
-            PropertyChanges {
-               target: background
-               color: alphaOf(supportingColor, 0.4)
-            }
-         }
-      ]
    }
 }
 

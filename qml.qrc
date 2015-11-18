@@ -29,11 +29,12 @@
         <file>QMaterial/TempDoubleList.qml</file>
         <file>QMaterial/Styles/DoubleLineListItemStyle.qml</file>
         <file>QMaterial/Dialog.qml</file>
-        <file>QMaterial/Styles/DialogStyle.qml</file>
-        <file>QMaterial/Styles/SimpleDialogStyle.qml</file>
         <file>QMaterial/AlertDialog.qml</file>
         <file>QMaterial/ActionButtons.qml</file>
         <file>QMaterial/SimpleDialog.qml</file>
         <file>QMaterial/Styles/CircleRadioButtonStyle.qml</file>
+        <file>QMaterial/ConfirmationDialog.qml</file>
+        <file>QMaterial/ListItem.qml</file>
+        <file>QMaterial/Divider.qml</file>
     </qresource>
 </RCC>
