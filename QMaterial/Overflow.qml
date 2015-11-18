@@ -65,6 +65,7 @@ Item {
                var items = []
                var itemCounter = 0
                for (var i = visibleLimit; i < actions.length; ++i) {
+                  actions[i].iconName = ""
                   items[itemCounter++] = actions[i]
                }
 

@@ -9,8 +9,11 @@ Dialog {
    height: titleLabel.height + itemsList.height + actionButtons.height + 44
 
    property alias title: titleLabel.text
-   //   property alias delegate: actionsList.delegate
 
+   function open() {
+      itemsList.positionViewAtBeginning()
+      root.state = "open"
+   }
 
    property var   items
    property int   visibleItems: items.length
@@ -56,6 +59,14 @@ Dialog {
             leftMargin: 24
          }
       }
+
+      rebound: Transition {
+         NumberAnimation {
+            properties: "y"
+            duration: 300
+            easing.type: Easing.OutQuart
+         }
+      }
    }
 
    Divider {
@@ -70,7 +81,10 @@ Dialog {
       width: parent.width
       height: 52
 
-      anchors.top: itemsList.bottom
+      anchors {
+         top: itemsList.bottom
+         right: parent.right; rightMargin: 8
+      }
 
       onInteracted: root.hide()
 

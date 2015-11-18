@@ -49,6 +49,9 @@ Card {
    ListView {
       id: listView
 
+      header: Item { height: 8 }
+      footer: Item { height: 8 }
+
       interactive: visibleLimit < actions.length
 
       anchors.fill: parent

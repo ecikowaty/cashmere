@@ -12,7 +12,6 @@ Page {
       actions: [
          Action {
             text: "Close"
-            iconName: "close"
             onTriggered: app.popPage()
          }
       ]
