@@ -34,5 +34,6 @@
         <file>QMaterial/AlertDialog.qml</file>
         <file>QMaterial/ActionButtons.qml</file>
         <file>QMaterial/SimpleDialog.qml</file>
+        <file>QMaterial/Styles/CircleRadioButtonStyle.qml</file>
     </qresource>
 </RCC>

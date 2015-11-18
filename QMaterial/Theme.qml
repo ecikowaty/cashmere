@@ -12,8 +12,8 @@ Item {
    readonly property Color primaryPalette: Colors.blue
    readonly property Color accentPalette: Colors.cyan
 
-   readonly property color primary: primaryPalette.regular[5]
-   readonly property color accent: accentPalette.accent[1]
+   readonly property color primaryColor: primaryPalette.regular[5]
+   readonly property color accentColor: accentPalette.accent[1]
 
    function shadeOfPrimary(factor) {
       if (factor < 0 || factor > 9) {

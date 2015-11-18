@@ -11,7 +11,7 @@ Card {
    elevation: 4
 
    radius: 0
-   color: Theme.primary
+   color: Theme.primaryColor
 
    property alias actions: overlow.actions
    property alias title: titleLabel.text

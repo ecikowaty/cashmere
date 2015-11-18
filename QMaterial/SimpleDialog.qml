@@ -6,12 +6,12 @@ import "Styles"
 Dialog {
    id: root
 
-   height: titleLabel.height + listView.height + 44
+   height: titleLabel.height + actionsColumn.height + 44
 
    title: "Simple Dialog"
 
    property alias title: titleLabel.text
-   property alias delegate: listView.delegate
+   property alias delegate: repeater.delegate
 
 
    property list<Action>   actions
@@ -30,14 +30,11 @@ Dialog {
       wrapMode: Text.WordWrap
    }
 
-   ListView {
-      id: listView
+   Column {
+      id: actionsColumn
       width: parent.width
       height: visibleActions * 56
       clip: true
-      model: actions.length
-
-      interactive: visibleActions < actions.length
 
       anchors {
          top: titleLabel.bottom; topMargin: 20
@@ -45,13 +42,19 @@ Dialog {
          right: parent.right
       }
 
-      delegate: Button {
-         width: parent.width
-         height: 56
-         action: actions[index]
-         onClicked: root.hide()
-         style: SingleLineListItemStyle {
+      Repeater {
+         id: repeater
+         clip: true
+         model: actions.length
 
+         delegate: Button {
+            width: parent.width
+            height: 56
+            action: actions[index]
+            onClicked: root.hide()
+            style: SingleLineListItemStyle {
+
+            }
          }
       }
    }

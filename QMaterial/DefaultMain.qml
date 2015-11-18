@@ -92,45 +92,8 @@ Page {
          ]
       }
 
-      SimpleDialog {
-         id: scrollableDialog
-
-         title: "Scrollable dialog"
-
-         visibleActions: 4
-
-         actions: [
-            Action {
-               text: "Item"
-               iconName: "group"
-               onTriggered: console.debug(text)
-            },
-            Action {
-               text: "Dupa"
-               iconName: "face"
-               onTriggered: console.debug(text)
-            },
-            Action {
-               text: "Kupa"
-               iconName: "person"
-               onTriggered: console.debug(text)
-            },
-            Action {
-               text: "Cipa"
-               iconName: "cake"
-               onTriggered: console.debug(text)
-            },
-            Action {
-               text: "Test 1"
-               iconName: "mood"
-               onTriggered: console.debug(text)
-            },
-            Action {
-               text: "Test 2"
-               iconName: "public"
-               onTriggered: console.debug(text)
-            }
-         ]
+      ExclusiveGroup {
+         id: radioGroup
       }
 
       Column {
@@ -171,15 +134,22 @@ Page {
             onClicked: simpleDialog.open()
          }
 
-         Button {
+         RadioButton {
+            text: "Radio 1"
+            exclusiveGroup: radioGroup
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "scrollable dialog"
-
-            style: FlatButtonStyle {
+            style: CircleRadioButtonStyle {
 
             }
+         }
 
-            onClicked: scrollableDialog.open()
+         RadioButton {
+            text: "Radio 2"
+            exclusiveGroup: radioGroup
+            anchors.horizontalCenter: parent.horizontalCenter
+            style: CircleRadioButtonStyle {
+
+            }
          }
       }
    }
