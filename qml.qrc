@@ -28,12 +28,11 @@
         <file>QMaterial/PageStack.qml</file>
         <file>QMaterial/TempDoubleList.qml</file>
         <file>QMaterial/Styles/DoubleLineListItemStyle.qml</file>
-        <file>QMaterial/ListView.qml</file>
         <file>QMaterial/Dialog.qml</file>
         <file>QMaterial/Styles/DialogStyle.qml</file>
-        <file>QMaterial/Styles/AlertDialogStyle.qml</file>
         <file>QMaterial/Styles/SimpleDialogStyle.qml</file>
         <file>QMaterial/AlertDialog.qml</file>
         <file>QMaterial/ActionButtons.qml</file>
+        <file>QMaterial/SimpleDialog.qml</file>
     </qresource>
 </RCC>

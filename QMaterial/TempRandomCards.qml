@@ -25,6 +25,16 @@ Page {
       id: listView
       clip: true
 
+      header: Item {
+         width: parent.width
+         height: 8
+      }
+
+      footer: Item {
+         width: parent.width
+         height: 8
+      }
+
       model: 20
 
       delegate: Button {

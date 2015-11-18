@@ -41,20 +41,96 @@ Page {
    content: Item {
 
       AlertDialog {
-         id: dialog
-
-         title: "A sample dialog"
-         description: "This is a sample message"
+         id: alertDialog
+         title: "Alert dialog"
+         description: "With some description placed here (multiline)"
 
          accepted: Action {
-            text: "yes"
-            onTriggered: console.debug(text)
+            text: "ok"
          }
 
          rejected: Action {
-            text: "no"
-            onTriggered: console.debug(text)
+            text: "cancel"
          }
+      }
+
+      SimpleDialog {
+         id: simpleDialog
+
+         title: "Simple dialog"
+         actions: [
+            Action {
+               text: "Item"
+               iconName: "group"
+               onTriggered: console.debug(text)
+            },
+            Action {
+               text: "Dupa"
+               iconName: "face"
+               onTriggered: console.debug(text)
+            },
+            Action {
+               text: "Kupa"
+               iconName: "person"
+               onTriggered: console.debug(text)
+            },
+            Action {
+               text: "Cipa"
+               iconName: "cake"
+               onTriggered: console.debug(text)
+            },
+            Action {
+               text: "Test 1"
+               iconName: "mood"
+               onTriggered: console.debug(text)
+            },
+            Action {
+               text: "Test 2"
+               iconName: "public"
+               onTriggered: console.debug(text)
+            }
+         ]
+      }
+
+      SimpleDialog {
+         id: scrollableDialog
+
+         title: "Scrollable dialog"
+
+         visibleActions: 4
+
+         actions: [
+            Action {
+               text: "Item"
+               iconName: "group"
+               onTriggered: console.debug(text)
+            },
+            Action {
+               text: "Dupa"
+               iconName: "face"
+               onTriggered: console.debug(text)
+            },
+            Action {
+               text: "Kupa"
+               iconName: "person"
+               onTriggered: console.debug(text)
+            },
+            Action {
+               text: "Cipa"
+               iconName: "cake"
+               onTriggered: console.debug(text)
+            },
+            Action {
+               text: "Test 1"
+               iconName: "mood"
+               onTriggered: console.debug(text)
+            },
+            Action {
+               text: "Test 2"
+               iconName: "public"
+               onTriggered: console.debug(text)
+            }
+         ]
       }
 
       Column {
@@ -75,13 +151,35 @@ Page {
 
          Button {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "show dialog"
+            text: "alert"
 
             style: FlatButtonStyle {
 
             }
 
-            onClicked: dialog.open()
+            onClicked: alertDialog.open()
+         }
+
+         Button {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "simple dialog"
+
+            style: FlatButtonStyle {
+
+            }
+
+            onClicked: simpleDialog.open()
+         }
+
+         Button {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "scrollable dialog"
+
+            style: FlatButtonStyle {
+
+            }
+
+            onClicked: scrollableDialog.open()
          }
       }
    }

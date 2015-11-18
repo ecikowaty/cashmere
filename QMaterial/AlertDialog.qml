@@ -4,7 +4,7 @@ import "."
 Dialog {
    id: root
 
-//   height: titleLabel.height + descriptionLabel.height + actionButtons.height
+   height: titleLabel.height + descriptionLabel.paintedHeight + actionButtons.height + (title.length > 0 ? 68 : 24)
 
    property alias accepted: actionButtons.accepted
    property alias rejected: actionButtons.rejected
@@ -22,20 +22,22 @@ Dialog {
       }
 
       fontStyle: FontStyles.title
+      wrapMode: Text.WordWrap
    }
 
    Label {
       id: descriptionLabel
 
       anchors {
-         top: titleLabel; topMargin: 20
+         top: title.length > 0 ? titleLabel.bottom : parent.top
+         topMargin: title.length > 0 ? 20 : 24
          left: parent.left; leftMargin: 24
          right: parent.right; rightMargin: 24
-         bottom: actionButtons.top; bottomMargin: 24
       }
 
       fontStyle: FontStyles.subheading
       color: Theme.secondaryText
+      wrapMode: Text.WordWrap
    }
 
    ActionButtons {
@@ -46,8 +48,8 @@ Dialog {
       onInteracted: root.hide()
 
       anchors {
+         top: descriptionLabel.bottom; topMargin: 24
          right: parent.right; rightMargin: 8
-         bottom: parent.bottom
       }
    }
 }

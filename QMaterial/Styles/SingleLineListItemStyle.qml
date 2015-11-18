@@ -6,7 +6,12 @@ import "."
 ButtonStyleBase {
    id: root
 
-   property Component icon
+   property bool iconDefined: control.action && control.action.iconName
+
+   property Component icon: Icon {
+      name: control.action.iconName
+      color: Theme.secondaryText
+   }
 
    label: Item {
 
@@ -27,12 +32,12 @@ ButtonStyleBase {
             anchors.leftMargin: 16
             anchors.verticalCenter: parent.verticalCenter
 
-            sourceComponent: root.icon
+            sourceComponent: root.iconDefined ? root.icon : undefined
          }
 
          Label {
-            anchors.left: root.icon ? iconLoader.right : parent.left
-            anchors.leftMargin: root.icon ? 32 : 16
+            anchors.left: root.iconDefined ? iconLoader.right : parent.left
+            anchors.leftMargin: root.iconDefined ? 32 : 16
             anchors.verticalCenter: parent.verticalCenter
 
             fontStyle: FontStyles.subheading

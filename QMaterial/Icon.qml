@@ -5,6 +5,7 @@ Item {
 
    property alias size: icon.font.pixelSize
    property alias name: icon.text
+   property alias color: icon.color
    property bool  light: false
 
    width: size
