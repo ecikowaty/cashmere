@@ -3,10 +3,9 @@ import QtQuick.Controls.Styles 1.4
 import ".."
 
 RadioButtonStyle {
-   label: Label {
-      anchors.leftMargin: 24
-      anchors.left: parent.left
+   spacing: 24
 
+   label: Label {
       text: control.text
       fontStyle: FontStyles.subheading
    }
