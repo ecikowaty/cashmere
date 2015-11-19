@@ -18,6 +18,7 @@ Card {
    property int            verticalMargins: 16
    property list<Action>   actions
    property Item           oldParent
+   property alias          currentItemIndex: listView.currentIndex
 
    function open() {
       overlay.mapPlaceholderTo(oldParent)
@@ -43,8 +44,8 @@ Card {
       parent = overlay.placeholder
    }
 
-   Behavior on width { NumberAnimation { duration: 200; easing.type: Easing.OutQuart } }
-   Behavior on height { NumberAnimation { duration: 400; easing.type: Easing.OutQuart } }
+   Behavior on width { NumberAnimation { duration: 100; easing.type: Easing.OutQuart } }
+   Behavior on height { NumberAnimation { duration: 100; easing.type: Easing.OutQuart } }
 
    ListView {
       id: listView
@@ -54,10 +55,16 @@ Card {
 
       interactive: visibleLimit < actions.length
 
+      property int targetHeight: 0
+
       anchors.fill: parent
 
       model: actions.length
       clip: true
+
+      highlightRangeMode: ListView.StrictlyEnforceRange
+      preferredHighlightBegin: height / 3 + 8
+      preferredHighlightEnd: height * 2/3
 
       delegate: Button {
          width: parent.width

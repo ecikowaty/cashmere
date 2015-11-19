@@ -20,4 +20,6 @@ OverlayBinder 0.1 OverlayBinder.qml
 Page 0.1 Page.qml
 PageStack 0.1 PageStack.qml
 Ripple 0.1 Ripple.qml
+TextField 0.1 TextField.qml
+TextFieldDropdown 0.1 TextFieldDropdown.qml
 singleton Theme 0.1 Theme.qml

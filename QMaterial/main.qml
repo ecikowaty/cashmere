@@ -34,6 +34,16 @@ ApplicationWindow {
       }
    }
 
+   FocusScope {
+      id: focusScope
+      anchors.fill: parent
+
+      MouseArea {
+         anchors.fill: parent
+         onClicked: forceActiveFocus()
+      }
+   }
+
    PageStack {
       id: pageStack
       anchors.fill: parent

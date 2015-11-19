@@ -7,18 +7,18 @@ Item {
    readonly property color text: alpha(0.82)
    readonly property color secondaryText: alpha(0.54)
    readonly property color disabled: alpha(0.38)
-   readonly property color dividers: alpha(0.82)
+   readonly property color dividers: alpha(0.12)
 
    readonly property Color primaryPalette: Colors.blue
    readonly property Color accentPalette: Colors.cyan
 
-   readonly property color primaryColor: primaryPalette.regular[5]
-   readonly property color accentColor: accentPalette.accent[1]
+   readonly property color primaryColor: primaryPalette ? primaryPalette.regular[5] : "black"
+   readonly property color accentColor: accentPalette ? accentPalette.accent[1] : "black"
 
    function shadeOfPrimary(factor) {
       if (factor < 0 || factor > 9) {
          console.warn("invalid shade factor:", factor)
-         return primaryPalette.regular[5]
+         return primaryPalette.regular[factor]
       }
 
       return primaryPalette.regular[factor]

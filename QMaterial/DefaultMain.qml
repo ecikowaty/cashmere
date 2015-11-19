@@ -121,35 +121,47 @@ Page {
 
          Button {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "alert"
+            text: "open"
 
             style: FlatButtonStyle {
 
             }
 
-            onClicked: alertDialog.open()
+            onClicked: dropdown.open()
          }
 
-         Button {
+         TextField {
+            height: 48
+
+            placeholderText: "Name"
+
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "simple dialog"
-
-            style: FlatButtonStyle {
-
-            }
-
-            onClicked: simpleDialog.open()
          }
 
-         Button {
+//         Rectangle {
+//            width: 200
+//            height: 100
+//            anchors.horizontalCenter: parent.horizontalCenter
+//            color: "palegreen"
+
+//            DropdownMenu {
+//               id: dropdown
+
+//               anchors.top: parent.top
+//               anchors.horizontalCenter: parent.horizontalCenter
+
+//               items: [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+////               Component.onCompleted: open()
+//            }
+//         }
+
+         TextFieldDropdown {
+            width: 100
+            height: 48
+
+            items: [ "London", "Warsaw", "Cracow", "Berlin", "Szczecin"]
+
             anchors.horizontalCenter: parent.horizontalCenter
-            text: "confirmation dialog"
-
-            style: FlatButtonStyle {
-
-            }
-
-            onClicked: confirmationDialog.open()
          }
       }
    }
