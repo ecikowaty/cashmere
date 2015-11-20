@@ -19,6 +19,9 @@ Item {
          top: parent.top; topMargin: elevation / 2
       }
 
+      opacity: parent.opacity === 1
+      Behavior on opacity { NumberAnimation { duration: 100 } }
+
       visible: elevation > 0
 
       width: parent.width

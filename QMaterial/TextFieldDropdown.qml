@@ -9,18 +9,12 @@ Item {
    height: 48
 
    property alias currentItemText: selectedLabel.text
-   property alias actions: dropdownMenu.actions
-   property alias items: dropdownMenu.items
+//   property alias actions: dropdownMenu.actions
+//   property alias items: dropdownMenu.items
 
-   Label {
-      id: selectedLabel
-
-      fontStyle: FontStyles.subheading
-      color: Theme.secondaryText
-
-      text: actions[dropdownMenu.currentItemIndex].text
-
-      anchors.verticalCenter: parent.verticalCenter
+   OverlayBinder {
+      enableWhen: dropdownMenu.state === "open"
+      onClicked: dropdownMenu.close()
    }
 
    MouseArea {
@@ -30,14 +24,22 @@ Item {
 
    DropdownMenu {
       id: dropdownMenu
+      width: 70
+      anchors.verticalCenter: parent.verticalCenter
+      anchors.right: parent.right
+   }
 
-      function calculateVecticalMargin() {
-         return 0
-      }
+   Label {
+      id: selectedLabel
 
-      anchors {
-         centerIn: parent
-      }
+      fontStyle: FontStyles.subheading
+      color: Theme.secondaryText
+
+      text: "London"
+      z: dropdownMenu.z + 1
+//      text: actions[dropdownMenu.currentItemIndex].text
+
+      anchors.verticalCenter: parent.verticalCenter
    }
 
    Icon {
