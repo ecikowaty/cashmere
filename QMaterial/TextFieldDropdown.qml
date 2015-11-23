@@ -9,8 +9,7 @@ Item {
    height: 48
 
    property alias currentItemText: selectedLabel.text
-//   property alias actions: dropdownMenu.actions
-//   property alias items: dropdownMenu.items
+   property alias items: dropdownMenu.items
 
    OverlayBinder {
       enableWhen: dropdownMenu.state === "open"
@@ -20,13 +19,21 @@ Item {
    MouseArea {
       anchors.fill: parent
       onClicked: dropdownMenu.open()
+      enabled: {
+         overlay.mapPlaceholderTo(parent)
+         overlay.darken = true
+         dropdownMenu.state === "closed"
+      }
    }
 
    DropdownMenu {
       id: dropdownMenu
       width: 70
-      anchors.verticalCenter: parent.verticalCenter
-      anchors.right: parent.right
+      anchors.left: parent.left
+      anchors.leftMargin: -16
+      visibleItems: 3
+
+      items: [ "Szczecin", "Londyn", "Warszawa", "Berlin" ]
    }
 
    Label {
@@ -35,9 +42,9 @@ Item {
       fontStyle: FontStyles.subheading
       color: Theme.secondaryText
 
-      text: "London"
-      z: dropdownMenu.z + 1
-//      text: actions[dropdownMenu.currentItemIndex].text
+      text: dropdownMenu.text
+      opacity: dropdownMenu.state === "closed"
+      Behavior on opacity { NumberAnimation {} }
 
       anchors.verticalCenter: parent.verticalCenter
    }

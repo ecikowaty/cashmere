@@ -19,7 +19,7 @@ Item {
          top: parent.top; topMargin: elevation / 2
       }
 
-      opacity: parent.opacity === 1
+      opacity: parent.opacity > 0.9
       Behavior on opacity { NumberAnimation { duration: 100 } }
 
       visible: elevation > 0
@@ -39,7 +39,6 @@ Item {
       id: rect
 
       anchors.fill: parent
-
       radius: 2
    }
 }

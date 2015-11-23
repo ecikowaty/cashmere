@@ -1,15 +1,20 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.4
 import "."
+import "Styles"
 
 Card {
    id: root
 
    state: "closed"
+   enabled: state === "open"
 
-   property int widthBase: 56
-   property int widthMultiplier: 3
-   property int visibleItems: 5
+   property int   widthBase: 56
+   property real  widthMultiplier: 2.6
+   property int   visibleItems: 5
+   property var   items
+
+   property string text: items[0]
 
    function open() {
       state = "open"
@@ -17,6 +22,23 @@ Card {
 
    function close() {
       state = "closed"
+   }
+
+   ListView {
+      id: listView
+      anchors.fill: parent
+      clip: true
+      model: items.length
+
+      delegate: Button {
+         width: parent.width
+         height: 48
+         text: items[index]
+         onClicked: root.text = items[index]
+         style: SingleLineListItemStyle {
+
+         }
+      }
    }
 
    states: [
@@ -33,8 +55,8 @@ Card {
          name: "closed"
          PropertyChanges {
             target: root
-            width: root.parent.width
-            height: root.parent.height
+            width: widthBase * widthMultiplier
+            height: 0
             opacity: 0
          }
       }
@@ -45,12 +67,12 @@ Card {
          to: "open"
          NumberAnimation {
             properties: "width,height"
-            easing.type: Easing.OutQuint
+            easing.type: Easing.OutCubic
             duration: 300
          }
          NumberAnimation {
             property: "opacity"
-            duration: 0
+            duration: 100
          }
       },
       Transition {
@@ -58,6 +80,7 @@ Card {
          SequentialAnimation {
             NumberAnimation {
                property: "opacity"
+               duration: 300
             }
 
             NumberAnimation {
