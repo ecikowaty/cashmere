@@ -142,7 +142,7 @@ Page {
             width: 100
             height: 48
 
-//            items: [ "London", "Warsaw", "Cracow", "Berlin", "Szczecin"]
+            items: [ "London", "Warsaw", "Cracow", "Berlin", "Szczecin"]
 
             anchors.horizontalCenter: parent.horizontalCenter
          }

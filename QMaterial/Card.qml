@@ -19,8 +19,8 @@ Item {
          top: parent.top; topMargin: elevation / 2
       }
 
-      opacity: parent.opacity > 0.9
-      Behavior on opacity { NumberAnimation { duration: 100 } }
+      opacity: parent.opacity > 0.95 ? parent.opacity : parent.opacity / 4
+//      Behavior on opacity { NumberAnimation { duration: 50 } }
 
       visible: elevation > 0
 

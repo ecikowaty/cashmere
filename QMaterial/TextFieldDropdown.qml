@@ -11,17 +11,11 @@ Item {
    property alias currentItemText: selectedLabel.text
    property alias items: dropdownMenu.items
 
-   OverlayBinder {
-      enableWhen: dropdownMenu.state === "open"
-      onClicked: dropdownMenu.close()
-   }
-
    MouseArea {
       anchors.fill: parent
       onClicked: dropdownMenu.open()
       enabled: {
-         overlay.mapPlaceholderTo(parent)
-         overlay.darken = true
+         overlayBinder.bind(false)
          dropdownMenu.state === "closed"
       }
    }
@@ -33,7 +27,13 @@ Item {
       anchors.leftMargin: -16
       visibleItems: 3
 
-      items: [ "Szczecin", "Londyn", "Warszawa", "Berlin" ]
+      OverlayBinder {
+         id: overlayBinder
+         enableWhen: dropdownMenu.state === "open"
+         onClicked: dropdownMenu.close()
+      }
+
+//      items: [ "Szczecin", "Londyn", "Warszawa", "Berlin" ]
    }
 
    Label {

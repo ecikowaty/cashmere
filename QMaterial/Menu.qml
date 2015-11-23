@@ -62,10 +62,6 @@ Card {
       model: actions.length
       clip: true
 
-      highlightRangeMode: ListView.StrictlyEnforceRange
-      preferredHighlightBegin: height / 3 + 8
-      preferredHighlightEnd: height * 2/3
-
       delegate: Button {
          width: parent.width
          height: root.itemHeight

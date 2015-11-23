@@ -24,22 +24,22 @@ Card {
       state = "closed"
    }
 
-   ListView {
-      id: listView
-      anchors.fill: parent
-      clip: true
-      model: items.length
+//   ListView {
+//      id: listView
+//      anchors.fill: parent
+//      clip: true
+//      model: items.length
 
-      delegate: Button {
-         width: parent.width
-         height: 48
-         text: items[index]
-         onClicked: root.text = items[index]
-         style: SingleLineListItemStyle {
+//      delegate: Button {
+//         width: parent.width
+//         height: 48
+//         text: items[index]
+//         onClicked: root.text = items[index]
+//         style: SingleLineListItemStyle {
 
-         }
-      }
-   }
+//         }
+//      }
+//   }
 
    states: [
       State {
@@ -72,7 +72,7 @@ Card {
          }
          NumberAnimation {
             property: "opacity"
-            duration: 100
+            duration: 300
          }
       },
       Transition {
@@ -80,7 +80,7 @@ Card {
          SequentialAnimation {
             NumberAnimation {
                property: "opacity"
-               duration: 300
+               duration: 500
             }
 
             NumberAnimation {
