@@ -39,5 +39,6 @@
         <file>QMaterial/TextField.qml</file>
         <file>QMaterial/TextFieldDropdown.qml</file>
         <file>QMaterial/DropdownMenu.qml</file>
+        <file>QMaterial/Shadow.qml</file>
     </qresource>
 </RCC>

@@ -103,21 +103,33 @@ Page {
          onSelected: console.debug(item)
       }
 
+      Card {
+         id: card
+
+         width: 200
+         height: 400
+         Behavior on opacity { NumberAnimation {} }
+
+         elevation: 10
+
+         anchors.centerIn: parent
+      }
+
       Column {
          anchors.fill: parent
          anchors.topMargin: 56
          spacing: 25
 
-         Button {
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: "push page"
+//         Button {
+//            anchors.horizontalCenter: parent.horizontalCenter
+//            text: "push page"
 
-            style: RaisedButtonStyle {
+//            style: RaisedButtonStyle {
 
-            }
+//            }
 
-            onClicked: app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempRandomCards.qml"))
-         }
+//            onClicked: app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempRandomCards.qml"))
+//         }
 
          Button {
             anchors.horizontalCenter: parent.horizontalCenter
@@ -127,7 +139,7 @@ Page {
 
             }
 
-            onClicked: dropdown.open()
+            onClicked: card.opacity = !card.opacity
          }
 
          TextField {
@@ -135,7 +147,12 @@ Page {
 
             placeholderText: "Name"
 
+            validator: IntValidator {
+
+            }
+
             anchors.horizontalCenter: parent.horizontalCenter
+            onAccepted: card.elevation = text
          }
 
          TextFieldDropdown {

@@ -11,13 +11,18 @@ Item {
    property alias currentItemText: selectedLabel.text
    property alias items: dropdownMenu.items
 
+   function open() {
+      overlayBinder.bind(false)
+      dropdownMenu.open()
+   }
+
    MouseArea {
       anchors.fill: parent
-      onClicked: dropdownMenu.open()
-      enabled: {
+      onClicked: {
          overlayBinder.bind(false)
-         dropdownMenu.state === "closed"
+         dropdownMenu.open()
       }
+      enabled: dropdownMenu.state === "closed"
    }
 
    DropdownMenu {
