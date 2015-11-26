@@ -28,7 +28,7 @@ Card {
    }
 
    function open() {
-      overlay.darken = true
+      overlayBinder.bind(true)
       state = "open"
    }
 
@@ -41,6 +41,7 @@ Card {
    }
 
    OverlayBinder {
+      id: overlayBinder
       onClicked: close()
       enableWhen: isOpen()
    }

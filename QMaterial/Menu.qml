@@ -44,9 +44,6 @@ Card {
       parent = overlay.placeholder
    }
 
-   Behavior on width { NumberAnimation { duration: 100; easing.type: Easing.OutQuart } }
-   Behavior on height { NumberAnimation { duration: 100; easing.type: Easing.OutQuart } }
-
    ListView {
       id: listView
 
@@ -72,6 +69,7 @@ Card {
          }
       }
    }
+
 
    states: [
       State {
@@ -115,14 +113,12 @@ Card {
             NumberAnimation {
                target: root
                property: "opacity"
-               duration: 200
-               easing.type: Easing.OutQuad
+               duration: 2000
             }
             NumberAnimation {
                target: root
                properties: "width,height"
                duration: 0
-               easing.type: Easing.OutQuad
             }
          }
       }

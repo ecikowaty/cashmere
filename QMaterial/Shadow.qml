@@ -4,14 +4,14 @@ import QtGraphicalEffects 1.0
 Item {
    id: root
 
+   opacity: parent.opacity === 1 ? parent.opacity : parent.opacity * 0.75
+
    property int elevation: 2
    property int glowRadius: 1 + elevation / 1.5
    property int cornerRadius: 2 + elevation / 1.5
 
    property color color: Qt.rgba(0, 0, 0, 0.5)
 
-//      Rectangle {
-//         color: "lightgreen"
    Item {
       id: topContainer
 
@@ -25,7 +25,7 @@ Item {
       RectangularGlow {
          id: topGlow
 
-         width: parent.width + elevation / 2
+         width: parent.width + 6
 
          anchors.verticalCenter: parent.bottom
          anchors.verticalCenterOffset: root.anchors.verticalCenterOffset
@@ -38,8 +38,6 @@ Item {
       }
    }
 
-//      Rectangle {
-//         color: "lightgreen"
    Item {
       id: leftContainer
 
@@ -66,8 +64,6 @@ Item {
       }
    }
 
-//   Rectangle {
-//      color: "lightgreen"
    Item {
       id: rightContainer
 
@@ -93,12 +89,9 @@ Item {
       }
    }
 
-//   Rectangle {
-//      color: "lightgreen"
    Item {
       id: bottomContainer
 
-//      visible: false
       height: elevation * 2 + root.anchors.verticalCenterOffset + 2
       anchors {
          top: parent.bottom
@@ -111,7 +104,7 @@ Item {
       RectangularGlow {
          id: bottomGlow
 
-         width: parent.width + elevation / 2
+         width: parent.width + 6
          height: root.anchors.verticalCenterOffset * 2
 
          anchors.verticalCenter: parent.top

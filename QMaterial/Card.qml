@@ -20,8 +20,7 @@ Item {
       height: parent.height
       anchors.centerIn: parent
 
-//      cornerRadius: 20
-      anchors.verticalCenterOffset: elevation / 3
+      anchors.verticalCenterOffset: elevation / 2
    }
 
 //   RectangularGlow {

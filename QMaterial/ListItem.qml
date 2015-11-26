@@ -3,6 +3,8 @@ import QtQuick 2.5
 Rectangle {
    id: root
 
+   state: "normal"
+
    property bool hovered
    property bool pressed
    property color supportingColor: "#999"
@@ -14,6 +16,13 @@ Rectangle {
    Behavior on color { ColorAnimation { duration: 100 } }
 
    states: [
+      State {
+         name: ""
+         PropertyChanges {
+            target: root
+            color: Qt.rgba(0, 0, 0, 0)
+         }
+      },
       State {
          name: "normal"
          when: !hovered && !pressed && enabled

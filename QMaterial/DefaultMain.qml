@@ -103,18 +103,6 @@ Page {
          onSelected: console.debug(item)
       }
 
-      Card {
-         id: card
-
-         width: 200
-         height: 400
-         Behavior on opacity { NumberAnimation {} }
-
-         elevation: 10
-
-         anchors.centerIn: parent
-      }
-
       Column {
          anchors.fill: parent
          anchors.topMargin: 56
@@ -135,11 +123,11 @@ Page {
             anchors.horizontalCenter: parent.horizontalCenter
             text: "open"
 
-            style: FlatButtonStyle {
+            style: RaisedButtonStyle {
 
             }
 
-            onClicked: card.opacity = !card.opacity
+            onClicked: confirmationDialog.open()
          }
 
          TextField {
