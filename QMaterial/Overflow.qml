@@ -34,10 +34,10 @@ Item {
          Button {
             width: 24
             height: width
+            action: actions[index]
 
             style: ActionButtonStyle {
                light: true
-               action: actions[index]
             }
          }
       }
@@ -57,22 +57,23 @@ Item {
          right: parent.right
       }
 
+      action: Action {
+         iconName: "more_vert"
+         onTriggered: {
+            var items = []
+            var itemCounter = 0
+            for (var i = visibleLimit; i < actions.length; ++i) {
+               root.actions[i].iconName = ""
+               items[itemCounter++] = actions[i]
+            }
+
+            overflowMenu.actions = items
+            overflowMenu.open()
+         }
+      }
+
       style: ActionButtonStyle {
          light: true
-         action: Action {
-            iconName: "more_vert"
-            onTriggered: {
-               var items = []
-               var itemCounter = 0
-               for (var i = visibleLimit; i < actions.length; ++i) {
-                  actions[i].iconName = ""
-                  items[itemCounter++] = actions[i]
-               }
-
-               overflowMenu.actions = items
-               overflowMenu.open()
-            }
-         }
       }
 
       Menu {

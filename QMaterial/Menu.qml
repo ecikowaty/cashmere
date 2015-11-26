@@ -8,7 +8,7 @@ Card {
 
    z: overlay.z + 1
 
-   state: "hidden"
+   state: "closed"
 
    readonly property int   widthFactor: 56
    property double         multiplier: 2.0
@@ -17,17 +17,14 @@ Card {
    property int            itemHeight: 48
    property int            verticalMargins: 16
    property list<Action>   actions
-   property Item           oldParent
-   property alias          currentItemIndex: listView.currentIndex
 
    function open() {
-      overlay.mapPlaceholderTo(oldParent)
-      overlay.darken = false
+      overlayBinder.bind(false)
       root.state = "open"
    }
 
-   function hide() {
-      root.state = "hidden"
+   function close() {
+      root.state = "closed"
    }
 
    function isOpen() {
@@ -35,13 +32,9 @@ Card {
    }
 
    OverlayBinder {
-      onClicked: root.hide()
+      id: overlayBinder
+      onClicked: root.close()
       enableWhen: isOpen()
-   }
-
-   Component.onCompleted: {
-      oldParent = parent
-      parent = overlay.placeholder
    }
 
    ListView {
@@ -63,7 +56,7 @@ Card {
          width: parent.width
          height: root.itemHeight
          action: actions[index]
-         onClicked: root.hide()
+         onClicked: root.close()
          style: SingleLineListItemStyle {
 
          }
@@ -73,7 +66,7 @@ Card {
 
    states: [
       State {
-         name: "hidden"
+         name: "closed"
          PropertyChanges {
             target: root
             width: 0
@@ -94,7 +87,7 @@ Card {
 
    transitions: [
       Transition {
-         from: "hidden"
+         from: "closed"
          to: "open"
 
          NumberAnimation {
@@ -106,14 +99,14 @@ Card {
       },
       Transition {
          from: "open"
-         to: "hidden"
+         to: "closed"
 
          SequentialAnimation {
 
             NumberAnimation {
                target: root
                property: "opacity"
-               duration: 2000
+               duration: 200
             }
             NumberAnimation {
                target: root

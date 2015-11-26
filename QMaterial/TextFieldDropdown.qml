@@ -37,8 +37,6 @@ Item {
          enableWhen: dropdownMenu.state === "open"
          onClicked: dropdownMenu.close()
       }
-
-//      items: [ "Szczecin", "Londyn", "Warszawa", "Berlin" ]
    }
 
    Label {

@@ -37,12 +37,13 @@ Card {
             verticalCenter: parent.verticalCenter
          }
 
+         action: Action {
+            iconName: app.isInitialPage(root.parent) ? "menu" : "arrow_back"
+            onTriggered: root.backPressed()
+         }
+
          style: ActionButtonStyle {
             light: true
-            action: Action {
-               iconName: app.isInitialPage(root.parent) ? "menu" : "arrow_back"
-               onTriggered: root.backPressed()
-            }
          }
       }
 
