@@ -8,8 +8,8 @@ Rectangle {
    property int   duration: 500
 
    function start(mouse) {
-      root.x = mouse ? mouse.x : root.width / 2
-      root.y = mouse ? mouse.y : root.width / 2
+//      root.x = mouse ? mouse.x : root.width / 2
+//      root.y = mouse ? mouse.y : root.height / 2
       clickAnimation.running = false
       clickAnimation.running = true
    }

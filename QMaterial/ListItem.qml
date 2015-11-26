@@ -4,6 +4,7 @@ Rectangle {
    id: root
 
    state: "normal"
+   clip: true
 
    property bool hovered
    property bool pressed
@@ -14,6 +15,22 @@ Rectangle {
    }
 
    Behavior on color { ColorAnimation { duration: 100 } }
+
+   Ripple {
+      id: ripple
+
+      color: alphaOf(supportingColor, 0.2)
+      anchors.centerIn: parent
+
+      Connections {
+         target: root
+         onPressedChanged: {
+            if (root.pressed && !ripple.running) {
+               ripple.start()
+            }
+         }
+      }
+   }
 
    states: [
       State {

@@ -108,16 +108,16 @@ Page {
          anchors.topMargin: 56
          spacing: 25
 
-//         Button {
-//            anchors.horizontalCenter: parent.horizontalCenter
-//            text: "push page"
+         Button {
+            anchors.horizontalCenter: parent.horizontalCenter
+            text: "push page"
 
-//            style: RaisedButtonStyle {
+            style: RaisedButtonStyle {
 
-//            }
+            }
 
-//            onClicked: app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempRandomCards.qml"))
-//         }
+            onClicked: app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempRandomCards.qml"))
+         }
 
          Button {
             anchors.horizontalCenter: parent.horizontalCenter

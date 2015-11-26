@@ -15,81 +15,51 @@ ButtonStyleBase {
 
    }
 
-   background: Rectangle {
+   background: ListItem {
       id: background
 
-      Behavior on color { ColorAnimation { duration: 100 } }
+      pressed: control.pressed
+      hovered: control.hovered
 
+      Loader {
+         id: iconLoader
+         width: 24
+         height: 24
 
-      Item {
-         anchors.fill: parent
+         anchors.left: parent.left
+         anchors.leftMargin: 16
+         anchors.verticalCenter: parent.verticalCenter
 
-         Loader {
-            id: iconLoader
-            width: 24
-            height: 24
-
-            anchors.left: parent.left
-            anchors.leftMargin: 16
-            anchors.verticalCenter: parent.verticalCenter
-
-            sourceComponent: root.icon
-         }
-
-         Item {
-            width: Math.max(primaryLabel.paintedWidth, secondaryLabel.paintedWidth)
-            height: primaryLabel.paintedHeight + secondaryLabel.paintedHeight
-
-            anchors {
-               left: root.icon ? iconLoader.right : parent.left
-               leftMargin: root.icon ? 32 : 16
-               verticalCenter: parent.verticalCenter
-            }
-
-            Label {
-               id: primaryLabel
-
-               fontStyle: FontStyles.subheading
-               text: root.primaryText
-            }
-
-            Label {
-               id: secondaryLabel
-               anchors.bottom: parent.bottom
-
-               fontStyle: FontStyles.body1
-               color: Theme.secondaryText
-               text: root.secondaryText
-            }
-         }
+         sourceComponent: root.icon
       }
 
-      states: [
-         State {
-            name: "normal"
-            when: !control.hovered && !control.pressed && control.enabled
-            PropertyChanges {
-               target: background
-               color: Qt.rgba(0, 0, 0, 0)
-            }
-         },
-         State {
-            name: "hover"
-            when: control.hovered && !control.pressed && control.enabled
-            PropertyChanges {
-               target: background
-               color: alphaOf(supportingColor, 0.2)
-            }
-         },
-         State {
-            name: "pressed"
-            when: control.pressed && control.enabled
-            PropertyChanges {
-               target: background
-               color: alphaOf(supportingColor, 0.4)
-            }
+      Item {
+         width: Math.max(primaryLabel.paintedWidth, secondaryLabel.paintedWidth)
+         height: primaryLabel.paintedHeight + secondaryLabel.paintedHeight
+
+         anchors {
+            left: root.icon ? iconLoader.right : parent.left
+            leftMargin: root.icon ? 32 : 16
+            verticalCenter: parent.verticalCenter
          }
-      ]
+
+         Label {
+            id: primaryLabel
+
+            fontStyle: FontStyles.subheading
+            text: root.primaryText
+         }
+
+         Label {
+            id: secondaryLabel
+            anchors.bottom: parent.bottom
+
+            fontStyle: FontStyles.body1
+            color: Theme.secondaryText
+            text: root.secondaryText
+         }
+
+      }
    }
 }
 
