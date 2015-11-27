@@ -6,36 +6,36 @@ import "Styles"
 
 Rectangle {
    id: root
+
    color: "#fafafa"
 
    property alias thisPage: root
    property alias actionBar: actionBar
-   property alias tabBar: tabBar
    property alias views: viewsModel.children
 
-   property int   currentTab: 0
-   onCurrentTabChanged: console.debug(currentTab)
+   property Component tabBar: ScrollableTabBar {
+      visible: views.length > 1
+      tabCount: views.length
+   }
 
    ActionBar {
       id: actionBar
 
       width: parent.width
+      height: 56 + tabBarLoader.height
 
       title: "ActionBar"
 
       onBackPressed: app.popPage()
 
-      TabBar {
-         id: tabBar
+      Loader {
+         id: tabBarLoader
 
          width: parent.width
          height: views.length > 1 ? 48 : 0
          anchors.bottom: actionBar.bottom
 
-         visible: views.length > 1
-         model: views.length
-
-         onCurrentIndexChanged: listView.currentIndex = currentIndex
+         sourceComponent: root.tabBar
       }
    }
 
@@ -45,15 +45,25 @@ Rectangle {
       orientation: Qt.Horizontal
       snapMode: ListView.SnapOneItem
 
-      onCurrentIndexChanged: {
-         listView.currentIndex = currentIndex
-         tabBar.currentIndex = currentIndex
-      }
+      flickDeceleration: 10000
+      Component.onCompleted: console.debug(flickDeceleration)
 
       highlightFollowsCurrentItem: true
       highlightMoveVelocity: listView.width * 5
 
       onFlickEnded: listView.currentIndex = visibleArea.xPosition / visibleArea.widthRatio
+
+      Binding {
+         target: tabBarLoader.item
+         property: "currentTab"
+         when: tabBarLoader.item
+         value: listView.currentIndex
+      }
+
+      Connections {
+         target: tabBarLoader.item
+         onCurrentTabChanged: listView.currentIndex = tabBarLoader.item.currentTab
+      }
 
       anchors {
          top: actionBar.bottom
@@ -70,13 +80,13 @@ Rectangle {
 
       onWidthChanged: {
          for (var i = 0; i < views.length; ++i) {
-            views[i].width    = listView.width
+            views[i].width = listView.width
          }
       }
 
       onHeightChanged: {
          for (var i = 0; i < views.length; ++i) {
-            views[i].height   = listView.height
+            views[i].height = listView.height
          }
       }
 

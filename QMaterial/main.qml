@@ -53,10 +53,12 @@ ApplicationWindow {
          id: page
 
          actionBar {
-            height: 56 + tabBar.height
             title: "Tabs test"
-            castShadow: views.length === 1
          }
+
+//         tabBar: ScrollableTabBar {
+
+//         }
 
          views: [
             View {

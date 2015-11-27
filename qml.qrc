@@ -44,5 +44,6 @@
         <file>QMaterial/TabBar.qml</file>
         <file>QMaterial/TabAction.qml</file>
         <file>QMaterial/View.qml</file>
+        <file>QMaterial/ScrollableTabBar.qml</file>
     </qresource>
 </RCC>
