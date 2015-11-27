@@ -38,120 +38,123 @@ Page {
       ]
    }
 
-   content: Item {
+   views: [
+      View {
+         name: "Default"
 
-      AlertDialog {
-         id: alertDialog
-         title: "Alert dialog"
-         description: "With some description placed here (multiline)"
+         AlertDialog {
+            id: alertDialog
+            title: "Alert dialog"
+            description: "With some description placed here (multiline)"
 
-         accepted: Action {
-            text: "ok"
-         }
-
-         rejected: Action {
-            text: "cancel"
-         }
-      }
-
-      SimpleDialog {
-         id: simpleDialog
-
-         title: "Simple dialog"
-         actions: [
-            Action {
-               text: "Item"
-               iconName: "group"
-               onTriggered: console.debug(text)
-            },
-            Action {
-               text: "Dupa"
-               iconName: "face"
-               onTriggered: console.debug(text)
-            },
-            Action {
-               text: "Kupa"
-               iconName: "person"
-               onTriggered: console.debug(text)
-            },
-            Action {
-               text: "Cipa"
-               iconName: "cake"
-               onTriggered: console.debug(text)
-            },
-            Action {
-               text: "Test 1"
-               iconName: "mood"
-               onTriggered: console.debug(text)
-            },
-            Action {
-               text: "Test 2"
-               iconName: "public"
-               onTriggered: console.debug(text)
-            }
-         ]
-      }
-
-      ConfirmationDialog {
-         id: confirmationDialog
-
-         title: "Confirmation dialog"
-
-         items: [ "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8" ]
-         visibleItems: 4
-
-         onSelected: console.debug(item)
-      }
-
-      Column {
-         anchors.fill: parent
-         anchors.topMargin: 56
-         spacing: 25
-
-         Button {
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: "push page"
-
-            style: RaisedButtonStyle {
-
+            accepted: Action {
+               text: "ok"
             }
 
-            onClicked: app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempRandomCards.qml"))
+            rejected: Action {
+               text: "cancel"
+            }
          }
 
-         Button {
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: "open"
+         SimpleDialog {
+            id: simpleDialog
 
-            style: RaisedButtonStyle {
+            title: "Simple dialog"
+            actions: [
+               Action {
+                  text: "Item"
+                  iconName: "group"
+                  onTriggered: console.debug(text)
+               },
+               Action {
+                  text: "Dupa"
+                  iconName: "face"
+                  onTriggered: console.debug(text)
+               },
+               Action {
+                  text: "Kupa"
+                  iconName: "person"
+                  onTriggered: console.debug(text)
+               },
+               Action {
+                  text: "Cipa"
+                  iconName: "cake"
+                  onTriggered: console.debug(text)
+               },
+               Action {
+                  text: "Test 1"
+                  iconName: "mood"
+                  onTriggered: console.debug(text)
+               },
+               Action {
+                  text: "Test 2"
+                  iconName: "public"
+                  onTriggered: console.debug(text)
+               }
+            ]
+         }
 
+         ConfirmationDialog {
+            id: confirmationDialog
+
+            title: "Confirmation dialog"
+
+            items: [ "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8" ]
+            visibleItems: 4
+
+            onSelected: console.debug(item)
+         }
+
+         Column {
+            anchors.fill: parent
+            anchors.topMargin: 56
+            spacing: 25
+
+            Button {
+               anchors.horizontalCenter: parent.horizontalCenter
+               text: "push page"
+
+               style: RaisedButtonStyle {
+
+               }
+
+               onClicked: app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempRandomCards.qml"))
             }
 
-            onClicked: confirmationDialog.open()
-         }
+            Button {
+               anchors.horizontalCenter: parent.horizontalCenter
+               text: "open"
 
-         TextField {
-            height: 48
+               style: RaisedButtonStyle {
 
-            placeholderText: "Name"
+               }
 
-            validator: IntValidator {
-
+               onClicked: confirmationDialog.open()
             }
 
-            anchors.horizontalCenter: parent.horizontalCenter
-            onAccepted: card.elevation = text
-         }
+            TextField {
+               height: 48
 
-         TextFieldDropdown {
-            width: 100
-            height: 48
+               placeholderText: "Name"
 
-            items: [ "London", "Warsaw", "Cracow", "Berlin", "Szczecin"]
+               validator: IntValidator {
 
-            anchors.horizontalCenter: parent.horizontalCenter
+               }
+
+               anchors.horizontalCenter: parent.horizontalCenter
+               onAccepted: card.elevation = text
+            }
+
+            TextFieldDropdown {
+               width: 100
+               height: 48
+
+               items: [ "London", "Warsaw", "Cracow", "Berlin", "Szczecin"]
+
+               anchors.horizontalCenter: parent.horizontalCenter
+            }
          }
       }
-   }
+   ]
 }
 
