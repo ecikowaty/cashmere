@@ -10,10 +10,10 @@ Item {
    readonly property color dividers: alpha(0.12)
 
    readonly property Color primaryPalette: Colors.blue
-   readonly property Color accentPalette: Colors.cyan
+   readonly property Color accentPalette: Colors.lime
 
    readonly property color primaryColor: primaryPalette ? primaryPalette.regular[5] : "black"
-   readonly property color accentColor: accentPalette ? accentPalette.accent[1] : "black"
+   readonly property color accentColor: accentPalette ? accentPalette.accent[2] : "black"
 
    function shadeOfPrimary(factor) {
       if (factor < 0 || factor > 9) {

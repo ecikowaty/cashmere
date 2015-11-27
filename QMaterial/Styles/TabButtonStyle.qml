@@ -20,13 +20,11 @@ ButtonStyleBase {
       onPaintedWidthChanged: root.textPaintedWidth = paintedWidth
    }
 
-   background: Rectangle {
+   background: Item {
       id: background
 
       implicitWidth: root.textPaintedWidth + root.horizontalMargins < 88 ? 88 : root.textPaintedWidth + root.horizontalMargins
-      implicitHeight: 36
-
-      Behavior on color { ColorAnimation { duration: 100 } }
+      implicitHeight: 48
 
       Item {
           anchors.fill: parent
@@ -47,34 +45,16 @@ ButtonStyleBase {
       states: [
          State {
             name: "normal"
-            when: !control.hovered && !control.pressed && control.enabled
+            when: control.enabled
             PropertyChanges {
-               target: background
-               color: Qt.rgba(0, 0, 0, 0)
-            }
-         },
-         State {
-            name: "hover"
-            when: control.hovered && !control.pressed && control.enabled
-            PropertyChanges {
-               target: background
-               color: alphaOf(supportingColor, 0.2)
-            }
-         },
-         State {
-            name: "pressed"
-            when: control.pressed && control.enabled
-            PropertyChanges {
-               target: background
-               color: alphaOf(supportingColor, 0.4)
+
             }
          },
          State {
             name: "disabled"
             when: !control.enabled
             PropertyChanges {
-               target: background
-               color: alphaOf(supportingColor, 0)
+
             }
          }
       ]

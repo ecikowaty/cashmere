@@ -1,5 +1,6 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
 import "."
 import "Styles"
 
@@ -48,8 +49,11 @@ ApplicationWindow {
       id: pageStack
       anchors.fill: parent
 
-      initialItem: DefaultMain {
-
+      initialItem: Page {
+         actionBar {
+            title: "Tabs test"
+            tabs: [ "Tab 1", "Tab 2", "Tab 3" ]
+         }
       }
    }
 

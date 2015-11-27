@@ -40,5 +40,7 @@
         <file>QMaterial/TextFieldDropdown.qml</file>
         <file>QMaterial/DropdownMenu.qml</file>
         <file>QMaterial/Shadow.qml</file>
+        <file>QMaterial/Styles/TabButtonStyle.qml</file>
+        <file>QMaterial/TabBar.qml</file>
     </qresource>
 </RCC>
