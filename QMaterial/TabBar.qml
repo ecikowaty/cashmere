@@ -7,28 +7,23 @@ import "."
 ListView {
    id: root
 
-   property int   visibleTabs: items.length
-   property var   items: []
-
-   signal tabSelected(var index)
-
-   interactive: visibleTabs < items.length
+   property int visibleTabs: 2
 
    width: parent.width
-   anchors.bottom: parent.bottom
-   model: items.length
-
    orientation: Qt.Horizontal
+
+   highlightFollowsCurrentItem: true
+   highlightMoveVelocity: root.width / root.visibleTabs * 5
+
+   model: 2
+   snapMode: ListView.SnapToItem
 
    delegate: Button {
       id: button
-      width: root.width / visibleTabs
+      width: root.width / root.visibleTabs
       height: 48
-      text: items[index]
-      onClicked: {
-         root.currentIndex = index
-         tabSelected(index)
-      }
+      text: views[index].name
+      onClicked: root.currentIndex = index
 
       style: TabButtonStyle {
          light: true
@@ -46,19 +41,6 @@ ListView {
          anchors.bottom: parent.bottom
          anchors.left: parent.left
          anchors.right: parent.right
-
-         function anchorTo(button) {
-            parent         = button
-            anchors.left   = button.left
-            anchors.right  = button.right
-         }
-
-         transitions: Transition {
-            AnchorAnimation {
-               easing.type: Easing.OutQuart
-            }
-         }
       }
    }
 }
-

@@ -42,5 +42,7 @@
         <file>QMaterial/Shadow.qml</file>
         <file>QMaterial/Styles/TabButtonStyle.qml</file>
         <file>QMaterial/TabBar.qml</file>
+        <file>QMaterial/TabAction.qml</file>
+        <file>QMaterial/View.qml</file>
     </qresource>
 </RCC>

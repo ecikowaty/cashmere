@@ -7,7 +7,7 @@ import "Styles"
 Card {
    id: root
 
-   height: 56 + (tabs.length > 0 ? 48 : 0)
+   height: 56
    elevation: castShadow ? 4 : 0
 
    radius: 0
@@ -16,12 +16,10 @@ Card {
    property alias actions: overlow.actions
    property alias title: titleLabel.text
    property alias visibleLimit: overlow.visibleLimit
-   property alias tabs: tabBar.items
 
    property bool  castShadow: true
 
    signal backPressed()
-   signal tabSelected(var tabIndex)
 
    Item {
       id: content
@@ -78,16 +76,6 @@ Card {
             right: parent.right
          }
       }
-   }
-
-   TabBar {
-      id: tabBar
-
-      width: parent.width
-      height: 48
-      anchors.bottom: parent.bottom
-//      visibleTabs: 2
-      snapMode: ListView.SnapToItem
    }
 }
 

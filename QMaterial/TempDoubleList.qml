@@ -17,25 +17,34 @@ Page {
       ]
    }
 
-   content: ListView {
-      id: listView
-      clip: true
+   views:[
+      View {
+         name: "Double"
 
-      model: 20
+         ListView {
+            id: listView
+            clip: true
+            anchors.fill: parent
 
-      delegate: Button {
-         width: parent.width
-         height: 72
+            model: 20
 
-         style: DoubleLineListItemStyle {
-            primaryText: "This is item number " + index + " on the list"
-            secondaryText: "With some secondary text"
+            delegate: Button {
+               width: parent.width
+               height: 72
 
-            icon: Icon {
-               name: "face"
+               style: DoubleLineListItemStyle {
+                  primaryText: "This is item number " + index + " on the list"
+                  secondaryText: "With some secondary text"
+
+                  icon: Icon {
+                     name: "face"
+                  }
+               }
             }
          }
       }
-   }
+   ]
 }
+
+
 

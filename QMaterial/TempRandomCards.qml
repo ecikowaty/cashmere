@@ -21,32 +21,40 @@ Page {
       ]
    }
 
-   content: ListView {
-      id: listView
-      clip: true
+   views: [
+      View {
+         name: "Items"
 
-      header: Item {
-         width: parent.width
-         height: 8
-      }
+         ListView {
+            id: listView
+            clip: true
 
-      footer: Item {
-         width: parent.width
-         height: 8
-      }
+            anchors.fill: parent
 
-      model: 20
+            header: Item {
+               width: parent.width
+               height: 8
+            }
 
-      delegate: Button {
-         width: parent.width
-         height: 48
-         text: "This is item number " + index + " on the list"
-         style: SingleLineListItemStyle {
-            icon: Icon{
-               name: "favorite"
+            footer: Item {
+               width: parent.width
+               height: 8
+            }
+
+            model: 20
+
+            delegate: Button {
+               width: parent.width
+               height: 48
+               text: "This is item number " + index + " on the list"
+               style: SingleLineListItemStyle {
+                  icon: Icon{
+                     name: "favorite"
+                  }
+               }
             }
          }
       }
-   }
+   ]
 }
 
