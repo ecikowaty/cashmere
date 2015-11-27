@@ -9,13 +9,11 @@ Rectangle {
 
    color: "#fafafa"
 
-   property alias thisPage: root
    property alias actionBar: actionBar
    property alias views: viewsModel.children
 
    property Component tabBar: ScrollableTabBar {
-      visible: views.length > 1
-      tabCount: views.length
+      views: root.views
    }
 
    ActionBar {
@@ -33,6 +31,7 @@ Rectangle {
 
          width: parent.width
          height: views.length > 1 ? 48 : 0
+         visible: height > 0
          anchors.bottom: actionBar.bottom
 
          sourceComponent: root.tabBar
@@ -44,9 +43,6 @@ Rectangle {
 
       orientation: Qt.Horizontal
       snapMode: ListView.SnapOneItem
-
-      flickDeceleration: 10000
-      Component.onCompleted: console.debug(flickDeceleration)
 
       highlightFollowsCurrentItem: true
       highlightMoveVelocity: listView.width * 5

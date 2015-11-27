@@ -56,143 +56,110 @@ ApplicationWindow {
             title: "Tabs test"
          }
 
-//         tabBar: ScrollableTabBar {
-
-//         }
+         tabBar: ScrollableTabBar {
+            views: page.views
+         }
 
          views: [
             View {
                name: "playlists"
-               Card {
-                  width: 200
-                  height: 200
-                  anchors.centerIn: parent
-               }
-            },
-            View {
-               name: "genres"
-               Button {
-                  text: "hello"
-                  anchors.centerIn: parent
-
-                  style: RaisedButtonStyle {
-
-                  }
-               }
-            },
-            View {
-               name: "Default"
-
-               AlertDialog {
-                  id: alertDialog
-                  title: "Alert dialog"
-                  description: "With some description placed here (multiline)"
-
-                  accepted: Action {
-                     text: "ok"
-                  }
-
-                  rejected: Action {
-                     text: "cancel"
-                  }
-               }
-
-               SimpleDialog {
-                  id: simpleDialog
-
-                  title: "Simple dialog"
-                  actions: [
-                     Action {
-                        text: "Item"
-                        iconName: "group"
-                        onTriggered: console.debug(text)
-                     },
-                     Action {
-                        text: "Dupa"
-                        iconName: "face"
-                        onTriggered: console.debug(text)
-                     },
-                     Action {
-                        text: "Kupa"
-                        iconName: "person"
-                        onTriggered: console.debug(text)
-                     },
-                     Action {
-                        text: "Cipa"
-                        iconName: "cake"
-                        onTriggered: console.debug(text)
-                     },
-                     Action {
-                        text: "Test 1"
-                        iconName: "mood"
-                        onTriggered: console.debug(text)
-                     },
-                     Action {
-                        text: "Test 2"
-                        iconName: "public"
-                        onTriggered: console.debug(text)
-                     }
-                  ]
-               }
-
-               ConfirmationDialog {
-                  id: confirmationDialog
-
-                  title: "Confirmation dialog"
-
-                  items: [ "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 7", "Item 8" ]
-                  visibleItems: 4
-
-                  onSelected: console.debug(item)
-               }
-
                Column {
+                  spacing: 20
                   anchors.fill: parent
-                  anchors.topMargin: 56
-                  spacing: 25
 
-                  Button {
-                     anchors.horizontalCenter: parent.horizontalCenter
-                     text: "push page"
-
-                     style: RaisedButtonStyle {
-
-                     }
-
-                     onClicked: app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempRandomCards.qml"))
+                  Item {
+                     width: 400
+                     height: 50
                   }
 
-                  Button {
+                  Card {
+                     width: 400
+                     height: 150
                      anchors.horizontalCenter: parent.horizontalCenter
-                     text: "open"
 
-                     style: RaisedButtonStyle {
+                     Label {
+                        id: title1
+                        text: "Fixed tab view"
 
+                        anchors {
+                           top: parent.top; topMargin: 16
+                           left: parent.left; leftMargin: 16
+                        }
+
+                        fontStyle: FontStyles.headline
                      }
 
-                     onClicked: confirmationDialog.open()
-                  }
+                     Label {
+                        id: description1
+                        text: "Pushes a multi tabbed view, each tab occupies same width in action bar."
 
-                  TextField {
-                     height: 48
+                        anchors {
+                           top: title1.bottom; topMargin: 16
+                           left: parent.left; leftMargin: 16
+                           right: parent.right; rightMargin: 16
+                        }
 
-                     placeholderText: "Name"
-
-                     validator: IntValidator {
-
+                        wrapMode: Text.WordWrap
+                        color: Theme.secondaryText
                      }
 
-                     anchors.horizontalCenter: parent.horizontalCenter
-                     onAccepted: card.elevation = text
+                     Button {
+                        text: "add"
+
+                        anchors {
+                           bottom: parent.bottom; bottomMargin: 8
+                           left: parent.left; leftMargin: 8
+                        }
+
+                        style: FlatButtonStyle {
+                           horizontalMargins: 16
+                        }
+                     }
                   }
 
-                  TextFieldDropdown {
-                     width: 100
-                     height: 48
-
-                     items: [ "London", "Warsaw", "Cracow", "Berlin", "Szczecin"]
-
+                  Card {
+                     width: 400
+                     height: 150
                      anchors.horizontalCenter: parent.horizontalCenter
+
+                     Label {
+                        id: title2
+                        text: "Scrollable tab view"
+
+                        anchors {
+                           top: parent.top; topMargin: 16
+                           left: parent.left; leftMargin: 16
+                        }
+
+                        fontStyle: FontStyles.headline
+                     }
+
+                     Label {
+                        id: description2
+                        text: "Pushes a multi tabbed view, tabs are scrollable."
+
+                        anchors {
+                           top: title2.bottom; topMargin: 16
+                           left: parent.left; leftMargin: 16
+                           right: parent.right; rightMargin: 16
+                        }
+
+                        wrapMode: Text.WordWrap
+                        color: Theme.secondaryText
+                     }
+
+                     Button {
+                        text: "add"
+
+                        anchors {
+                           bottom: parent.bottom; bottomMargin: 8
+                           left: parent.left; leftMargin: 8
+                        }
+
+                        style: FlatButtonStyle {
+                           horizontalMargins: 16
+                        }
+                     }
                   }
                }
             }

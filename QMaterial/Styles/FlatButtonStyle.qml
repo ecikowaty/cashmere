@@ -23,7 +23,7 @@ ButtonStyleBase {
    background: Rectangle {
       id: background
 
-      implicitWidth: root.textPaintedWidth + root.horizontalMargins < 88 ? 88 : root.textPaintedWidth + root.horizontalMargins
+      implicitWidth: root.textPaintedWidth + root.horizontalMargins < 64 ? 64 : root.textPaintedWidth + root.horizontalMargins
       implicitHeight: 36
 
       Behavior on color { ColorAnimation { duration: 100 } }

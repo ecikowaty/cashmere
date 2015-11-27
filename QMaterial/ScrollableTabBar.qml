@@ -18,7 +18,7 @@ TabBar {
       highlightFollowsCurrentItem: true
       highlightMoveVelocity: width / root.visibleTabs * 5
 
-      model: root.tabCount
+      model: views.length
       snapMode: ListView.SnapToItem
 
       header: Item {
