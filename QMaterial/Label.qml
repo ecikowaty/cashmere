@@ -4,7 +4,7 @@ import "."
 Text {
     id: root
 
-    color: Theme.text
+    color: Theme.onLightBackground.primary
     property FontStyle fontStyle: FontStyles.body1
 
     FontLoader {

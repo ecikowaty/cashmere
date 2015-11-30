@@ -100,7 +100,7 @@ ApplicationWindow {
                         }
 
                         wrapMode: Text.WordWrap
-                        color: Theme.secondaryText
+                        color: Theme.onLightBackground.secondary
                      }
 
                      Button {
@@ -145,7 +145,7 @@ ApplicationWindow {
                         }
 
                         wrapMode: Text.WordWrap
-                        color: Theme.secondaryText
+                        color: Theme.onLightBackground.secondary
                      }
 
                      Button {

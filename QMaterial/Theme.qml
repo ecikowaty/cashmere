@@ -4,10 +4,18 @@ import QtQuick 2.5
 import "."
 
 Item {
-   readonly property color text: alpha(0.82)
-   readonly property color secondaryText: alpha(0.54)
-   readonly property color disabled: alpha(0.38)
-   readonly property color dividers: alpha(0.12)
+   property TextColorPreset onLightBackground: TextColorPreset {
+      primary: Qt.rgba(0, 0, 0, 0.87)
+      secondary: Qt.rgba(0, 0, 0, 0.54)
+      hintOrDisabled: Qt.rgba(0, 0, 0, 0.38)
+      dividers: Qt.rgba(0, 0, 0, 0.12)
+   }
+   property TextColorPreset onDarkBackground: TextColorPreset {
+      primary: Qt.rgba(1, 1, 1, 1)
+      secondary: Qt.rgba(1, 1, 1, 0.7)
+      hintOrDisabled: Qt.rgba(1, 1, 1, 0.3)
+      dividers: Qt.rgba(1, 1, 1, 0.12)
+   }
 
    readonly property Color primaryPalette: Colors.blue
    readonly property Color accentPalette: Colors.lime
@@ -31,10 +39,6 @@ Item {
       }
 
       return accentPalette.accent[factor]
-   }
-
-   function alpha(factor) {
-      return Qt.rgba(0, 0, 0, factor)
    }
 }
 

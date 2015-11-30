@@ -46,5 +46,6 @@
         <file>QMaterial/View.qml</file>
         <file>QMaterial/ScrollableTabBar.qml</file>
         <file>QMaterial/FixedTabBar.qml</file>
+        <file>QMaterial/TextColorPreset.qml</file>
     </qresource>
 </RCC>
