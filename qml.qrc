@@ -47,5 +47,7 @@
         <file>QMaterial/ScrollableTabBar.qml</file>
         <file>QMaterial/FixedTabBar.qml</file>
         <file>QMaterial/TextColorPreset.qml</file>
+        <file>QMaterial/NavigationDrawer.qml</file>
+        <file>QMaterial/VelocityCalculator.qml</file>
     </qresource>
 </RCC>

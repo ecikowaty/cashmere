@@ -1,6 +1,6 @@
 import QtQuick 2.5
 
-Item {
+Flickable {
    property string name: "View"
 }
 

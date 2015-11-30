@@ -29,7 +29,7 @@ Card {
       }
 
       Button {
-         id: leftButton
+         id: drawerButton
 
          width: 24
          height: width
@@ -39,8 +39,33 @@ Card {
             verticalCenter: parent.verticalCenter
          }
 
+         visible: app.isInitialPage(root.parent) && navigationDrawer.enabled
+
          action: Action {
-            iconName: app.isInitialPage(root.parent) ? "menu" : "arrow_back"
+            iconName: "menu"
+            onTriggered: navigationDrawer.show()
+         }
+
+         style: ActionButtonStyle {
+            light: true
+         }
+      }
+
+      Button {
+         id: backButton
+
+         width: 24
+         height: width
+
+         anchors {
+            left: parent.left
+            verticalCenter: parent.verticalCenter
+         }
+
+         visible: !app.isInitialPage(root.parent)
+
+         action: Action {
+            iconName: "arrow_back"
             onTriggered: root.backPressed()
          }
 

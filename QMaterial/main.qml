@@ -56,13 +56,15 @@ ApplicationWindow {
             title: "Tabs test"
          }
 
-         tabBar: ScrollableTabBar {
+         tabBar: FixedTabBar {
             views: page.views
          }
 
          views: [
             View {
                name: "playlists"
+               contentHeight: 2000
+
                Column {
                   spacing: 20
                   anchors.fill: parent
@@ -74,96 +76,70 @@ ApplicationWindow {
 
                   Card {
                      width: 400
-                     height: 150
+                     height: 200
+
                      anchors.horizontalCenter: parent.horizontalCenter
-
-                     Label {
-                        id: title1
-                        text: "Fixed tab view"
-
-                        anchors {
-                           top: parent.top; topMargin: 16
-                           left: parent.left; leftMargin: 16
-                        }
-
-                        fontStyle: FontStyles.headline
-                     }
-
-                     Label {
-                        id: description1
-                        text: "Pushes a multi tabbed view, each tab occupies same width in action bar."
-
-                        anchors {
-                           top: title1.bottom; topMargin: 16
-                           left: parent.left; leftMargin: 16
-                           right: parent.right; rightMargin: 16
-                        }
-
-                        wrapMode: Text.WordWrap
-                        color: Theme.onLightBackground.secondary
-                     }
-
-                     Button {
-                        text: "add"
-
-                        anchors {
-                           bottom: parent.bottom; bottomMargin: 8
-                           left: parent.left; leftMargin: 8
-                        }
-
-                        style: FlatButtonStyle {
-                           horizontalMargins: 16
-                        }
-                     }
                   }
 
                   Card {
                      width: 400
-                     height: 150
+                     height: 200
+
                      anchors.horizontalCenter: parent.horizontalCenter
+                  }
 
-                     Label {
-                        id: title2
-                        text: "Scrollable tab view"
+                  Card {
+                     width: 400
+                     height: 200
 
-                        anchors {
-                           top: parent.top; topMargin: 16
-                           left: parent.left; leftMargin: 16
-                        }
+                     anchors.horizontalCenter: parent.horizontalCenter
+                  }
 
-                        fontStyle: FontStyles.headline
-                     }
+                  Card {
+                     width: 400
+                     height: 200
 
-                     Label {
-                        id: description2
-                        text: "Pushes a multi tabbed view, tabs are scrollable."
+                     anchors.horizontalCenter: parent.horizontalCenter
+                  }
 
-                        anchors {
-                           top: title2.bottom; topMargin: 16
-                           left: parent.left; leftMargin: 16
-                           right: parent.right; rightMargin: 16
-                        }
+                  Card {
+                     width: 400
+                     height: 200
 
-                        wrapMode: Text.WordWrap
-                        color: Theme.onLightBackground.secondary
-                     }
+                     anchors.horizontalCenter: parent.horizontalCenter
+                  }
+               }
+            },
+            View {
+               name: "music"
 
-                     Button {
-                        text: "add"
+               Column {
+                  spacing: 20
+                  anchors.fill: parent
 
-                        anchors {
-                           bottom: parent.bottom; bottomMargin: 8
-                           left: parent.left; leftMargin: 8
-                        }
-
-                        style: FlatButtonStyle {
-                           horizontalMargins: 16
-                        }
-                     }
+                  Item {
+                     width: 400
+                     height: 50
                   }
                }
             }
          ]
+      }
+   }
+
+   NavigationDrawer {
+      id: navigationDrawer
+
+      Button {
+         anchors {
+            top: parent.top; topMargin: 20
+            horizontalCenter: parent.horizontalCenter
+         }
+
+         text: "drawer"
+         style: RaisedButtonStyle {
+
+         }
       }
    }
 
