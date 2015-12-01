@@ -6,6 +6,8 @@ Card {
 
    x: -width - 16
 
+//   state: "hidden"
+
    width: parent.width - 56
    height: parent.height
 
@@ -15,10 +17,13 @@ Card {
 //   Behavior on opacity { NumberAnimation { duration: 200 } }
 
    function show() {
+      state = "visible"
+      overlayBinder.bind(true)
       openAnimation.running = true
    }
 
    function hide() {
+      state = "hidden"
       hideAnimation.running = true
    }
 
@@ -46,10 +51,10 @@ Card {
 
          onVelocityMeasured: {
             if (velocity > 300) {
-               increasing ? openAnimation.running = true : hideAnimation.running = true
+               increasing ? show() : hide()
             }
             else {
-               Math.abs(root.x) < root.width / 2 ? openAnimation.running = true : hideAnimation.running = true
+               Math.abs(root.x) < root.width / 2 ? show() : hide()
             }
          }
       }
@@ -58,6 +63,21 @@ Card {
          hideAnimation.running = false
          openAnimation.running = false
       }
+   }
+
+//   Rectangle {
+//      id: drawerOverlay
+
+//      anchors.fill: parent
+
+//      color: Qt.rgba(0, 0, 0, 0.4)
+//      opacity: 1 - (Math.abs(navigationDrawer.x) / navigationDrawer.width)
+//   }
+
+   OverlayBinder {
+      id: overlayBinder
+
+      enableWhen: root.state === "visible"
    }
 
    NumberAnimation {

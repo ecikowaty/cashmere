@@ -15,6 +15,11 @@ Item {
       overlay.darken = darken
    }
 
+   function reparent() {
+      mirroredItem = parent.parent
+      parent.parent = overlay.placeholder
+   }
+
    Connections {
       target: overlay
       onClicked: {
@@ -27,11 +32,6 @@ Item {
       id: enabledBinding
       target: overlay
       property: "enabled"
-   }
-
-   Component.onCompleted: {
-      mirroredItem = parent.parent
-      parent.parent = overlay.placeholder
    }
 }
 
