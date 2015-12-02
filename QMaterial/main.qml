@@ -77,7 +77,11 @@ ApplicationWindow {
                      width: 400
                      anchors.horizontalCenter: parent.horizontalCenter
 
-                     style: ContinuousSliderStyle {
+                     stepSize: 10
+                     maximumValue: 100
+                     tickmarksEnabled: true
+
+                     style: DiscreteSliderStyle {
 
                      }
                   }
