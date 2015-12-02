@@ -62,55 +62,6 @@ ApplicationWindow {
 
          views: [
             View {
-               name: "playlists"
-               contentHeight: 2000
-
-               Column {
-                  spacing: 20
-                  anchors.fill: parent
-
-                  Item {
-                     width: 400
-                     height: 50
-                  }
-
-                  Card {
-                     width: 400
-                     height: 200
-
-                     anchors.horizontalCenter: parent.horizontalCenter
-                  }
-
-                  Card {
-                     width: 400
-                     height: 200
-
-                     anchors.horizontalCenter: parent.horizontalCenter
-                  }
-
-                  Card {
-                     width: 400
-                     height: 200
-
-                     anchors.horizontalCenter: parent.horizontalCenter
-                  }
-
-                  Card {
-                     width: 400
-                     height: 200
-
-                     anchors.horizontalCenter: parent.horizontalCenter
-                  }
-
-                  Card {
-                     width: 400
-                     height: 200
-
-                     anchors.horizontalCenter: parent.horizontalCenter
-                  }
-               }
-            },
-            View {
                name: "music"
 
                Column {
@@ -120,6 +71,15 @@ ApplicationWindow {
                   Item {
                      width: 400
                      height: 50
+                  }
+
+                  Slider {
+                     width: 400
+                     anchors.horizontalCenter: parent.horizontalCenter
+
+                     style: ContinuousSliderStyle {
+
+                     }
                   }
                }
             }

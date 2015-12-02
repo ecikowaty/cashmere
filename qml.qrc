@@ -49,5 +49,6 @@
         <file>QMaterial/TextColorPreset.qml</file>
         <file>QMaterial/NavigationDrawer.qml</file>
         <file>QMaterial/VelocityCalculator.qml</file>
+        <file>QMaterial/Styles/ContinuousSliderStyle.qml</file>
     </qresource>
 </RCC>
