@@ -18,7 +18,6 @@ Card {
 
    function show() {
       state = "visible"
-      overlayBinder.bind(true)
       openAnimation.running = true
    }
 
@@ -65,19 +64,22 @@ Card {
       }
    }
 
-//   Rectangle {
-//      id: drawerOverlay
+   Rectangle {
+      id: drawerOverlay
 
-//      anchors.fill: parent
+      width: parent.width * 2
+      height: parent.height * 2
 
-//      color: Qt.rgba(0, 0, 0, 0.4)
-//      opacity: 1 - (Math.abs(navigationDrawer.x) / navigationDrawer.width)
-//   }
+      anchors.left: parent.right
 
-   OverlayBinder {
-      id: overlayBinder
+      color: Qt.rgba(0, 0, 0, 0.4)
+      opacity: 1 - (Math.abs(navigationDrawer.x) / navigationDrawer.width)
 
-      enableWhen: root.state === "visible"
+      MouseArea {
+         anchors.fill: parent
+         onClicked: root.hide()
+         enabled: root.state === "visible"
+      }
    }
 
    NumberAnimation {

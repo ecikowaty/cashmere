@@ -143,15 +143,6 @@ ApplicationWindow {
       }
    }
 
-//   Rectangle {
-//      id: drawerOverlay
-
-//      anchors.fill: parent
-
-//      color: Qt.rgba(0, 0, 0, 0.4)
-//      opacity: 1 - (Math.abs(navigationDrawer.x) / navigationDrawer.width)
-//   }
-
    Overlay {
       id: overlay
       anchors.fill: parent
