@@ -73,17 +73,11 @@ ApplicationWindow {
                      height: 50
                   }
 
-                  Slider {
-                     width: 400
+                  TextFieldDropdown {
+                     width: 150
                      anchors.horizontalCenter: parent.horizontalCenter
 
-                     stepSize: 10
-                     maximumValue: 100
-                     tickmarksEnabled: true
-
-                     style: DiscreteSliderStyle {
-
-                     }
+                     items: [ "Londyn", "Szczecin", "Berlin", "Warszawa", "Kraków" ]
                   }
                }
             }

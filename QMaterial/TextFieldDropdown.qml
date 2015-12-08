@@ -28,8 +28,6 @@ Item {
    DropdownMenu {
       id: dropdownMenu
       width: 70
-      anchors.left: parent.left
-      anchors.leftMargin: -16
       visibleItems: 3
 
       OverlayBinder {
@@ -43,7 +41,7 @@ Item {
       id: selectedLabel
 
       fontStyle: FontStyles.subheading
-      color: Theme.secondaryText
+      color: Theme.onLightBackground.secondary
 
       text: dropdownMenu.text
       opacity: dropdownMenu.state === "closed"

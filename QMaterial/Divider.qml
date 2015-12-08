@@ -5,6 +5,6 @@ Rectangle {
    width: parent.width
    height: 1
 
-   color: Theme.dividers
+   color: Theme.onLightBackground.dividers
 }
 

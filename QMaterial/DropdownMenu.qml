@@ -13,8 +13,9 @@ Card {
    property real  widthMultiplier: 2.6
    property int   visibleItems: 5
    property var   items
+   property alias currentIndex: listView.currentIndex
 
-   property string text: items[0]
+   property string text: items[currentIndex]
 
    function open() {
       state = "open"
@@ -22,6 +23,15 @@ Card {
 
    function close() {
       state = "closed"
+   }
+
+   anchors {
+      top: parent.top
+      topMargin: {
+
+      }
+
+      left: parent.left; leftMargin: -16
    }
 
    ListView {
@@ -34,9 +44,24 @@ Card {
          width: parent.width
          height: 48
          text: items[index]
+         opacity: root.state === "open"
+
          onClicked: root.text = items[index]
+
          style: SingleLineListItemStyle {
 
+         }
+
+         Behavior on opacity {
+            SequentialAnimation {
+               PauseAnimation {
+                  duration: opacity ? 0 : 100 * index + 300
+               }
+
+               NumberAnimation {
+                  duration: opacity ? 100 : 300
+               }
+            }
          }
       }
    }

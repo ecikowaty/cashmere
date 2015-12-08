@@ -33,5 +33,7 @@ Item {
       target: overlay
       property: "enabled"
    }
+
+   Component.onCompleted: reparent()
 }
 
