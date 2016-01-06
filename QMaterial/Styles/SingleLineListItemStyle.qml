@@ -12,7 +12,7 @@ ButtonStyleBase {
 
    property Component icon: Icon {
       name: control.action.iconName
-      color: Theme.secondaryText
+      color: Theme.onLightBackground.secondary
    }
 
    label: Item {

@@ -33,7 +33,7 @@ RadioButtonStyle {
       implicitHeight: 24
 
       name: "radio_button_unchecked"
-      color: Theme.secondaryText
+      color: Theme.onLightBackground.secondary
 
       Icon {
          opacity: control.checked

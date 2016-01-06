@@ -1,20 +1,19 @@
 import QtQuick 2.5
+import QtQuick.Controls 1.4
 import "."
+import "Styles"
 
 Card {
    id: root
 
    x: -width - 16
 
-//   state: "hidden"
-
    width: parent.width - 56
    height: parent.height
 
    elevation: 16
 
-//   opacity: x > -width || dragArea.pressed
-//   Behavior on opacity { NumberAnimation { duration: 200 } }
+   property list<Action> actions
 
    function show() {
       state = "visible"
@@ -26,41 +25,58 @@ Card {
       hideAnimation.running = true
    }
 
-   MouseArea {
-      id: dragArea
-
-      property int dragStartingX: 0
-      property double dragStartTime: -1
-
+   ListView {
+      id: actionList
       anchors.fill: parent
-      anchors.rightMargin: -32
+      enabled: actions.length > 0
 
-      drag {
-         target: parent
-         axis: Drag.XAxis
-         minimumX: -root.width
-         maximumX: -16
-      }
+      model: actions.length
 
-      VelocityCalculator {
-         id: velocityCalculator
+      delegate: Button {
+         width: parent.width
+         height: 48
 
-         observed: root.x
-         measureWhen: dragArea.pressed
+         action: root.actions[index]
+         style: SingleLineListItemStyle {
 
-         onVelocityMeasured: {
-            if (velocity > 300) {
-               increasing ? show() : hide()
+            MouseArea {
+               id: dragArea
+
+               anchors.fill: parent
+               anchors.rightMargin: -32
+
+               drag {
+                  target: root
+                  axis: Drag.XAxis
+                  minimumX: -root.width
+                  maximumX: -16
+               }
+
+               propagateComposedEvents: true
+
+               VelocityCalculator {
+                  id: velocityCalculator
+
+                  observed: root.x
+                  measureWhen: dragArea.pressed
+
+                  onVelocityMeasured: {
+                     if (velocity > 300) {
+                        increasing ? show() : hide()
+                     }
+                     else {
+                        Math.abs(root.x) < root.width / 2 ? show() : hide()
+                     }
+                  }
+               }
+
+               onPressed: {
+                  hideAnimation.running = false
+                  openAnimation.running = false
+               }
             }
-            else {
-               Math.abs(root.x) < root.width / 2 ? show() : hide()
-            }
+
          }
-      }
-
-      onPressed: {
-         hideAnimation.running = false
-         openAnimation.running = false
       }
    }
 

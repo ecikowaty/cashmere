@@ -55,7 +55,7 @@ ButtonStyleBase {
             anchors.bottom: parent.bottom
 
             fontStyle: FontStyles.body1
-            color: Theme.secondaryText
+            color: Theme.onLightBackground.secondary
             text: root.secondaryText
          }
 

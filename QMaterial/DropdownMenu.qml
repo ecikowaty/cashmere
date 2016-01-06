@@ -46,7 +46,10 @@ Card {
          text: items[index]
          opacity: root.state === "open"
 
-         onClicked: root.text = items[index]
+         onClicked: {
+            root.text = items[index]
+            root.close()
+         }
 
          style: SingleLineListItemStyle {
 

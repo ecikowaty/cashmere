@@ -36,7 +36,7 @@ Dialog {
       }
 
       fontStyle: FontStyles.subheading
-      color: Theme.secondaryText
+      color: Theme.onLightBackground.secondary
       wrapMode: Text.WordWrap
    }
 
