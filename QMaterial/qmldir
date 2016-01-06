@@ -6,7 +6,6 @@ Color 0.1 Color.qml
 ConfirmationButtons 0.1 ConfirmationButtons.qml
 ConfirmationDialog 0.1 ConfirmationDialog.qml
 singleton Colors 0.1 Colors.qml
-DefaultMain 0.1 DefaultMain.qml
 Dialog 0.1 Dialog.qml
 Divider 0.1 Divider.qml
 DropdownMenu 0.1 DropdownMenu.qml

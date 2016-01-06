@@ -15,7 +15,7 @@ TextInput {
       id: placeholderLabel
 
       fontStyle: FontStyles.subheading
-      color: Theme.secondaryText
+      color: Theme.onLightBackground.secondary
 
       opacity: root.text.length === 0
       Behavior on opacity { NumberAnimation { duration: 100 } }
@@ -30,7 +30,7 @@ TextInput {
       height: root.activeFocus ? 2 : 1
       Behavior on height { NumberAnimation { duration: 100 } }
 
-      color: root.activeFocus ? Theme.primaryColor : Theme.dividers
+      color: root.activeFocus ? Theme.primaryColor : Theme.onLightBackground.dividers
    }
 
    font {
@@ -59,7 +59,7 @@ TextInput {
       }
    }
 
-   color: Theme.text
+   color: Theme.onLightBackground.primary
    selectionColor: Theme.primaryColor
 }
 

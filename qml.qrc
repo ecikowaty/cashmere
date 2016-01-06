@@ -23,7 +23,7 @@
         <file>QMaterial/OverlayBinder.qml</file>
         <file>QMaterial/Overlay.qml</file>
         <file>QMaterial/Page.qml</file>
-        <file>QMaterial/DefaultMain.qml</file>
+        <file>QMaterial/DemoDialogs.qml</file>
         <file>QMaterial/TempRandomCards.qml</file>
         <file>QMaterial/PageStack.qml</file>
         <file>QMaterial/TempDoubleList.qml</file>
@@ -51,5 +51,7 @@
         <file>QMaterial/VelocityCalculator.qml</file>
         <file>QMaterial/Styles/ContinuousSliderStyle.qml</file>
         <file>QMaterial/Styles/DiscreteSliderStyle.qml</file>
+        <file>QMaterial/DemoTextfield.qml</file>
+        <file>QMaterial/Application.qml</file>
     </qresource>
 </RCC>
