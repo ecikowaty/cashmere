@@ -20,7 +20,7 @@ ButtonStyle {
          id: ripple
          expandedSize: parent.width * 2.5
          anchors.centerIn: parent
-         color: Qt.rgba(1, 1, 1, 0.2)
+         color: light ? Qt.rgba(1, 1, 1, 0.2) : Qt.rgba(0, 0, 0, 0.2)
 
          Connections {
             target: control

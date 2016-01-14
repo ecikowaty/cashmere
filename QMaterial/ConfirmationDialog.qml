@@ -18,8 +18,8 @@ Dialog {
       }
    }
 
-   property var   items
-   property int   visibleItems: items.length
+   property list<Action>   actions
+   property int            visibleItems: actions.length
 
    signal selected(var item)
 
@@ -53,7 +53,7 @@ Dialog {
       width: parent.width
       height: root.visibleItems * 56
 
-      model: items.length
+      model: actions.length
 
       ExclusiveGroup {
          id: radioGroup
@@ -62,9 +62,10 @@ Dialog {
       delegate: RadioButton {
          width: parent.width
          height: 56
-         text: items[index]
+         text: actions[index].text
 
          exclusiveGroup: radioGroup
+         onClicked: itemsList.currentIndex = index
 
          style: CircleRadioButtonStyle {
             leftMargin: 24
@@ -102,7 +103,7 @@ Dialog {
       accepted: Action {
          text: "ok"
          enabled: radioGroup.current !== null
-         onTriggered: root.selected(radioGroup.current.text)
+         onTriggered: actions[itemsList.currentIndex].trigger()
       }
 
       rejected: Action {

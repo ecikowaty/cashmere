@@ -15,6 +15,7 @@ Icon 0.1 Icon.qml
 Label 0.1 Label.qml
 ListItem 0.1 ListItem.qml
 Menu 0.1 Menu.qml
+MaterialApplication 0.1 MaterialApplication.qml
 NotificationDrawer 0.1 NotificationDrawer.qml
 Overflow 0.1 Overflow.qml
 Overlay 0.1 Overlay.qml
@@ -23,8 +24,10 @@ Page 0.1 Page.qml
 PageStack 0.1 PageStack.qml
 Ripple 0.1 Ripple.qml
 Shadow 0.1 Shadow.qml
+SimpleDialog 0.1 SimpleDialog.qml
 TabAction 0.1 TabAction.qml
 TabBar 0.1 TabBar.qml
 TextField 0.1 TextField.qml
 TextFieldDropdown 0.1 TextFieldDropdown.qml
 singleton Theme 0.1 Theme.qml
+View 0.1 View.qml

@@ -16,7 +16,7 @@ Item {
 
       FontLoader {
          id: materialIcons
-         source: "qrc:/fonts/MaterialIcons-Regular.ttf"
+         source: Qt.resolvedUrl("fonts/MaterialIcons-Regular.ttf")
       }
 
       anchors.centerIn: parent

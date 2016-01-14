@@ -11,5 +11,6 @@
         <file>fonts/Roboto-MediumItalic.ttf</file>
         <file>fonts/Roboto-Regular.ttf</file>
         <file>fonts/MaterialIcons-Regular.ttf</file>
+        <file>../coiny/src/qml/EntryBriefCard.qml</file>
     </qresource>
 </RCC>

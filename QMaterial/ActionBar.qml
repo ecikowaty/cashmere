@@ -39,7 +39,7 @@ Card {
             verticalCenter: parent.verticalCenter
          }
 
-         visible: app.isInitialPage(root.parent) && navigationDrawer.enabled
+         visible: isInitialPage(root.parent) && navigationDrawer.enabled
 
          action: Action {
             iconName: "menu"
@@ -90,13 +90,9 @@ Card {
       Overflow {
          id: overlow
 
-         anchors.left: titleLabel.right
-         anchors.right: parent.right
-
          anchors {
-            top: parent.top
-            bottom: parent.bottom
-            right: parent.right
+            left: titleLabel.right; right: parent.right
+            top: parent.top; bottom: parent.bottom
          }
       }
    }

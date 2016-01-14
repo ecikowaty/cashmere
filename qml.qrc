@@ -52,6 +52,6 @@
         <file>QMaterial/Styles/ContinuousSliderStyle.qml</file>
         <file>QMaterial/Styles/DiscreteSliderStyle.qml</file>
         <file>QMaterial/DemoTextfield.qml</file>
-        <file>QMaterial/Application.qml</file>
+        <file>QMaterial/MaterialApplication.qml</file>
     </qresource>
 </RCC>

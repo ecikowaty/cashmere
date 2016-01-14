@@ -9,17 +9,17 @@ Text {
 
     FontLoader {
         id: regular
-        source: "qrc:/fonts/Roboto-Regular.ttf"
+        source: Qt.resolvedUrl("fonts/Roboto-Regular.ttf")
     }
 
     FontLoader {
         id: light
-        source: "qrc:/fonts/Roboto-Light.ttf"
+        source: Qt.resolvedUrl("fonts/Roboto-Light.ttf")
     }
 
     FontLoader {
         id: medium
-        source: "qrc:/fonts/Roboto-Medium.ttf"
+        source: Qt.resolvedUrl("fonts/Roboto-Medium.ttf")
     }
 
     font.family: {
