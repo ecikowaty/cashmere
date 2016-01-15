@@ -7,10 +7,10 @@ Item {
    opacity: parent.opacity === 1 ? parent.opacity : parent.opacity * 0.75
 
    property int elevation: 2
-   property int glowRadius: 1 + elevation / 1.5
+   property int glowRadius: 1 + elevation / 3
    property int cornerRadius: 2 + elevation / 1.5
 
-   property color color: Qt.rgba(0, 0, 0, 0.5)
+   property color color: Qt.rgba(0, 0, 0, 0.7)
 
    Item {
       id: topContainer

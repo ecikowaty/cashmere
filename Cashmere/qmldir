@@ -9,6 +9,7 @@ singleton Colors 1.0 Colors.qml
 Dialog 1.0 Dialog.qml
 Divider 1.0 Divider.qml
 DropdownMenu 1.0 DropdownMenu.qml
+EntryCard 1.0 EntryCard.qml
 FontStyle 1.0 FontStyle.qml
 FixedTabBar 1.0 FixedTabBar.qml
 singleton FontStyles 1.0 FontStyles.qml
@@ -28,6 +29,7 @@ Shadow 1.0 Shadow.qml
 SimpleDialog 1.0 SimpleDialog.qml
 TabAction 1.0 TabAction.qml
 TabBar 1.0 TabBar.qml
+TabbedViews 1.0 TabbedViews.qml
 TextField 1.0 TextField.qml
 TextFieldDropdown 1.0 TextFieldDropdown.qml
 singleton Theme 1.0 Theme.qml

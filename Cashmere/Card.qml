@@ -7,6 +7,7 @@ Item {
    property alias radius: rect.radius
    property int   elevation: 2
    property alias color: rect.color
+   property alias dropShadow: shadow.visible
 
    width: 200
    height: 50
@@ -14,6 +15,7 @@ Item {
    z: parent.z + elevation
 
    Shadow {
+      id: shadow
       elevation: root.elevation === 0 ? 0 : root.elevation + 2
 
       width: parent.width
@@ -29,6 +31,8 @@ Item {
 
       anchors.fill: parent
       radius: 2
+
+      clip: true
    }
 }
 

@@ -8,14 +8,17 @@ TabBar {
 
    Row {
       anchors.fill: parent
+      anchors.leftMargin: 16
+      anchors.rightMargin: 16
+
       Repeater {
          model: tabs.length
 
          delegate: Button {
             id: button
-            width: root.width / tabs.length
+            width: root.width / tabs.length - 16
             height: 48
-            text: tabs[index]
+            text: tabs[index].name ? tabs[index].name : tabs[index]
             onClicked: currentTab = index
 
             style: TabButtonStyle {
@@ -38,4 +41,6 @@ TabBar {
          }
       }
    }
+
+
 }

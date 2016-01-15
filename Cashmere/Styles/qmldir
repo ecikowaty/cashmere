@@ -5,5 +5,5 @@ CircleRadioButtonStyle 1.0 CircleRadioButtonStyle.qml
 DoubleLineListItemStyle 1.0 DoubleLineListItemStyle.qml
 FlatButtonStyle 1.0 FlatButtonStyle.qml
 RaisedButtonStyle 1.0 RaisedButtonStyle.qml
-SingleListItemStyle 1.0 SingleListItemStyle.qml
+SingleLineListItemStyle 1.0 SingleLineListItemStyle.qml
 TabButtonStyle 1.0 TabButtonStyle.qml

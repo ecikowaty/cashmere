@@ -9,24 +9,38 @@ MaterialApplication {
          title: "Tab test"
       }
 
-      tabBar: ScrollableTabBar {
-         tabs: [ "Tab 1", "Tab 2" ]
-      }
+      mainView: TabbedViews {
+         id: tabbedView
 
-      views: [
-         View {
-            Label {
-               text: "View 1"
-               anchors.centerIn: parent
-            }
-         },
-         View {
-            Label {
-               text: "View 2"
-               anchors.centerIn: parent
-            }
-
+         tabBar: FixedTabBar {
+            tabs: tabbedView.views
          }
-      ]
+
+         views: [
+            View {
+               name: "expenses"
+
+               Item {
+                  id: paddingArea
+                  anchors.fill: parent
+                  anchors.margins: 16
+
+                  EntryCard {
+                     width: parent.width - 16
+                     height: 400
+
+                     anchors.horizontalCenter: parent.horizontalCenter
+                  }
+               }
+            },
+            View {
+               name: "incomes"
+               Label {
+                  text: "View 2"
+                  anchors.centerIn: parent
+               }
+            }
+         ]
+      }
    }
 }
