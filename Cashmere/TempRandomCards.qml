@@ -16,7 +16,7 @@ Page {
          Action {
             text: "Add"
             iconName: "add"
-            onTriggered: app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempDoubleList.qml"))
+            onTriggered: app.pushPage(Qt.resolvedUrl("TempDoubleList.qml"))
          }
       ]
    }

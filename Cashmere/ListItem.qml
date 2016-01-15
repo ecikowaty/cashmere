@@ -1,4 +1,5 @@
 import QtQuick 2.5
+import QtQuick.Controls 1.4
 
 Rectangle {
    id: root
@@ -6,9 +7,8 @@ Rectangle {
    state: "normal"
    clip: true
 
-   property bool hovered
-   property bool pressed
-   property color supportingColor: "#999"
+   property Button   control
+   property color    supportingColor: "#999"
 
    function alphaOf(color, alpha) {
       return Qt.rgba(color.r, color.g, color.b, alpha)
@@ -23,12 +23,8 @@ Rectangle {
       anchors.centerIn: parent
 
       Connections {
-         target: root
-         onPressedChanged: {
-            if (root.pressed && !ripple.running) {
-               ripple.start()
-            }
-         }
+         target: root.control
+         onClicked: ripple.start()
       }
    }
 
@@ -42,7 +38,7 @@ Rectangle {
       },
       State {
          name: "normal"
-         when: !hovered && !pressed && enabled
+         when: !control.hovered && !control.pressed && enabled
          PropertyChanges {
             target: root
             color: Qt.rgba(0, 0, 0, 0)
@@ -50,7 +46,7 @@ Rectangle {
       },
       State {
          name: "hover"
-         when: hovered && !pressed && enabled
+         when: control.hovered && !control.pressed && enabled
          PropertyChanges {
             target: root
             color: alphaOf(supportingColor, 0.2)
@@ -58,7 +54,7 @@ Rectangle {
       },
       State {
          name: "pressed"
-         when: pressed && enabled
+         when: control.pressed && enabled
          PropertyChanges {
             target: root
             color: alphaOf(supportingColor, 0.4)

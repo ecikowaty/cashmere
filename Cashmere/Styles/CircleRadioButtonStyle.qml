@@ -9,8 +9,7 @@ RadioButtonStyle {
    property int leftMargin: 16
 
    background: ListItem {
-      pressed: control.pressed
-      hovered: control.hovered
+      control: root.control
    }
 
    label: Label {

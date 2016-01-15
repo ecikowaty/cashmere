@@ -119,7 +119,7 @@ Page {
 
                }
 
-               onClicked: app.pushPage(Qt.resolvedUrl("qrc:/QMaterial/TempRandomCards.qml"))
+               onClicked: app.pushPage(Qt.resolvedUrl("TempRandomCards.qml"))
             }
 
             Button {

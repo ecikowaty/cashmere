@@ -22,8 +22,7 @@ ButtonStyleBase {
    background: ListItem {
       id: background
 
-      pressed: control.pressed
-      hovered: control.hovered
+      control: root.control
 
       Item {
          anchors.fill: parent
