@@ -12,8 +12,8 @@ ApplicationWindow {
    width: 480
    height: 800
 
-   x: 450
-   y: 50
+   x: 550
+   y: 100
 
    color: "#fafafa"
 
