@@ -18,7 +18,7 @@ TabBar {
       highlightFollowsCurrentItem: true
       highlightMoveVelocity: width / root.visibleTabs * 5
 
-      model: views.length
+      model: tabs.length
       snapMode: ListView.SnapToItem
 
       header: Item {
@@ -31,7 +31,7 @@ TabBar {
       delegate: Button {
          id: button
          height: 48
-         text: views[index].name
+         text: tabs[index]
          onClicked: listView.currentIndex = index
 
          style: TabButtonStyle {

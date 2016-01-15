@@ -7,7 +7,7 @@ Rectangle {
    state: "normal"
    clip: true
 
-   property Button   control
+   property var      control
    property color    supportingColor: "#999"
 
    function alphaOf(color, alpha) {

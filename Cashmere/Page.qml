@@ -12,9 +12,7 @@ Rectangle {
    property alias actionBar: actionBar
    property alias views: viewsModel.children
 
-   property Component tabBar: ScrollableTabBar {
-      views: root.views
-   }
+   property Component tabBar
 
    ActionBar {
       id: actionBar

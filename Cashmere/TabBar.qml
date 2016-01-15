@@ -9,7 +9,7 @@ Item {
 
    property int currentTab: 0
 
-   property int visibleTabs: views.length
+   property int visibleTabs: tabs.length
 
-   property var views
+   property var tabs
 }

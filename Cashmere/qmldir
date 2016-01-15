@@ -1,33 +1,34 @@
-module QMaterial
-ActionBar 0.1 ActionBar.qml
-AlertDialog 0.1 AlertDialog.qml
-Card 0.1 Card.qml
-Color 0.1 Color.qml
-ConfirmationButtons 0.1 ConfirmationButtons.qml
-ConfirmationDialog 0.1 ConfirmationDialog.qml
-singleton Colors 0.1 Colors.qml
-Dialog 0.1 Dialog.qml
-Divider 0.1 Divider.qml
-DropdownMenu 0.1 DropdownMenu.qml
-FontStyle 0.1 FontStyle.qml
-singleton FontStyles 0.1 FontStyles.qml
-Icon 0.1 Icon.qml
-Label 0.1 Label.qml
-ListItem 0.1 ListItem.qml
-Menu 0.1 Menu.qml
-MaterialApplication 0.1 MaterialApplication.qml
-NotificationDrawer 0.1 NotificationDrawer.qml
-Overflow 0.1 Overflow.qml
-Overlay 0.1 Overlay.qml
-OverlayBinder 0.1 OverlayBinder.qml
-Page 0.1 Page.qml
-PageStack 0.1 PageStack.qml
-Ripple 0.1 Ripple.qml
-Shadow 0.1 Shadow.qml
-SimpleDialog 0.1 SimpleDialog.qml
-TabAction 0.1 TabAction.qml
-TabBar 0.1 TabBar.qml
-TextField 0.1 TextField.qml
-TextFieldDropdown 0.1 TextFieldDropdown.qml
-singleton Theme 0.1 Theme.qml
-View 0.1 View.qml
+module Cashmere
+ActionBar 1.0 ActionBar.qml
+AlertDialog 1.0 AlertDialog.qml
+Card 1.0 Card.qml
+Color 1.0 Color.qml
+ConfirmationButtons 1.0 ConfirmationButtons.qml
+ConfirmationDialog 1.0 ConfirmationDialog.qml
+singleton Colors 1.0 Colors.qml
+Dialog 1.0 Dialog.qml
+Divider 1.0 Divider.qml
+DropdownMenu 1.0 DropdownMenu.qml
+FontStyle 1.0 FontStyle.qml
+FixedTabBar 1.0 FixedTabBar.qml
+singleton FontStyles 1.0 FontStyles.qml
+Icon 1.0 Icon.qml
+Label 1.0 Label.qml
+ListItem 1.0 ListItem.qml
+Menu 1.0 Menu.qml
+MaterialApplication 1.0 MaterialApplication.qml
+NotificationDrawer 1.0 NotificationDrawer.qml
+Overflow 1.0 Overflow.qml
+Overlay 1.0 Overlay.qml
+OverlayBinder 1.0 OverlayBinder.qml
+Page 1.0 Page.qml
+PageStack 1.0 PageStack.qml
+Ripple 1.0 Ripple.qml
+Shadow 1.0 Shadow.qml
+SimpleDialog 1.0 SimpleDialog.qml
+TabAction 1.0 TabAction.qml
+TabBar 1.0 TabBar.qml
+TextField 1.0 TextField.qml
+TextFieldDropdown 1.0 TextFieldDropdown.qml
+singleton Theme 1.0 Theme.qml
+View 1.0 View.qml

@@ -9,13 +9,13 @@ TabBar {
    Row {
       anchors.fill: parent
       Repeater {
-         model: views.length
+         model: tabs.length
 
          delegate: Button {
             id: button
-            width: root.width / views.length
+            width: root.width / tabs.length
             height: 48
-            text: views[index].name
+            text: tabs[index]
             onClicked: currentTab = index
 
             style: TabButtonStyle {
