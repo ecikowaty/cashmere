@@ -5,9 +5,12 @@ View {
    id: root
    hasTabs: true
 
+   property alias tabBarHeight: tabBarLoader.height
+
    property alias tabBar: tabBarLoader.sourceComponent
    property alias views: viewsModel.children
    property alias interactive: listView.interactive
+   property var   currentView: listView.currentItem
 
    Loader {
       id: tabBarLoader
@@ -47,8 +50,6 @@ View {
          right: parent.right
          bottom: parent.bottom
       }
-
-      onCurrentIndexChanged: console.debug(currentIndex)
 
       interactive: views.length > 1
 

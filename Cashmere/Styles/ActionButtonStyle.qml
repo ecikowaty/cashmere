@@ -25,7 +25,6 @@ ButtonStyle {
          Connections {
             target: control
             onClicked: {
-               console.debug("clicked")
                if (!ripple.running && control.pressed) {
                   ripple.start()
                }

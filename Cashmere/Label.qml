@@ -7,6 +7,8 @@ Text {
     color: Theme.onLightBackground.primary
     property FontStyle fontStyle: FontStyles.body1
 
+    Behavior on color { ColorAnimation { duration: 200 } }
+
     FontLoader {
         id: regular
         source: Qt.resolvedUrl("fonts/Roboto-Regular.ttf")

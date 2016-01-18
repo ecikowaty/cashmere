@@ -22,7 +22,8 @@ Card {
    Item {
       id: content
 
-      height: 56
+      height: parent.height
+
       anchors {
          left: parent.left; leftMargin: 16
          right: parent.right; rightMargin: 16
@@ -89,6 +90,8 @@ Card {
 
       Overflow {
          id: overlow
+
+         height: 24
 
          anchors {
             left: titleLabel.right; right: parent.right

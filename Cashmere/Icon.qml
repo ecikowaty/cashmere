@@ -25,6 +25,8 @@ Item {
       font.pixelSize: 24
 
       color: light ? Qt.rgba(1, 1, 1) : Qt.rgba(0, 0, 0, 0.38)
+
+      Behavior on color { ColorAnimation { duration: 200 } }
    }
 }
 
