@@ -6,10 +6,8 @@ import ".."
 ButtonStyleBase {
    id: root
 
-   property string iconName
-
    label: Icon {
-      name: root.iconName
+      name: control.action.iconName
       light: true
    }
 

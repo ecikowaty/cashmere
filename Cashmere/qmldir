@@ -12,6 +12,7 @@ DropdownMenu 1.0 DropdownMenu.qml
 EntryCard 1.0 EntryCard.qml
 FontStyle 1.0 FontStyle.qml
 FixedTabBar 1.0 FixedTabBar.qml
+FullscreenDialog 1.0 FullscreenDialog.qml
 singleton FontStyles 1.0 FontStyles.qml
 Icon 1.0 Icon.qml
 Label 1.0 Label.qml

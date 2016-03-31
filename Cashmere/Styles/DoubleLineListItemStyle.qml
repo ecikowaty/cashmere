@@ -9,7 +9,10 @@ ButtonStyleBase {
    property string primaryText
    property string secondaryText
 
-   property Component icon
+   property Component icon: Icon {
+      name: control.action.iconName
+      color: Theme.onLightBackground.secondary
+   }
 
    label: Item {
 
@@ -18,8 +21,7 @@ ButtonStyleBase {
    background: ListItem {
       id: background
 
-      pressed: control.pressed
-      hovered: control.hovered
+      control: root.control
 
       Loader {
          id: iconLoader

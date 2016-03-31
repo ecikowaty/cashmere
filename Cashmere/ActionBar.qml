@@ -16,6 +16,7 @@ Card {
    property alias actions: overlow.actions
    property alias title: titleLabel.text
    property alias visibleLimit: overlow.visibleLimit
+   property alias customLeftButton: customButtonLoader.sourceComponent
 
    signal backPressed()
 
@@ -29,6 +30,18 @@ Card {
          right: parent.right; rightMargin: 16
       }
 
+      Loader {
+         id: customButtonLoader
+
+         width: 24
+         height: width
+
+         anchors {
+            left: parent.left
+            verticalCenter: parent.verticalCenter
+         }
+      }
+
       Button {
          id: drawerButton
 
@@ -40,7 +53,7 @@ Card {
             verticalCenter: parent.verticalCenter
          }
 
-         visible: isInitialPage(root.parent) && navigationDrawer.enabled
+         visible: isInitialPage(root.parent) && navigationDrawer.enabled && !customButtonLoader.item
 
          action: Action {
             iconName: "menu"
@@ -63,7 +76,7 @@ Card {
             verticalCenter: parent.verticalCenter
          }
 
-         visible: !app.isInitialPage(root.parent)
+         visible: !app.isInitialPage(root.parent) && !customButtonLoader.item
 
          action: Action {
             iconName: "arrow_back"

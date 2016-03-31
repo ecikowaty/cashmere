@@ -19,7 +19,7 @@ Rectangle {
       height: 56
 
       title: "ActionBar"
-      dropShadow: !mainViewLoader.item.hasTabs
+      dropShadow: !mainViewLoader.item || !mainViewLoader.item.hasTabs
 
       onBackPressed: app.popPage()
    }

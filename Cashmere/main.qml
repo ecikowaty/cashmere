@@ -7,6 +7,7 @@ MaterialApplication {
    id: app
 
    initialView: Page {
+
       actionBar {
          title: "Tab test"
       }
@@ -29,6 +30,8 @@ MaterialApplication {
 
                   Button {
                      anchors.centerIn: parent
+                     onClicked: dialog.toggle()
+
                      style: FloatingActionButtonStyle {
                         iconName: "add"
                      }
@@ -44,5 +47,10 @@ MaterialApplication {
             }
          ]
       }
+   }
+
+   FullscreenDialog {
+      id: dialog
+      state: "visible"
    }
 }
