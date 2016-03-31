@@ -1,5 +1,7 @@
 import QtQuick 2.5
+import QtQuick.Controls 1.4
 import Cashmere 1.0
+import Cashmere.Styles 1.0
 
 MaterialApplication {
    id: app
@@ -25,11 +27,11 @@ MaterialApplication {
                   anchors.fill: parent
                   anchors.margins: 16
 
-                  EntryCard {
-                     width: parent.width - 16
-                     height: 400
-
-                     anchors.horizontalCenter: parent.horizontalCenter
+                  Button {
+                     anchors.centerIn: parent
+                     style: FloatingActionButtonStyle {
+                        iconName: "add"
+                     }
                   }
                }
             },
