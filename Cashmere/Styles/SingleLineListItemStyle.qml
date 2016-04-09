@@ -10,6 +10,11 @@ ButtonStyleBase {
 
    property int leftMargin: 16
 
+   property Component mainComponent: Label {
+      fontStyle: FontStyles.subheading
+      text: control.text
+   }
+
    property Component icon: Icon {
       name: control.action.iconName
       color: Theme.onLightBackground.secondary
@@ -39,13 +44,12 @@ ButtonStyleBase {
             sourceComponent: root.iconDefined ? root.icon : undefined
          }
 
-         Label {
+         Loader {
             anchors.left: root.iconDefined ? iconLoader.right : parent.left
             anchors.leftMargin: leftMargin
             anchors.verticalCenter: parent.verticalCenter
 
-            fontStyle: FontStyles.subheading
-            text: control.text
+            sourceComponent: root.mainComponent
          }
       }
    }

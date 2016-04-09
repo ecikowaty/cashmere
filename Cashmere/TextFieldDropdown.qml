@@ -10,6 +10,7 @@ Item {
 
    property alias currentItemText: selectedLabel.text
    property alias items: dropdownMenu.items
+   property alias dividerVisible: divider.visible
 
    function open() {
       overlayBinder.bind(false)
@@ -27,7 +28,7 @@ Item {
 
    DropdownMenu {
       id: dropdownMenu
-      width: 70
+      widthMultiplier: 4
       visibleItems: 3
 
       OverlayBinder {
@@ -61,6 +62,8 @@ Item {
    }
 
    Divider {
+      id: divider
+
       anchors.bottom: parent.bottom
       anchors.bottomMargin: 8
 

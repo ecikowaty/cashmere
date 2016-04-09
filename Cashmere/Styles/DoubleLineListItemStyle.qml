@@ -6,7 +6,6 @@ import "."
 ButtonStyleBase {
    id: root
 
-   property string primaryText
    property string secondaryText
 
    property Component icon: Icon {
@@ -49,7 +48,7 @@ ButtonStyleBase {
             id: primaryLabel
 
             fontStyle: FontStyles.subheading
-            text: root.primaryText
+            text: control.text
          }
 
          Label {

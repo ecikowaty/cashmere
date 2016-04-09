@@ -11,10 +11,12 @@ TextInput {
    property alias placeholderText: placeholderLabel.text
    property alias placeholderTextColor: placeholderLabel.color
 
+   property var fontStyle: FontStyles.subheading
+
    Label {
       id: placeholderLabel
 
-      fontStyle: FontStyles.subheading
+      fontStyle: root.fontStyle
       color: Theme.onLightBackground.secondary
 
       opacity: root.text.length === 0
@@ -35,8 +37,8 @@ TextInput {
 
    font {
       family: "Roboto"
-      pixelSize: FontStyles.subheading.size
-      weight: FontStyles.subheading.weight
+      pixelSize: root.fontStyle.size
+      weight: root.fontStyle.weight
    }
 
    verticalAlignment: TextInput.AlignVCenter

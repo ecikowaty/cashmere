@@ -58,7 +58,7 @@ Card {
          Behavior on opacity {
             SequentialAnimation {
                PauseAnimation {
-                  duration: opacity ? 0 : 100 * index + 300
+                  duration: opacity ? 0 : 100 * index + 100
                }
 
                NumberAnimation {

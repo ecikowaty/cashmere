@@ -6,6 +6,8 @@ import ".."
 ButtonStyleBase {
    id: root
 
+   property color color: Theme.primaryColor
+
    label: Icon {
       name: control.action.iconName
       light: true
@@ -20,8 +22,8 @@ ButtonStyleBase {
          height: buttonRect.height
          radius: buttonRect.radius
 
-         verticalOffset: 3
-         samples: 17
+         verticalOffset: 6
+         samples: 14
 
          source: ShaderEffectSource {
             width: control.width
@@ -29,12 +31,12 @@ ButtonStyleBase {
             sourceItem: buttonRect
          }
 
-         color: Qt.rgba(0, 0, 0, 0.26)
+         color: Qt.rgba(0, 0, 0, 0.46)
       }
 
       Rectangle {
          id: buttonRect
-         color: Colors.pink.accent[2]
+         color: root.color
 
          width: parent.width
          height: parent.height
@@ -52,7 +54,6 @@ ButtonStyleBase {
             target: control
             onClicked: ripple.start()
          }
-
       }
    }
 }

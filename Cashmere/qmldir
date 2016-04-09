@@ -28,6 +28,7 @@ PageStack 1.0 PageStack.qml
 Ripple 1.0 Ripple.qml
 Shadow 1.0 Shadow.qml
 SimpleDialog 1.0 SimpleDialog.qml
+SwipeView 1.0 SwipeView.qml
 TabAction 1.0 TabAction.qml
 TabBar 1.0 TabBar.qml
 TabbedViews 1.0 TabbedViews.qml

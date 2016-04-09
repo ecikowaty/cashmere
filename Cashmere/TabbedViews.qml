@@ -1,5 +1,6 @@
 import QtQuick 2.5
 import QtQml.Models 2.2
+import "."
 
 View {
    id: root
@@ -8,9 +9,9 @@ View {
    property alias tabBarHeight: tabBarLoader.height
 
    property alias tabBar: tabBarLoader.sourceComponent
-   property alias views: viewsModel.children
-   property alias interactive: listView.interactive
-   property var   currentView: listView.currentItem
+   property alias views: swipeView.views
+   property alias interactive: swipeView.interactive
+   property var   currentView: swipeView.currentItem
 
    Loader {
       id: tabBarLoader
@@ -19,29 +20,19 @@ View {
       height: 48
    }
 
-   ListView {
-      id: listView
-
-      orientation: Qt.Horizontal
-      snapMode: ListView.SnapOneItem
-
-      highlightFollowsCurrentItem: true
-      highlightMoveVelocity: listView.width * 5
-
-      clip: true
-
-      onFlickEnded: listView.currentIndex = visibleArea.xPosition / visibleArea.widthRatio
+   SwipeView {
+      id: swipeView
 
       Binding {
          target: tabBarLoader.item
          property: "currentTab"
          when: tabBarLoader.item
-         value: listView.currentIndex
+         value: swipeView.currentIndex
       }
 
       Connections {
          target: tabBarLoader.item
-         onCurrentTabChanged: listView.currentIndex = tabBarLoader.item.currentTab
+         onCurrentTabChanged: swipeView.currentIndex = tabBarLoader.item.currentTab
       }
 
       anchors {
@@ -49,30 +40,6 @@ View {
          left: parent.left
          right: parent.right
          bottom: parent.bottom
-      }
-
-      interactive: views.length > 1
-
-      model: ObjectModel {
-         id: viewsModel
-      }
-
-      onWidthChanged: {
-         for (var i = 0; i < views.length; ++i) {
-            views[i].width = listView.width
-         }
-      }
-
-      onHeightChanged: {
-         for (var i = 0; i < views.length; ++i) {
-            views[i].height = listView.height
-         }
-      }
-
-      Component.onCompleted: {
-         // weird fix for ListView showing incorrect item on start
-         listView.currentIndex = 1
-         listView.currentIndex = 0
       }
    }
 

@@ -23,11 +23,14 @@ Card {
 
    property int widthFactor: 5
 
+   signal opened()
+
    function isOpen() {
       return state === "open"
    }
 
    function open() {
+      opened()
       overlayBinder.bind(true)
       state = "open"
    }

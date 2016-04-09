@@ -6,15 +6,19 @@ import "Styles"
 Dialog {
    id: root
 
-   height: titleLabel.height + actionsColumn.height + 44
+   height: titleLabel.height + itemList.height + 44
 
    title: "Simple dialog"
 
    property alias title: titleLabel.text
-   property alias delegate: repeater.delegate
 
+   property int visibleLimit: itemList.count
 
-   property list<Action>   actions
+   property alias model: itemList.model
+
+   property list<Action> actions
+
+   signal selected(var action)
 
    Label {
       id: titleLabel
@@ -29,11 +33,17 @@ Dialog {
       wrapMode: Text.WordWrap
    }
 
-   Column {
-      id: actionsColumn
+   ListView {
+      id: itemList
       width: parent.width
-      height: repeater.count * 56
+      height: visibleLimit * 56
       clip: true
+      interactive: visibleLimit < count
+
+      model: ListModel {
+         // elementText: "text"
+         // elementIcon: "icon"
+      }
 
       anchors {
          top: titleLabel.bottom; topMargin: 20
@@ -41,20 +51,34 @@ Dialog {
          right: parent.right
       }
 
-      Repeater {
-         id: repeater
-         clip: true
-         model: actions.length
+      delegate: Button {
+         width: parent.width
+         height: 56
 
-         delegate: Button {
-            width: parent.width
-            height: 56
-            action: actions[index]
-            onClicked: root.close()
-            style: SingleLineListItemStyle {
-               leftMargin: 24
-            }
+         action: Action {
+            text: elementText ? elementText : "Unavailable"
+            iconName: elementIcon
          }
+
+         onClicked: {
+            if (actions.length > 0) {
+               actions[index].trigger()
+            }
+
+            selected(action)
+            root.close()
+         }
+
+         style: SingleLineListItemStyle {
+            leftMargin: 24
+         }
+      }
+   }
+
+   Component.onCompleted: {
+      for (var i = 0; i < actions.length; ++i)
+      {
+         root.model.append({ "elementText": actions[i].text, "elementIcon": actions[i].iconName })
       }
    }
 }

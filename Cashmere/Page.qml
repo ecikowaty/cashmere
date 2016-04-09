@@ -12,6 +12,8 @@ Rectangle {
 
    property alias mainView: mainViewLoader.sourceComponent
 
+   property Component floatingButton
+
    ActionBar {
       id: actionBar
 
@@ -34,5 +36,7 @@ Rectangle {
          bottom: parent.bottom
       }
    }
+
+   Component.onCompleted: app.replaceFloatingButton(floatingButton)
 }
 
