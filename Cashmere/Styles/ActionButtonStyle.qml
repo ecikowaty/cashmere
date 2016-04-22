@@ -7,7 +7,7 @@ ButtonStyle {
    id: root
 
    property int      size: 24
-   property bool     light: true
+   property bool     lightBackground: false
 
    label: Label {
 
@@ -20,7 +20,7 @@ ButtonStyle {
          id: ripple
          expandedSize: parent.width * 2.5
          anchors.centerIn: parent
-         color: light ? Qt.rgba(1, 1, 1, 0.2) : Qt.rgba(0, 0, 0, 0.2)
+         color: lightBackground ? Qt.rgba(1, 1, 1, 0.2) : Qt.rgba(0, 0, 0, 0.2)
 
          Connections {
             target: control
@@ -35,7 +35,7 @@ ButtonStyle {
       Icon {
          anchors.centerIn: parent
          name: control.action.iconName
-         light: root.light
+         lightBackground: root.lightBackground
       }
    }
 }

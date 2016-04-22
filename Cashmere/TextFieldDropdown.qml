@@ -12,7 +12,7 @@ Item {
    property alias items: dropdownMenu.items
    property alias dividerVisible: divider.visible
    property alias visibleItems: dropdownMenu.visibleItems
-   property bool  light: false
+   property bool  lightBackground: false
 
    function open() {
       overlayBinder.bind(false)
@@ -46,7 +46,9 @@ Item {
 
       fontStyle: FontStyles.subheading
 
-      color: "White"
+      color: root.lightBackground
+             ? Theme.onLightBackground.primary
+             : Theme.onDarkBackground.primary
 
       text: dropdownMenu.text
       opacity: dropdownMenu.state === "closed"
@@ -59,6 +61,8 @@ Item {
       id: icon
 
       name: "arrow_drop_down"
+      lightBackground: false
+
       anchors {
          right: parent.right
          verticalCenter: parent.verticalCenter

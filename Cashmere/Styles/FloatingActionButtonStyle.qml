@@ -12,7 +12,7 @@ ButtonStyleBase {
 
    label: Icon {
       name: control.action.iconName
-      light: root.light
+      lightBackground: root.light
    }
 
    background: Item {

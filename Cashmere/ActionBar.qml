@@ -61,7 +61,7 @@ Card {
          }
 
          style: ActionButtonStyle {
-            light: true
+            lightBackground: false
          }
       }
 
@@ -84,7 +84,7 @@ Card {
          }
 
          style: ActionButtonStyle {
-            light: true
+            lightBackground: false
          }
       }
 
@@ -105,6 +105,7 @@ Card {
          id: overlow
 
          height: 24
+         lightBackground: false
 
          anchors {
             left: titleLabel.right; right: parent.right
