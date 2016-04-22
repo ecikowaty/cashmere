@@ -44,8 +44,6 @@ ButtonStyleBase {
           }
       }
 
-      onStateChanged: console.debug(state)
-
       states: [
          State {
             name: "normal"

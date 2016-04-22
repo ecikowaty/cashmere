@@ -18,7 +18,7 @@ Row {
       anchors.verticalCenter: parent.verticalCenter
 
       style: FlatButtonStyle {
-
+         lightBackground: true
       }
    }
 
@@ -29,7 +29,7 @@ Row {
       anchors.verticalCenter: parent.verticalCenter
 
       style: FlatButtonStyle {
-
+         lightBackground: true
       }
    }
 }
