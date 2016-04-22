@@ -35,7 +35,7 @@ TabBar {
          onClicked: listView.currentIndex = index
 
          style: TabButtonStyle {
-            light: true
+            lightBackground: true
          }
 
          Rectangle {

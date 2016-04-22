@@ -36,7 +36,7 @@ ButtonStyleBase {
           Ripple {
               id: ripple
               anchors.centerIn: parent
-              color: root.light ? Qt.rgba(1, 1, 1, 0.16) : Qt.rgba(0, 0, 0, 0.16)
+              color: root.lightBackground ? Qt.rgba(1, 1, 1, 0.16) : Qt.rgba(0, 0, 0, 0.16)
           }
 
           Connections {

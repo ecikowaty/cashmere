@@ -5,7 +5,7 @@ import ".."
 ButtonStyleBase {
    id: root
 
-   property color fontColor: light ? "white" : color.regular[5]
+   property color fontColor: !lightBackground ? "white" : color.regular[5]
 
    label: Label {
       fontStyle: FontStyles.button
@@ -26,8 +26,6 @@ ButtonStyleBase {
       implicitWidth: root.textPaintedWidth + root.horizontalMargins < 64 ? 64 : root.textPaintedWidth + root.horizontalMargins
       implicitHeight: 36
 
-      Behavior on color { ColorAnimation { duration: 100 } }
-
       Item {
           anchors.fill: parent
           clip: true
@@ -35,7 +33,9 @@ ButtonStyleBase {
           Ripple {
               id: ripple
               anchors.centerIn: parent
-              color: light ? Qt.rgba(1, 1, 1, 0.16) : Qt.rgba(0, 0, 0, 0.16)
+              color: lightBackground
+                     ? Theme.onLightBackground.dividers
+                     : Theme.onDarkBackground.dividers
           }
 
           Connections {
@@ -44,13 +44,15 @@ ButtonStyleBase {
           }
       }
 
+      onStateChanged: console.debug(state)
+
       states: [
          State {
             name: "normal"
             when: !control.hovered && !control.pressed && control.enabled
             PropertyChanges {
                target: background
-               color: Qt.rgba(0, 0, 0, 0)
+               color: "transparent"
             }
          },
          State {

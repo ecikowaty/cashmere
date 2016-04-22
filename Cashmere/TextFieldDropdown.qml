@@ -5,14 +5,14 @@ import "."
 Item {
    id: root
 
-   width: selectedLabel.paintedWidth + icon.width + 16
+   width: dropdownMenu.width
    height: 48
 
    property alias currentItemText: selectedLabel.text
    property alias items: dropdownMenu.items
    property alias dividerVisible: divider.visible
    property alias visibleItems: dropdownMenu.visibleItems
-   property bool  light: false
+   property bool  lightBackground: false
 
    function open() {
       overlayBinder.bind(false)
@@ -31,7 +31,7 @@ Item {
 
    DropdownMenu {
       id: dropdownMenu
-      widthMultiplier: 4
+      widthMultiplier: 2
       visibleItems: 3
 
       OverlayBinder {
@@ -46,7 +46,9 @@ Item {
 
       fontStyle: FontStyles.subheading
 
-      color: "White"
+      color: root.lightBackground
+             ? Theme.onLightBackground.primary
+             : Theme.onDarkBackground.primary
 
       text: dropdownMenu.text
       opacity: dropdownMenu.state === "closed"
@@ -59,6 +61,8 @@ Item {
       id: icon
 
       name: "arrow_drop_down"
+      lightBackground: root.lightBackground
+
       anchors {
          right: parent.right
          verticalCenter: parent.verticalCenter

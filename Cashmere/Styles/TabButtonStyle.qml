@@ -5,7 +5,7 @@ import ".."
 ButtonStyleBase {
    id: root
 
-   property color fontColor: light ? "white" : color.regular[5]
+   property color fontColor: lightBackground ? "white" : color.regular[5]
 
    label: Label {
       fontStyle: FontStyles.button
@@ -33,7 +33,7 @@ ButtonStyleBase {
           Ripple {
               id: ripple
               anchors.centerIn: parent
-              color: light ? Qt.rgba(1, 1, 1, 0.16) : Qt.rgba(0, 0, 0, 0.16)
+              color: lightBackground ? Qt.rgba(1, 1, 1, 0.16) : Qt.rgba(0, 0, 0, 0.16)
           }
 
           Connections {

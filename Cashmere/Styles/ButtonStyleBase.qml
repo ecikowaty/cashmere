@@ -11,11 +11,11 @@ ButtonStyle {
 
    property Color color: Theme.primaryPalette
    property int   colorIndex: 5
-   property bool  light: false
+   property bool  lightBackground: false
    property int   textPaintedWidth
    property int   horizontalMargins: 32
 
-   property color supportingColor: "#999999"
+   property color supportingColor: lightBackground ? "#999" : "#CCC"
 
    onColorIndexChanged: {
       if (colorIndex > 7) {

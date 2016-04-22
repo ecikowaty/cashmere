@@ -7,12 +7,12 @@ ButtonStyleBase {
    id: root
 
    property bool mini: false
-   property bool light: false
+   property bool lightBackground: false
    property color color: Theme.primaryColor
 
    label: Icon {
       name: control.action.iconName
-      light: root.light
+      lightBackground: root.lightBackground
    }
 
    background: Item {
@@ -49,7 +49,7 @@ ButtonStyleBase {
          Ripple {
             id: ripple
             anchors.centerIn: parent
-            color: root.light ? Qt.rgba(1, 1, 1, 0.16) : Qt.rgba(0, 0, 0, 0.16)
+            color: root.lightBackground ? Qt.rgba(1, 1, 1, 0.16) : Qt.rgba(0, 0, 0, 0.16)
          }
 
          Connections {

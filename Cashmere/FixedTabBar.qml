@@ -22,7 +22,7 @@ TabBar {
             onClicked: currentTab = index
 
             style: TabButtonStyle {
-               light: true
+               lightBackground: true
             }
 
             Rectangle {

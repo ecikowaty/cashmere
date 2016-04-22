@@ -10,7 +10,7 @@ Item {
    property alias          spacing: row.spacing
    property int            visibleLimit: actions.length
    property bool           moreButtonVisible: actions.length > visibleLimit
-   property bool           brightIcons: true
+   property bool           lightBackground: true
 
    function openMenu() {
       overflowMenu.visible = true
@@ -38,7 +38,7 @@ Item {
             action: actions[index]
 
             style: ActionButtonStyle {
-               light: root.brightIcons
+               lightBackground: root.lightBackground
             }
          }
       }
@@ -74,7 +74,7 @@ Item {
       }
 
       style: ActionButtonStyle {
-         light: root.brightIcons
+         lightBackground: root.lightBackground
       }
 
       Menu {

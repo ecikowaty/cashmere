@@ -4,9 +4,12 @@ import "."
 Text {
     id: root
 
-    color: parent.light
+    color: lightBackground
            ? Theme.onLightBackground.primary
            : Theme.onDarkBackground.primary
+
+    property bool lightBackground: true
+
     property FontStyle fontStyle: FontStyles.body1
 
     Behavior on color { ColorAnimation { duration: 200 } }

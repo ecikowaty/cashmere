@@ -20,6 +20,8 @@ ButtonStyleBase {
       color: Theme.onLightBackground.secondary
    }
 
+   lightBackground: false
+
    label: Item {
 
    }

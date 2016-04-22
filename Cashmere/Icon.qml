@@ -1,4 +1,5 @@
-import QtQuick 2.0
+import QtQuick 2.5
+import "."
 
 Item {
    id: root
@@ -6,7 +7,7 @@ Item {
    property alias size: icon.font.pixelSize
    property alias name: icon.text
    property alias color: icon.color
-   property bool  light: false
+   property bool  lightBackground: true
 
    width: size
    height: size
@@ -24,7 +25,9 @@ Item {
       font.family: materialIcons.name
       font.pixelSize: 24
 
-      color: light ? Qt.rgba(1, 1, 1) : Qt.rgba(0, 0, 0, 0.38)
+      color: lightBackground
+             ? Theme.onLightBackground.secondary
+             : Theme.onDarkBackground.primary
 
       Behavior on color { ColorAnimation { duration: 200 } }
    }
