@@ -6,15 +6,17 @@ import ".."
 ButtonStyleBase {
    id: root
 
+   property bool mini: false
+   property bool light: false
    property color color: Theme.primaryColor
 
    label: Icon {
       name: control.action.iconName
-      light: true
+      light: root.light
    }
 
    background: Item {
-      implicitWidth: 56
+      implicitWidth: root.mini ? 40 : 56
       implicitHeight: implicitWidth
 
       DropShadow {
@@ -38,8 +40,8 @@ ButtonStyleBase {
          id: buttonRect
          color: root.color
 
-         width: parent.width
-         height: parent.height
+         width: parent.implicitWidth
+         height: parent.implicitHeight
          radius: width / 2
 
          anchors.centerIn: parent

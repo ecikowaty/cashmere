@@ -33,7 +33,7 @@ MaterialApplication {
                      onClicked: dialog.toggle()
 
                      style: FloatingActionButtonStyle {
-
+                        mini: true
                      }
                   }
                }

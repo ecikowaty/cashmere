@@ -11,6 +11,8 @@ Item {
    property alias currentItemText: selectedLabel.text
    property alias items: dropdownMenu.items
    property alias dividerVisible: divider.visible
+   property alias visibleItems: dropdownMenu.visibleItems
+   property bool  light: false
 
    function open() {
       overlayBinder.bind(false)
@@ -23,6 +25,7 @@ Item {
          overlayBinder.bind(false)
          dropdownMenu.open()
       }
+
       enabled: dropdownMenu.state === "closed"
    }
 
@@ -42,7 +45,8 @@ Item {
       id: selectedLabel
 
       fontStyle: FontStyles.subheading
-      color: Theme.onLightBackground.secondary
+
+      color: "White"
 
       text: dropdownMenu.text
       opacity: dropdownMenu.state === "closed"

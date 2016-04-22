@@ -38,20 +38,13 @@ ApplicationWindow {
          pageStack.pop()
          replaceFloatingButton(pageStack.currentItem.floatingButton)
       }
+      else {
+         Qt.quit()
+      }
    }
 
    function replaceFloatingButton(button) {
       floatingButtonLoader.replace(button)
-   }
-
-   FocusScope {
-      id: focusScope
-      anchors.fill: parent
-
-      MouseArea {
-         anchors.fill: parent
-         onClicked: forceActiveFocus()
-      }
    }
 
    PageStack {

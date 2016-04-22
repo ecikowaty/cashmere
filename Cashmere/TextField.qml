@@ -11,6 +11,8 @@ TextInput {
    property alias placeholderText: placeholderLabel.text
    property alias placeholderTextColor: placeholderLabel.color
 
+   property color dividerHighlightColor: Theme.primaryColor
+
    property var fontStyle: FontStyles.subheading
 
    Label {
@@ -32,7 +34,7 @@ TextInput {
       height: root.activeFocus ? 2 : 1
       Behavior on height { NumberAnimation { duration: 100 } }
 
-      color: root.activeFocus ? Theme.primaryColor : Theme.onLightBackground.dividers
+      color: root.activeFocus ? root.dividerHighlightColor : Theme.onLightBackground.dividers
    }
 
    font {

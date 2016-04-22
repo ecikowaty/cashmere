@@ -34,5 +34,6 @@ TabBar 1.0 TabBar.qml
 TabbedViews 1.0 TabbedViews.qml
 TextField 1.0 TextField.qml
 TextFieldDropdown 1.0 TextFieldDropdown.qml
+TitledDialog 1.0 TitledDialog.qml
 singleton Theme 1.0 Theme.qml
 View 1.0 View.qml

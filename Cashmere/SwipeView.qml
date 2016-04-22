@@ -16,6 +16,18 @@ ListView {
 
    clip: true
 
+   function next() {
+      if (currentIndex < count) {
+         ++currentIndex
+      }
+   }
+
+   function prev() {
+      if (currentIndex > 0) {
+         --currentIndex
+      }
+   }
+
    onFlickEnded: listView.currentIndex = visibleArea.xPosition / visibleArea.widthRatio
    model: ObjectModel {
       id: viewsModel

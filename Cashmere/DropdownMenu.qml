@@ -39,6 +39,7 @@ Card {
       anchors.fill: parent
       clip: true
       model: items.length
+      interactive: root.visibleItems < count
 
       delegate: Button {
          width: parent.width
