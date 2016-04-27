@@ -1,5 +1,6 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.4
+import QtQuick.Controls.Styles 1.4
 import "."
 import "Styles"
 
@@ -12,9 +13,12 @@ Dialog {
 
    property alias title: titleLabel.text
 
-   property int visibleLimit: itemList.count
+   property int visibleLimit: itemList.view.count
 
-   property alias model: itemList.model
+   property var model: ListModel {
+      // elementText: "text"
+      // elementIcon: "icon"
+   }
 
    property list<Action> actions
 
@@ -33,25 +37,20 @@ Dialog {
       wrapMode: Text.WordWrap
    }
 
-   ListView {
+   ScrollableList {
       id: itemList
-      width: parent.width
-      height: visibleLimit * 56
-      clip: true
-      interactive: visibleLimit < count
-
-      model: ListModel {
-         // elementText: "text"
-         // elementIcon: "icon"
-      }
-
       anchors {
          top: titleLabel.bottom; topMargin: 20
-         left: parent.left
-         right: parent.right
       }
 
-      delegate: Button {
+      width: root.width
+      height: visibleLimit * 56
+      clip: true
+
+      view.interactive: visibleLimit < count
+      view.model: root.model
+
+      view.delegate: Button {
          width: parent.width
          height: 56
 
