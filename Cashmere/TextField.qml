@@ -21,7 +21,7 @@ TextInput {
       fontStyle: root.fontStyle
       color: Theme.onLightBackground.secondary
 
-      opacity: root.text.length === 0
+      opacity: root.displayText.length === 0
       Behavior on opacity { NumberAnimation { duration: 100 } }
 
       anchors.verticalCenter: parent.verticalCenter
