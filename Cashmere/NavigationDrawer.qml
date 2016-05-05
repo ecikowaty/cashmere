@@ -3,18 +3,54 @@ import QtQuick.Controls 1.4
 import "."
 import "Styles"
 
-Card {
+MouseArea {
    id: root
 
-   x: -width - 16
+   x: xWhenHidden
 
-   width: parent.width - 56
+   width: parent.width + grippingPaneSize
    height: parent.height
-   radius: 0
-
-   elevation: 16
 
    property list<Action> actions
+
+   property int grippingPaneSize: 32
+
+   property int xWhenHidden: -width + horizontalPositionShift + grippingPaneSize
+
+   property int horizontalPositionShift: 0
+   Behavior on horizontalPositionShift {
+      NumberAnimation {
+         easing.type: Easing.OutQuart
+      }
+   }
+
+   onHorizontalPositionShiftChanged: console.debug(horizontalPositionShift)
+
+   onPressAndHold: {
+      console.debug("hold")
+      horizontalPositionShift = 48
+   }
+
+   onPressed: {
+      console.debug("pressed")
+      hideAnimation.running = false
+      openAnimation.running = false
+   }
+
+   onReleased: {
+      console.debug("released")
+      horizontalPositionShift = 0
+   }
+
+   drag {
+      target: root
+      axis: Drag.XAxis
+      minimumX: -root.width
+      maximumX: 0
+      filterChildren: true
+   }
+
+   propagateComposedEvents: true
 
    function show() {
       state = "visible"
@@ -26,19 +62,28 @@ Card {
       hideAnimation.running = true
    }
 
-   MouseArea {
-      id: dragArea
+   VelocityCalculator {
+      id: velocityCalculator
+
+      observed: root.x
+      measureWhen: pressed && drag.active
+
+      onVelocityMeasured: {
+         if (velocity > 300) {
+            increasing ? show() : hide()
+         }
+         else {
+            Math.abs(root.x) < root.width / 2 ? show() : hide()
+         }
+      }
+   }
+
+   Card {
+      radius: 0
+      elevation: 16
 
       anchors.fill: parent
-      anchors.rightMargin: -32
-
-      drag {
-         target: root
-         axis: Drag.XAxis
-         minimumX: -root.width
-         maximumX: 0
-         filterChildren: true
-      }
+      anchors.rightMargin: grippingPaneSize + 32
 
       ListView {
          id: actionList
@@ -51,55 +96,11 @@ Card {
             width: parent.width
             height: 48
 
-            onPressedChanged: console.debug("pressed")
-
             action: root.actions[index]
             style: SingleLineListItemStyle {
 
             }
          }
-      }
-
-      propagateComposedEvents: true
-
-      VelocityCalculator {
-         id: velocityCalculator
-
-         observed: root.x
-         measureWhen: dragArea.pressed
-
-         onVelocityMeasured: {
-            if (velocity > 300) {
-               increasing ? show() : hide()
-            }
-            else {
-               Math.abs(root.x) < root.width / 2 ? show() : hide()
-            }
-         }
-      }
-
-      onPressed: {
-         console.debug("drag")
-         hideAnimation.running = false
-         openAnimation.running = false
-      }
-   }
-
-   Rectangle {
-      id: drawerOverlay
-
-      width: parent.width * 2
-      height: parent.height * 2
-
-      anchors.left: parent.right
-
-      color: Qt.rgba(0, 0, 0, 0.4)
-      opacity: 1 - (Math.abs(navigationDrawer.x) / navigationDrawer.width)
-
-      MouseArea {
-         anchors.fill: parent
-         onClicked: root.hide()
-         enabled: root.state === "visible"
       }
    }
 
@@ -107,7 +108,7 @@ Card {
       id: hideAnimation
       target: root
       property: "x"
-      to: -width - 16
+      to: xWhenHidden
       duration: 400
       easing.type: Easing.OutCubic
    }
