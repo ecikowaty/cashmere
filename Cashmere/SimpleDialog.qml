@@ -13,7 +13,7 @@ Dialog {
 
    property alias title: titleLabel.text
 
-   property int visibleLimit: itemList.view.count
+   property int visibleLimit: itemList.count
 
    property var model: ListModel {
       // elementText: "text"
@@ -37,7 +37,7 @@ Dialog {
       wrapMode: Text.WordWrap
    }
 
-   ScrollableList {
+   ListView {
       id: itemList
       anchors {
          top: titleLabel.bottom; topMargin: 20
@@ -47,10 +47,10 @@ Dialog {
       height: visibleLimit * 56
       clip: true
 
-      view.interactive: visibleLimit < count
-      view.model: root.model
+      interactive: visibleLimit < count
+      model: root.model
 
-      view.delegate: Button {
+      delegate: Button {
          width: parent.width
          height: 56
 

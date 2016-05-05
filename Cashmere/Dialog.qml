@@ -21,7 +21,7 @@ Card {
 
    Behavior on opacity { NumberAnimation { duration: 150 } }
 
-   property int widthFactor: 5
+   property double widthFactor: 5
 
    signal opened()
 

@@ -95,7 +95,6 @@ Dialog {
 
       anchors {
          top: itemsList.bottom
-         right: parent.right; rightMargin: 8
       }
 
       onInteracted: root.close()

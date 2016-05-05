@@ -5,6 +5,8 @@ import Cashmere.Styles 1.0
 Dialog {
    id: root
 
+   property alias title: titleLabel.text
+
    Label {
       id: titleLabel
 

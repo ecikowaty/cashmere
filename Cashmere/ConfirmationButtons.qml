@@ -6,10 +6,17 @@ Row {
    layoutDirection: Qt.RightToLeft
    spacing: 8
 
+   height: 52
+   width: parent.width
+
    property alias accepted: acceptButton.action
    property alias rejected: rejectButton.action
 
    signal interacted()
+
+   anchors {
+      right: parent.right; rightMargin: 8
+   }
 
    Button {
       id: acceptButton
