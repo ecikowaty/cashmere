@@ -10,6 +10,7 @@ Card {
 
    width: parent.width - 56
    height: parent.height
+   radius: 0
 
    elevation: 16
 
@@ -25,58 +26,62 @@ Card {
       hideAnimation.running = true
    }
 
-   ListView {
-      id: actionList
+   MouseArea {
+      id: dragArea
+
       anchors.fill: parent
-      enabled: actions.length > 0
+      anchors.rightMargin: -32
 
-      model: actions.length
+      drag {
+         target: root
+         axis: Drag.XAxis
+         minimumX: -root.width
+         maximumX: 0
+         filterChildren: true
+      }
 
-      delegate: Button {
-         width: parent.width
-         height: 48
+      ListView {
+         id: actionList
+         anchors.fill: parent
+         enabled: actions.length > 0
 
-         action: root.actions[index]
-         style: SingleLineListItemStyle {
+         model: actions.length
 
-            MouseArea {
-               id: dragArea
+         delegate: Button {
+            width: parent.width
+            height: 48
 
-               anchors.fill: parent
-               anchors.rightMargin: -32
+            onPressedChanged: console.debug("pressed")
 
-               drag {
-                  target: root
-                  axis: Drag.XAxis
-                  minimumX: -root.width
-                  maximumX: -16
-               }
+            action: root.actions[index]
+            style: SingleLineListItemStyle {
 
-               propagateComposedEvents: true
-
-               VelocityCalculator {
-                  id: velocityCalculator
-
-                  observed: root.x
-                  measureWhen: dragArea.pressed
-
-                  onVelocityMeasured: {
-                     if (velocity > 300) {
-                        increasing ? show() : hide()
-                     }
-                     else {
-                        Math.abs(root.x) < root.width / 2 ? show() : hide()
-                     }
-                  }
-               }
-
-               onPressed: {
-                  hideAnimation.running = false
-                  openAnimation.running = false
-               }
             }
-
          }
+      }
+
+      propagateComposedEvents: true
+
+      VelocityCalculator {
+         id: velocityCalculator
+
+         observed: root.x
+         measureWhen: dragArea.pressed
+
+         onVelocityMeasured: {
+            if (velocity > 300) {
+               increasing ? show() : hide()
+            }
+            else {
+               Math.abs(root.x) < root.width / 2 ? show() : hide()
+            }
+         }
+      }
+
+      onPressed: {
+         console.debug("drag")
+         hideAnimation.running = false
+         openAnimation.running = false
       }
    }
 

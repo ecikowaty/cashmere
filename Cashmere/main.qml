@@ -32,6 +32,10 @@ MaterialApplication {
                      anchors.centerIn: parent
                      onClicked: dialog.toggle()
 
+                     action: Action {
+                        iconName: "add"
+                     }
+
                      style: FloatingActionButtonStyle {
                         mini: true
                      }
@@ -47,10 +51,5 @@ MaterialApplication {
             }
          ]
       }
-   }
-
-   FullscreenDialog {
-      id: dialog
-      state: "visible"
    }
 }
