@@ -106,41 +106,6 @@ ApplicationWindow {
 
    NavigationDrawer {
       id: navigationDrawer
-
-      content: ListView {
-         property list<Action> actions: [
-            Action {
-               text: "Day view"
-               iconName: "account_balance"
-            },
-            Action {
-               text: "Month view"
-               iconName: "account_balance"
-            },
-            Action {
-               text: "Year view"
-               iconName: "account_balance"
-            },
-            Action {
-               text: "Settings"
-               iconName: "settings"
-            }
-
-         ]
-
-         model: actions.length
-
-         delegate: Button {
-            width: parent.width
-            height: 56
-
-            action: actions[index]
-
-            style: SingleLineListItemStyle {
-               lightBackground: true
-            }
-         }
-      }
    }
 
    Overlay {

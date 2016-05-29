@@ -43,12 +43,12 @@ ButtonStyleBase {
             anchors.leftMargin: root.leftMargin
             anchors.verticalCenter: parent.verticalCenter
 
-            sourceComponent: root.iconDefined ? root.icon : undefined
+            sourceComponent: iconDefined ? root.icon : undefined
          }
 
          Loader {
-            anchors.left: root.iconDefined ? iconLoader.right : parent.left
-            anchors.leftMargin: leftMargin
+            anchors.left: iconDefined ? iconLoader.right : parent.left
+            anchors.leftMargin: leftMargin * (iconDefined ? 2 : 1)
             anchors.verticalCenter: parent.verticalCenter
 
             sourceComponent: root.mainComponent
