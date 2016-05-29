@@ -16,7 +16,7 @@ Card {
 
    anchors.bottom: parent.bottom
 
-   property list<Action> actions
+   property alias content: contentLoader.sourceComponent
 
    property int grippingPaneSize: 32
 
@@ -88,28 +88,14 @@ Card {
          }
       }
 
-      ListView {
-         id: actionList
+      Loader {
+         id: contentLoader
 
          width: root.width
          height: root.height
 
          anchors.top: parent.top
          anchors.topMargin: -56
-
-         enabled: actions.length > 0
-
-         model: actions.length
-
-         delegate: Button {
-            width: parent.width
-            height: 48
-
-            action: root.actions[index]
-            style: SingleLineListItemStyle {
-
-            }
-         }
       }
    }
 

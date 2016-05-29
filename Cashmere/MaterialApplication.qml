@@ -106,24 +106,41 @@ ApplicationWindow {
 
    NavigationDrawer {
       id: navigationDrawer
-      actions: [
-         Action {
-            text: "Dialog"
-            onTriggered: console.debug(text)
-         },
-         Action {
-            text: "Textfield"
-            onTriggered: console.debug(text)
-         },
-         Action {
-            text: "Tabs"
-            onTriggered: console.debug(text)
-         },
-         Action {
-            text: "Lists"
-            onTriggered: console.debug(text)
+
+      content: ListView {
+         property list<Action> actions: [
+            Action {
+               text: "Day view"
+               iconName: "account_balance"
+            },
+            Action {
+               text: "Month view"
+               iconName: "account_balance"
+            },
+            Action {
+               text: "Year view"
+               iconName: "account_balance"
+            },
+            Action {
+               text: "Settings"
+               iconName: "settings"
+            }
+
+         ]
+
+         model: actions.length
+
+         delegate: Button {
+            width: parent.width
+            height: 56
+
+            action: actions[index]
+
+            style: SingleLineListItemStyle {
+               lightBackground: true
+            }
          }
-      ]
+      }
    }
 
    Overlay {
