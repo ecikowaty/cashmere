@@ -17,10 +17,19 @@ Rectangle {
    }
 
    Keys.onReleased: {
-       if (event.key === Qt.Key_Back) {
-           app.popPage()
-           event.accepted = true
-       }
+      if (event.key === Qt.Key_Back || event.key === Qt.Key_Left) {
+         if (navigationDrawer.isOpen()) {
+            navigationDrawer.close()
+         }
+         else if (overlay.enabled) {
+            overlay.forceClicked()
+         }
+         else {
+            app.popPage()
+         }
+
+         event.accepted = true
+      }
    }
 }
 

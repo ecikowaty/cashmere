@@ -57,7 +57,7 @@ Card {
 
          action: Action {
             iconName: "menu"
-            onTriggered: navigationDrawer.show()
+            onTriggered: navigationDrawer.open()
          }
 
          style: ActionButtonStyle {

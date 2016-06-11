@@ -29,15 +29,17 @@ Card {
       }
    }
 
-   onHorizontalPositionShiftChanged: console.debug(horizontalPositionShift)
+   function isOpen() {
+      return state === "open"
+   }
 
-   function show() {
-      state = "visible"
+   function open() {
+      state = "open"
       openAnimation.running = true
    }
 
-   function hide() {
-      state = "hidden"
+   function close() {
+      state = "closed"
       hideAnimation.running = true
    }
 
@@ -80,10 +82,10 @@ Card {
 
          onVelocityMeasured: {
             if (velocity > 300) {
-               increasing ? show() : hide()
+               increasing ? open() : close()
             }
             else {
-               Math.abs(root.x) < root.width / 2 ? show() : hide()
+               Math.abs(root.x) < root.width / 2 ? open() : close()
             }
          }
       }

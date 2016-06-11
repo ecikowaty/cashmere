@@ -10,6 +10,10 @@ Rectangle {
    property bool  darken: false
    property rect  mappedItem: Qt.rect(0, 0, 0, 0)
 
+   function forceClicked() {
+      clicked()
+   }
+
    signal clicked()
 
    MouseArea {
