@@ -6,6 +6,10 @@ import "."
 TabBar {
    id: root
 
+   property bool lightBackground: true
+   property color highlight: Theme.accentColor
+   property color fontColor: Theme.onLightBackground.primary
+
    Row {
       anchors.fill: parent
       anchors.leftMargin: 16
@@ -22,12 +26,13 @@ TabBar {
             onClicked: currentTab = index
 
             style: TabButtonStyle {
-               lightBackground: true
+               lightBackground: root.lightBackground
+               fontColor: root.fontColor
             }
 
             Rectangle {
                id: indicator
-               color: Theme.accentColor
+               color: root.highlight
 
                height: 2
 
@@ -41,6 +46,4 @@ TabBar {
          }
       }
    }
-
-
 }

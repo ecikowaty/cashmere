@@ -5,7 +5,9 @@ import ".."
 ButtonStyleBase {
    id: root
 
-   property color fontColor: lightBackground ? "white" : color.regular[5]
+   property color fontColor: lightBackground
+                             ? Theme.onLightBackground.primary
+                             : Theme.onDarkBackground.primary
 
    label: Label {
       fontStyle: FontStyles.button
