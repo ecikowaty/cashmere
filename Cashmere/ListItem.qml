@@ -43,22 +43,6 @@ Rectangle {
             target: root
             color: Qt.rgba(0, 0, 0, 0)
          }
-      },
-      State {
-         name: "hover"
-         when: control.hovered && !control.pressed && enabled
-         PropertyChanges {
-            target: root
-            color: alphaOf(supportingColor, 0.2)
-         }
-      },
-      State {
-         name: "pressed"
-         when: control.pressed && enabled
-         PropertyChanges {
-            target: root
-            color: alphaOf(supportingColor, 0.4)
-         }
       }
    ]
 }

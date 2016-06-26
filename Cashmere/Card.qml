@@ -12,7 +12,7 @@ Item {
    width: 200
    height: 50
 
-   z: parent.z + elevation
+   z: parent ? parent.z + elevation : 0
 
    Shadow {
       id: shadow
