@@ -8,7 +8,8 @@ TabBar {
 
    property bool lightBackground: true
    property color highlight: Theme.accentColor
-   property color fontColor: Theme.onLightBackground.primary
+   property color activeFontColor
+   property color inactiveFontColor
 
    Row {
       anchors.fill: parent
@@ -27,7 +28,9 @@ TabBar {
 
             style: TabButtonStyle {
                lightBackground: root.lightBackground
-               fontColor: root.fontColor
+               fontColor: root.currentTab === index
+                          ? root.activeFontColor
+                          : root.inactiveFontColor
             }
 
             Rectangle {

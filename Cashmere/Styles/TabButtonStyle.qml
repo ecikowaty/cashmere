@@ -15,7 +15,7 @@ ButtonStyleBase {
       verticalAlignment: Text.AlignVCenter
       horizontalAlignment: Text.AlignHCenter
 
-      color: control.enabled ? fontColor : Qt.rgba(0, 0, 0, 0.26)
+      color: root.fontColor
 
       text: control.text
 
