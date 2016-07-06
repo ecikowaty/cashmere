@@ -11,6 +11,7 @@ Item {
    property int            visibleLimit: actions.length
    property bool           moreButtonVisible: actions.length > visibleLimit
    property bool           lightBackground: true
+   property alias          menuWidthMultiplier: overflowMenu.multiplier
 
    function openMenu() {
       overflowMenu.visible = true
