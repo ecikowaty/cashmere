@@ -23,7 +23,7 @@ ButtonStyleBase {
    background: Rectangle {
       id: background
 
-      implicitWidth: root.textPaintedWidth + root.horizontalMargins < 64 ? 64 : root.textPaintedWidth + root.horizontalMargins
+      implicitWidth: root.textPaintedWidth + root.horizontalMargins < 82 ? 82 : root.textPaintedWidth + root.horizontalMargins
       implicitHeight: 36
 
       Item {
@@ -58,7 +58,7 @@ ButtonStyleBase {
             when: control.hovered && !control.pressed && control.enabled
             PropertyChanges {
                target: background
-               color: alphaOf(supportingColor, 0.2)
+               color: "transparent"
             }
          },
          State {
@@ -66,7 +66,7 @@ ButtonStyleBase {
             when: control.pressed && control.enabled
             PropertyChanges {
                target: background
-               color: alphaOf(supportingColor, 0.4)
+               color: "transparent"
             }
          },
          State {

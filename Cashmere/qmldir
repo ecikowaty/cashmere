@@ -27,6 +27,7 @@ PageStack 1.0 PageStack.qml
 Ripple 1.0 Ripple.qml
 ScrollableList 1.0 ScrollableList.qml
 ScrollBar 1.0 ScrollBar.qml
+Snackbar 1.0 Snackbar.qml
 Shadow 1.0 Shadow.qml
 SimpleDialog 1.0 SimpleDialog.qml
 SwipeView 1.0 SwipeView.qml

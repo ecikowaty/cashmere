@@ -21,6 +21,7 @@ Window {
    property alias initialView: pageStack.initialItem
    property alias navigationDrawer: navigationDrawer
    property alias overlay: overlay
+   property alias snackbar: snackbar
 
    function isInitialPage(page) {
       return pageStack.initialItem === page
@@ -57,7 +58,7 @@ Window {
       id: floatingButtonLoader
       anchors {
          right: parent.right; rightMargin: 24
-         bottom: parent.bottom; bottomMargin: 24
+         bottom: snackbar.top; bottomMargin: 24
       }
 
       property var newButton
@@ -103,6 +104,10 @@ Window {
          duration: 200
          easing.type: Easing.OutCubic
       }
+   }
+
+   Snackbar {
+      id: snackbar
    }
 
    NavigationDrawer {

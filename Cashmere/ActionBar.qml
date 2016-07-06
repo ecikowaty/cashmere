@@ -91,7 +91,6 @@ Card {
       Label {
          id: titleLabel
 
-         text: "Material demo"
          fontStyle: FontStyles.title
          color: "white"
 
