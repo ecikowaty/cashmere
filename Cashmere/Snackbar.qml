@@ -13,13 +13,16 @@ Rectangle {
       callbackAction = callback
 
       label.text = text
-//      button.action.text = buttonText
-      button.text = "dupa2"
+      buttonLabel.text = buttonText
 
       closeTimer.interval = timeout
       closeTimer.start()
 
-      root.anchors.topMargin = -48
+      root.anchors.topMargin = -root.height
+   }
+
+   function stopTimer() {
+      closeTimer.stop()
    }
 
    width: parent.width
@@ -33,8 +36,6 @@ Rectangle {
    }
 
    color: "#323232"
-
-   radius: 2
 
    Timer {
       id: closeTimer
@@ -57,18 +58,30 @@ Rectangle {
       id: button
 
       action: Action {
-         onTriggered: callbackAction()
+         onTriggered: {
+            callbackAction()
+            root.anchors.topMargin = 0
+         }
       }
 
-//      text: "Dupa"
       anchors {
          right: parent.right; rightMargin: 24
          verticalCenter: parent.verticalCenter
       }
 
+      Label {
+         id: buttonLabel
+         fontStyle: FontStyles.button
+         anchors.fill: parent
+
+         verticalAlignment: Text.AlignVCenter
+         horizontalAlignment: Text.AlignHCenter
+         color: Colors.amber.regular[5]
+      }
+
       style: FlatButtonStyle {
          lightBackground: false
-         fontColor: Colors.amber.regular[5]
       }
    }
+
 }

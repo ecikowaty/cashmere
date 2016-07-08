@@ -4,6 +4,7 @@ import QtQuick.Window 2.2
 import QtQuick.Controls.Styles 1.4
 import "."
 import "Styles"
+import "Animations"
 
 Window {
    id: app
@@ -49,6 +50,13 @@ Window {
       floatingButtonLoader.replace(button)
    }
 
+   function snackbarFor(entry) {
+      snackbar.show("Entry deleted", "UNDO", 3000, function() {
+         wallet.restore(entry)
+         snackbar.stopTimer()
+      });
+   }
+
    PageStack {
       id: pageStack
       anchors.fill: parent
@@ -70,24 +78,24 @@ Window {
 
       function replace(button) {
          if (sourceComponent) {
-            buttonScaleOut.running = true
+            buttonScaleOut.start()
             newButton = button
          }
          else {
             sourceComponent = button
-            buttonScaleIn.running = true
+            buttonScaleIn.start()
          }
       }
 
       // todo: add a small rotation animation
-      NumberAnimation {
-         id: buttonScaleOut
-         property: "scale"
+      ScaleInAnimation {
+         id: buttonScaleIn
          target: floatingButtonLoader
-         from: 1
-         to: 0
-         duration: target ? 200 : 0
-         easing.type: Easing.OutCubic
+      }
+
+      ScaleOutAnimation {
+         id: buttonScaleOut
+         target: floatingButtonLoader
 
          onStopped: {
             floatingButtonLoader.switchButton()
@@ -95,15 +103,6 @@ Window {
          }
       }
 
-      NumberAnimation {
-         id: buttonScaleIn
-         property: "scale"
-         target: floatingButtonLoader
-         from: 0
-         to: 1
-         duration: 200
-         easing.type: Easing.OutCubic
-      }
    }
 
    Snackbar {
