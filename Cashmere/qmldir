@@ -25,6 +25,7 @@ OverlayBinder 1.0 OverlayBinder.qml
 Page 1.0 Page.qml
 PageStack 1.0 PageStack.qml
 Ripple 1.0 Ripple.qml
+RippleSurface 1.0 RippleSurface.qml
 ScrollableList 1.0 ScrollableList.qml
 ScrollBar 1.0 ScrollBar.qml
 Snackbar 1.0 Snackbar.qml

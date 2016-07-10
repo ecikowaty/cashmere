@@ -5,11 +5,17 @@ Rectangle {
 
    property int   expandedSize: parent.width > parent.height ? parent.width : parent.height
    property alias running: clickAnimation.running
-   property int   duration: 500
+   property int   duration: 650
+
+   property int   clickX: 0
+   property int   clickY: 0
+
+   x: clickX - width / 2
+   y: clickY - width / 2
 
    function start(mouse) {
-//      root.x = mouse ? mouse.x : root.width / 2
-//      root.y = mouse ? mouse.y : root.height / 2
+      clickX = mouse ? mouse.x : root.width / 2
+      clickY = mouse ? mouse.y : root.height / 2
       clickAnimation.running = false
       clickAnimation.running = true
    }

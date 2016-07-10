@@ -21,10 +21,11 @@ Rectangle {
 
       color: alphaOf(supportingColor, 0.2)
       anchors.centerIn: parent
+      expandedSize: parent.width * 0.8
 
       Connections {
          target: root.control
-         onClicked: ripple.start()
+//         onClicked: ripple.start()
       }
    }
 
