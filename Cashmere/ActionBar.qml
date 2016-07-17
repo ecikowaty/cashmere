@@ -20,6 +20,8 @@ Card {
 
    signal backPressed()
 
+   property alias backAction: backButton.action
+
    Item {
       id: content
 

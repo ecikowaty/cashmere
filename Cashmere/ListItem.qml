@@ -37,18 +37,8 @@ Rectangle {
          when: control.hovered && !control.pressed && control.enabled
          PropertyChanges {
             target: root
-//               color: "transparent"
             color: alphaOf(supportingColor, 0.2)
          }
       }
-//      State {
-//         name: "pressed"
-//         when: control.pressed && control.enabled
-//         PropertyChanges {
-//            target: root
-////               color: "transparent"
-//            color: alphaOf(supportingColor, 0.4)
-//         }
-//      }
    ]
 }

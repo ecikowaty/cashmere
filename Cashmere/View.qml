@@ -4,6 +4,7 @@ Rectangle {
    color: "#fafafa"
    property string   name: "View"
    property bool     hasTabs: false
+   property bool     lightBackground: true
 
    Component.onCompleted: forceActiveFocus()
 

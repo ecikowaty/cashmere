@@ -12,6 +12,8 @@ Rectangle {
 
    property alias mainView: mainViewLoader.sourceComponent
 
+   property bool lightBackground: true
+
    property Component floatingButton
 
    ActionBar {
