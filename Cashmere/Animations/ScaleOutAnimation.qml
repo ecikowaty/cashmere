@@ -5,10 +5,5 @@ NumberAnimation {
    from: 1
    to: 0
    duration: target ? 200 : 0
-   easing.type: Easing.OutCubic
-
-   onStopped: {
-      floatingButtonLoader.switchButton()
-      buttonScaleIn.running = true
-   }
+   easing.type: Easing.InCubic
 }

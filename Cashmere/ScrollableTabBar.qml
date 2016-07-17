@@ -28,7 +28,7 @@ TabBar {
 
       onCurrentIndexChanged: root.currentTab = currentIndex
 
-      delegate: Button {
+      delegate: MaterialButton {
          id: button
          height: 48
          text: tabs[index]

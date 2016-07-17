@@ -28,22 +28,6 @@ ButtonStyleBase {
       implicitWidth: root.textPaintedWidth + root.horizontalMargins < 88 ? 88 : root.textPaintedWidth + root.horizontalMargins
       implicitHeight: 48
 
-      Item {
-          anchors.fill: parent
-          clip: true
-
-          Ripple {
-              id: ripple
-              anchors.centerIn: parent
-              color: lightBackground ? Qt.rgba(1, 1, 1, 0.16) : Qt.rgba(0, 0, 0, 0.16)
-          }
-
-          Connections {
-             target: control
-             onClicked: ripple.start()
-          }
-      }
-
       states: [
          State {
             name: "normal"

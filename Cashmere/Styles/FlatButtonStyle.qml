@@ -26,6 +26,8 @@ ButtonStyleBase {
       implicitWidth: root.textPaintedWidth + root.horizontalMargins < 82 ? 82 : root.textPaintedWidth + root.horizontalMargins
       implicitHeight: 36
 
+      Behavior on color { ColorAnimation { duration: 500 } }
+
       Item {
           anchors.fill: parent
           clip: true
@@ -58,7 +60,8 @@ ButtonStyleBase {
             when: control.hovered && !control.pressed && control.enabled
             PropertyChanges {
                target: background
-               color: "transparent"
+//               color: "transparent"
+               color: alphaOf(supportingColor, 0.2)
             }
          },
          State {
@@ -66,7 +69,8 @@ ButtonStyleBase {
             when: control.pressed && control.enabled
             PropertyChanges {
                target: background
-               color: "transparent"
+//               color: "transparent"
+               color: alphaOf(supportingColor, 0.4)
             }
          },
          State {

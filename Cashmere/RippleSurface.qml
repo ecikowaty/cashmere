@@ -1,10 +1,13 @@
 import QtQuick 2.5
 import QtQuick.Controls 1.4
+import "."
 
 Item {
    id: root
 
    anchors.fill: parent
+
+   signal clicked()
 
    function alphaOf(color, alpha) {
       return Qt.rgba(color.r, color.g, color.b, alpha)
@@ -15,7 +18,7 @@ Item {
       propagateComposedEvents: true
       onClicked: {
          ripple.start(mouse)
-         mouse.accepted = false
+         root.clicked()
       }
    }
 

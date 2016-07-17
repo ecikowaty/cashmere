@@ -28,29 +28,15 @@ Window {
       return pageStack.initialItem === page
    }
 
-   function stackDepth() {
-      return pageStack.depth
+   function popPage() {
+      pageStack.pop()
    }
 
    function pushPage(page) {
       pageStack.push(page)
    }
 
-   function popPage() {
-      if (pageStack.depth > 1) {
-         pageStack.pop()
-         replaceFloatingButton(pageStack.currentItem.floatingButton)
-      }
-      else {
-         Qt.quit()
-      }
-   }
-
-   function replaceFloatingButton(button) {
-      floatingButtonLoader.replace(button)
-   }
-
-   function snackbarFor(entry) {
+   function undoableRemove(entry) {
       snackbar.show("Entry deleted", "UNDO", 3000, function() {
          wallet.restore(entry)
          snackbar.stopTimer()
@@ -60,49 +46,17 @@ Window {
    PageStack {
       id: pageStack
       anchors.fill: parent
+
+      onCurrentItemChanged: fbLoader.load(currentItem ? currentItem.floatingButton : null)
    }
 
-   Loader {
-      id: floatingButtonLoader
+   FloatingButtonLoader {
+      id: fbLoader
+
       anchors {
          right: parent.right; rightMargin: 24
          bottom: snackbar.top; bottomMargin: 24
       }
-
-      property var newButton
-
-      function switchButton() {
-         sourceComponent = newButton
-         newButton = null
-      }
-
-      function replace(button) {
-         if (sourceComponent) {
-            buttonScaleOut.start()
-            newButton = button
-         }
-         else {
-            sourceComponent = button
-            buttonScaleIn.start()
-         }
-      }
-
-      // todo: add a small rotation animation
-      ScaleInAnimation {
-         id: buttonScaleIn
-         target: floatingButtonLoader
-      }
-
-      ScaleOutAnimation {
-         id: buttonScaleOut
-         target: floatingButtonLoader
-
-         onStopped: {
-            floatingButtonLoader.switchButton()
-            buttonScaleIn.running = true
-         }
-      }
-
    }
 
    Snackbar {

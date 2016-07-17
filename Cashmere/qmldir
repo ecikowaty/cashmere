@@ -18,6 +18,7 @@ Label 1.0 Label.qml
 ListItem 1.0 ListItem.qml
 Menu 1.0 Menu.qml
 MaterialApplication 1.0 MaterialApplication.qml
+MaterialButton 1.0 MaterialButton.qml
 NotificationDrawer 1.0 NotificationDrawer.qml
 Overflow 1.0 Overflow.qml
 Overlay 1.0 Overlay.qml

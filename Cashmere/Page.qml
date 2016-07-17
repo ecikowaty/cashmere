@@ -36,7 +36,5 @@ Rectangle {
          bottom: parent.bottom
       }
    }
-
-   Component.onCompleted: app.replaceFloatingButton(floatingButton)
 }
 
